@@ -5,18 +5,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="css/inicio.css">
     <title>Agencia Empleos Bogota</title>
 </head>
 
 <body id="backgroundI">
     <div class="cuadro">
-        <form action="login" id="ingreso">
-            <label for="fname">Correo:</label>
-            <input type="text" class="txtingreso" name="fname"><br><br>
-            <label for="lname">Contraseña :</label>
-            <input type="text" class="txtingreso" name="lname"><br><br>
-            <input type="submit" value="Submit">
+        <form action="login" id="ingreso" form method="POST">
+            <div> <label for="fname"><span class="material-symbols-outlined">person</span></label>
+            <input type="text" class="txtingreso" placeholder="Correo" name="fname"><br><br></div>
+            
+            <label for="lname"><span class="material-symbols-outlined">lock</span></label>
+            <input type="text" class="txtingreso" placeholder="Contraseña" name="lname"><br><br>
+            <input type="submit" value="Ingresar" class="button1">
         </form>
     </div>
+
+
+<?php
+    function Llamarswal(){
+        if(empty($_POST['txt1'])  || empty($_POST['txt2'])){
+            echo "<script> swal({
+            title: 'Oooops...',
+            text: 'Llena todos los campos!',
+            type: 'error',
+            });</script>";
+    }
+}
+?>
 </body>
