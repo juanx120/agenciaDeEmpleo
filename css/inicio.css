@@ -18,6 +18,7 @@ html, body {
     width: 45%;
     height: 100%;
     margin-left: 55%;
+    display: flex;
     position: relative;
     background-color: rgba(140,35,35,0.7); 
 }
