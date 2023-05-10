@@ -8,20 +8,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" >
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/inicio.css">
     <title>Agencia Empleos Bogota</title>
 </head>
 
 <body id="backgroundI">
     <div class="cuadro">
-        <form action="login" id="ingreso" form method="POST">
-            <div> <label for="fname"><span class="material-symbols-outlined">person</span></label>
-            <input type="text" class="txtingreso" placeholder="Correo" name="fname"><br><br></div>
-            
-            <label for="lname"><span class="material-symbols-outlined">lock</span></label>
+        <form action="login" id="ingreso">
+            <div class="content">
+                <div class="circulo"><span class="material-symbols-outlined">person</span></div>
+                <input type="text" class="txtingreso" placeholder="Correo" name="fname"><br><br>
+            </div>
+            <div class="content">
+                <div class="circulo"><span class="material-symbols-outlined">lock</span></div>
             <input type="text" class="txtingreso" placeholder="Contraseña" name="lname"><br><br>
+            </div> 
             <input type="submit" value="Ingresar" class="button1">
         </form>
     </div>
