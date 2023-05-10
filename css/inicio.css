@@ -60,7 +60,7 @@ html, body {
 
 .circulo{
     height: 65px;
-    width: 65px;
+    width: 65px; 
     font-size: 38px;
     border-radius: 50px;
     background-color: #F2CA7E;
