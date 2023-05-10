@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'AgenciaDeEmpleoBogota'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_253E94EEC25E42A6A33B610319785465 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C429A4C79CBF47979FCF492FD2598BEB }}
           package: .
