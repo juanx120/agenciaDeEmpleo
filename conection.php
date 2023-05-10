@@ -9,9 +9,9 @@ $connectionOptions = array(
 $conn = sqlsrv_connect($serverName, $connectionOptions);
 if ($conn === false) {
     die(formatErrors(sqlsrv_errors()));
-    echo("F")
+    echo("F");
 }
 else{
-    echo("Sirvio, perros XDXDXDX")
+    echo("Sirvio, perros XDXDXDX");
 }
 ?>
