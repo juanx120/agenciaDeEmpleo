@@ -11,11 +11,11 @@
 
 <body id="backgroundI">
     <div class="cuadro">
-        <form action="login" id="login">
+        <form action="login" id="ingreso">
             <label for="fname">Correo:</label>
-            <input type="text" id="email" name="fname"><br><br>
+            <input type="text" class="txtingreso" name="fname"><br><br>
             <label for="lname">Contraseña :</label>
-            <input type="text" id="password" name="lname"><br><br>
+            <input type="text" class="txtingreso" name="lname"><br><br>
             <input type="submit" value="Submit">
         </form>
     </div>

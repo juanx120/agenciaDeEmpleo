@@ -19,11 +19,12 @@ html, body {
     height: 100%;
     margin-left: 55%;
     display: flex;
-    position: relative;
+    justify-content: center;
+    align-items: center;
     background-color: rgba(140,35,35,0.7); 
 }
 
-#loing{
+#ingreso{
     position: absolute;
     top: 50%;
     left: 50%;
