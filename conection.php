@@ -17,7 +17,7 @@ else{
 
 
 
-$resultado = sqlsrv_query($conn, "SELECT * from [dbo].[Usuario]");
+$resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario]");
 // O usando el estilo orientado a objetos
 //$resultado = $conn->query("SELECT * from [dbo].[usuario]");
 // Verificar si la consulta fue exitosa
