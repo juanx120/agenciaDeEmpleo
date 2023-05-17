@@ -1,9 +1,15 @@
 #encabezado{
     background-color: rgb(140, 35, 35);
+    color: aliceblue;
+
+}
+
+.parent{
+    display: flex;
 }
 
 img{
-    margin-left: 50px;
+    margin-left: 40px;
 }
 
 ul{
@@ -20,8 +26,11 @@ li {
     text-decoration: none;
 }
 
-.material-symbols-outlined {
-    margin: 12px 0 0 13px; 
+li p{
+    font-size: 20px;
+}
+
+.material-symbols-outlined { 
     color: aliceblue;
     font-size: 38px;
     font-variation-settings:
