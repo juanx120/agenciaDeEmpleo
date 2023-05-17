@@ -58,9 +58,11 @@ if(isset($_POST['btningreso'])){
             if(($Correo == $fila->Correo) && ($Contraseña == $fila->Clave)){
                 $Ingreso = TRUE;
                 $Idu = $fila->IdUsuario;
-                echo '<script language="javascript">';
-                echo 'alert("Inicio exitoso")';
-                echo '</script>';
+                //echo '<script language="javascript">';
+                //echo 'alert("Inicio exitoso")';
+                //echo '</script>';
+                header("Location: https://agenciadeempleobogota.azurewebsites.net/inicio.php?Idu=<?php echo $Idu ?>");
+                exit();
             }
         }
     } else {
