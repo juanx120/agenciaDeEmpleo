@@ -2,6 +2,7 @@
     background-color: #8c2323;
     color: aliceblue;
     height: 80px;
+    position: fixed;
 }
 
 .parent{

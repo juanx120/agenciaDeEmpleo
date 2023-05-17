@@ -1,6 +1,9 @@
 #menu {
     width: 200px;
     height: auto;
+    text-align: center;
+    background-color: #F2CA7E;
+    position: fixed;
 }
 
 #menu a {
@@ -9,11 +12,14 @@
     display: block;
     padding: 12px;
     text-decoration: none;
+    font-size: 20px;
+    text-align: center;
 }
 
 #menu a:hover {
     background-color: #D98014;
     color: white;
+    text-decoration: overline;
 }
 
 #menu a.salir {
@@ -23,6 +29,7 @@
 
 #menu a.active:hover {
     background-color: #8C2323;
-    margin-top: auto;
+    margin-top: 80%;
     margin-bottom: 20px;
+    text-decoration: overline;
 }
