@@ -22,7 +22,6 @@ ul{
     margin: 0;
     padding: 0;
     overflow: hidden;
-    text-align: center;
 }
 
 li {
@@ -35,6 +34,7 @@ li {
 li p{
     font-size: 20px;
     font-family: 'Roboto', sans-serif !important;
+    margin-top: 8px;
 }
 
 .material-symbols-outlined { 
