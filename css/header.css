@@ -6,11 +6,15 @@
 
 .parent{
     display: flex;
+    align-items: center !important;
 }
 
 img{
     margin-left: 40px;
-    margin-right: 60%;
+}
+
+.derecha{
+    margin-left: 60%;
 }
 
 ul{

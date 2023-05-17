@@ -28,7 +28,7 @@
                         <span class='material-symbols-outlined'>person</span>
                     </li>
                     <li>
-                        <p>Nombre del usuario XD <p>
+                        <p><b>Nombre del usuario XD </b></p>
                     </li>
                 </ul>
             </div>
