@@ -14,4 +14,21 @@ if ($conn === false) {
 else{
     echo("Sirvio, perros XDXDXDX");
 }
+
+
+
+$resultado = mysqli_query($conn, "SELECT * FROM tabla");
+// O usando el estilo orientado a objetos
+$resultado = $conn->query("SELECT * FROM tabla");
+// Verificar si la consulta fue exitosa
+if ($resultado) {
+  // Hacer algo con el resultado, por ejemplo mostrar los datos
+  while ($fila = mysqli_fetch_assoc($resultado)) {
+    echo $fila["columna1"] . " " . $fila["columna2"] . "<br>";
+  }
+} else {
+  // Mostrar un mensaje de error
+  echo "La consulta falló: " . mysqli_error($conn);
+}
+
 ?>

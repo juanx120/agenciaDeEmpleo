@@ -18,13 +18,14 @@
 
 <body>
     <header id='encabezado'>
+        <div class='parent'>
         <div>
-            <img src="/img/logo.png" alt="logo agencia de empleo">
+            <img src='/img/logo.png' alt='logo agencia de empleo'>
         </div>
         <div>
             <ul>
                 <li>
-                    <span class="material-symbols-outlined">person</span>
+                    <span class='material-symbols-outlined'>person</span>
                 </li>
                 <li>
                 <p>Nombre del usuario XD <p>
