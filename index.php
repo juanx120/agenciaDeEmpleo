@@ -42,7 +42,7 @@
     }
 }
 
-include('conection.php')
+include('conection.php');
 
 if(isset(&_POST['btningreso'])){
     $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario]");
