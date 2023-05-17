@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -15,17 +16,8 @@
 </head>
 
 <body id="backgroundI">
-    <div class="cuadro">
-        <form action="login" id="ingreso">
-            <div class="content">
-                <div class="circulo"><span class="material-symbols-outlined">person</span></div>
-                <input type="text" class="txtingreso" placeholder="Correo" name="fname"><br><br>
-            </div>
-            <div class="content">
-                <div class="circulo"><span class="material-symbols-outlined">lock</span></div>
-            <input type="text" class="txtingreso" placeholder="Contraseña" name="lname"><br><br>
-            </div> 
-            <input type="submit" value="INGRESAR" class="button1">
-        </form>
-    </div>
-</body>
+    <header>
+        <div>
+            <img src="/img/logo.png" alt="logo agencia de empleo">
+        </div>
+    </header>
