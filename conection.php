@@ -23,7 +23,7 @@ $resultado = $conn->query('SELECT * from [dbo].[usuario]');
 // Verificar si la consulta fue exitosa
 if ($resultado) {
   // Hacer algo con el resultado, por ejemplo mostrar los datos
-  while ($fila = sqlsrv_fetch_assoc($resultado)) {
+  while ($fila = sqlsrv_fetch_object($resultado)) {
     echo $fila["columna1"] . " " . $fila["columna2"] . "<br>";
   }
 } else {
