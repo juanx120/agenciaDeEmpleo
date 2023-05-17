@@ -17,9 +17,9 @@ else{
 
 
 
-$resultado = mysqli_query($conn, "SELECT * FROM tabla");
+$resultado = mysqli_query($conn, "SELECT * FROM usuario");
 // O usando el estilo orientado a objetos
-$resultado = $conn->query("SELECT * FROM tabla");
+$resultado = $conn->query("SELECT * FROM usuario");
 // Verificar si la consulta fue exitosa
 if ($resultado) {
   // Hacer algo con el resultado, por ejemplo mostrar los datos
