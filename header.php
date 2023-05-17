@@ -12,12 +12,23 @@
     <link rel="stylesheet"  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" >
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/inicio.css">
+    <link rel="stylesheet" href="/css/header.css">
     <title>Agencia Empleos Bogota</title>
 </head>
 
-<body id="backgroundI">
-    <header>
+<body>
+    <header id='encabezado'>
         <div>
             <img src="/img/logo.png" alt="logo agencia de empleo">
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <span class="material-symbols-outlined">person</span>
+                </li>
+                <li>
+                <p>Nombre del usuario XD <p>
+                </li>
+            </ul>
         </div>
     </header>
