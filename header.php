@@ -22,7 +22,7 @@
             <div>
                 <img src='/img/logo.png' alt='logo agencia de empleo'>
             </div>
-            <div>
+            <div class='derecha'>
                 <ul>
                     <li>
                         <span class='material-symbols-outlined'>person</span>
