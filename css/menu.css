@@ -1,0 +1,28 @@
+#menu {
+    width: 200px;
+    height: auto;
+}
+
+#menu a {
+    background-color: #F2CA7E;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+}
+
+#menu a:hover {
+    background-color: #D98014;
+    color: white;
+}
+
+#menu a.salir {
+    background-color: #B93636;
+    color: white;
+}
+
+#menu a.active:hover {
+    background-color: #8C2323;
+    margin-top: auto;
+    margin-bottom: 20px;
+}
