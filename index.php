@@ -44,7 +44,7 @@
 
 include('conection.php');
 
-if(isset(&_POST['btningreso'])){
+if(isset($_POST['btningreso'])){
     $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario]");
     // O usando el estilo orientado a objetos
     //$resultado = $conn->query("SELECT * FROM [dbo].[usuario]");
