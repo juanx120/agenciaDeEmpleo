@@ -43,7 +43,7 @@
 }
 
 
-include('conection.php')
+include('conection.php');
 if(isset($_POST['btningreso'])){
     $Correo = $_POST['CorreoIngreso'];
     $Contraseña = $_POST['ClaveIngreso'];
@@ -55,7 +55,7 @@ if(isset($_POST['btningreso'])){
         $Ingreso = FALSE;
         // Hacer algo con el resultado, por ejemplo mostrar los datos
         while ($fila = sqlsrv_fetch_object($resultado)) {
-            if($Correo = $fila->Correo & $Contraseña = $fila->Clave){
+            if(($Correo == $fila->Correo) && ($Contraseña == $fila->Clave)){
                 $Ingreso = TRUE;
                 $Idu = $fila->IdUsuario;
                 echo '<script language="javascript">';
@@ -72,8 +72,6 @@ if(isset($_POST['btningreso'])){
         echo 'alert("Correo o Clave incorrectos")';
         echo '</script>';
     }
-
-
 }
 ?>
 </body>
