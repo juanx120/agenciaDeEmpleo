@@ -28,7 +28,7 @@
                         <span class='material-symbols-outlined'>person</span>
                     </li>
                     <li>
-                        <p><b>Nombre del usuario XD </b></p>
+                        <p><b>Maria Paula Castrillon Orozco</b></p>
                     </li>
                 </ul>
             </div>
