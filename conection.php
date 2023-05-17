@@ -24,7 +24,7 @@ $resultado = $conn->query('SELECT * from [dbo].[usuario]');
 if ($resultado) {
   // Hacer algo con el resultado, por ejemplo mostrar los datos
   while ($fila = sqlsrv_fetch_object($resultado)) {
-    echo $fila["columna1"] . " " . $fila["columna2"] . "<br>";
+    echo $fila->IdUsuario . " " . $fila["columna2"] . "<br>";
   }
 } else {
   // Mostrar un mensaje de error
