@@ -5,6 +5,7 @@ $connectionOptions = array(
     "Uid" => "JuanG", 
     "PWD" => "Noselaclave_23" 
 );
+$a = "Hola Mundo!";
 //Establece la conexión
 $conn = sqlsrv_connect($serverName, $connectionOptions);
 if ($conn === false) {
@@ -32,3 +33,7 @@ if ($resultado) {
 }
 
 ?>
+
+<script>
+  alert( "<?php echo $a; ?>" );
+</script>
