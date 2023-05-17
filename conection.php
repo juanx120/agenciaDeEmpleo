@@ -12,7 +12,7 @@ if ($conn === false) {
     echo("F");
 }
 else{
-    echo("Sirvio, perros XDXDXDX");
+    //echo("Sirvio, perros XDXDXDX");
 }
 
 ?>
