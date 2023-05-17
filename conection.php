@@ -17,18 +17,18 @@ else{
 
 
 
-$resultado = sqlsrv_query($conn, 'SELECT * from [dbo].[usuario]');
+$resultado = sqlsrv_query($conn, "SELECT * from [dbo].[usuario]");
 // O usando el estilo orientado a objetos
-$resultado = $conn->query('SELECT * from [dbo].[usuario]');
+//$resultado = $conn->query("SELECT * from [dbo].[usuario]");
 // Verificar si la consulta fue exitosa
-if ($resultado) {
+i//f ($resultado) {
   // Hacer algo con el resultado, por ejemplo mostrar los datos
   while ($fila = sqlsrv_fetch_object($resultado)) {
     echo $fila->IdUsuario . " " . $fila["columna2"] . "<br>";
   }
-} else {
+//} else {
   // Mostrar un mensaje de error
   echo "La consulta falló: " . sqlsrv_error($conn);
-}
+//}
 
 ?>
