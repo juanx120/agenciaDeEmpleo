@@ -17,18 +17,18 @@ else{
 
 
 
-$resultado = mysqli_query($conn, "SELECT * FROM usuario");
+$resultado = sqlsrv_query($conn, "SELECT * FROM usuario");
 // O usando el estilo orientado a objetos
 $resultado = $conn->query("SELECT * FROM usuario");
 // Verificar si la consulta fue exitosa
 if ($resultado) {
   // Hacer algo con el resultado, por ejemplo mostrar los datos
-  while ($fila = mysqli_fetch_assoc($resultado)) {
+  while ($fila = sqlsrv_fetch_assoc($resultado)) {
     echo $fila["columna1"] . " " . $fila["columna2"] . "<br>";
   }
 } else {
   // Mostrar un mensaje de error
-  echo "La consulta falló: " . mysqli_error($conn);
+  echo "La consulta falló: " . sqlsrv_error($conn);
 }
 
 ?>
