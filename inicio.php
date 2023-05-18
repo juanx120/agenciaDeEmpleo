@@ -1,7 +1,9 @@
 <?php include('menu.php') ;
 session_start();
  $Idu = $_SESSION['Idu'];
- echo $Idu;
+ echo '<script>'
+ echo 'console.log ("el valor de usuario es:", <?php $Idu ?'
+ echo '</script>'
  ?>
 
 
