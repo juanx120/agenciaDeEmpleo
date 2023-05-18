@@ -32,6 +32,7 @@
 
 
 <?php
+session_start();
     function Llamarswal(){
         if(empty($_POST['txt1'])  || empty($_POST['txt2'])){
             echo "<script> swal({
@@ -55,7 +56,6 @@ if(isset($_POST['btningreso'])){
         $Ingreso = FALSE;
         // Hacer algo con el resultado, por ejemplo mostrar los datos
         while ($fila = sqlsrv_fetch_object($resultado)) {
-            session_start();
             if(($Correo == $fila->Correo) && ($Contraseña == $fila->Clave)){
                 $Ingreso = TRUE;
                 $Idu = $fila->IdUsuario;
