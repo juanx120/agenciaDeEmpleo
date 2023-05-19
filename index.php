@@ -20,11 +20,11 @@
         <form id="ingreso" method="post">
             <div class="content">
                 <div class="circulo"><span class="material-symbols-outlined">person</span></div>
-                <input type="text" name="CorreoIngreso" class="txtingreso" placeholder="Correo" name="fname"><br><br>
+                <input type="text" name="CorreoIngreso" class="txtingreso" placeholder="Correo"><br><br>
             </div>
             <div class="content">
                 <div class="circulo"><span class="material-symbols-outlined">lock</span></div>
-            <input type="text" name="ClaveIngreso" class="txtingreso" placeholder="Contraseña" name="lname"><br><br>
+            <input type="text" name="ClaveIngreso" class="txtingreso" placeholder="Contraseña"><br><br>
             </div> 
             <input type="submit" name="btningreso" value="INGRESAR" class="button1">
         </form>
@@ -44,7 +44,7 @@ session_start();
 }
 
 
-include('conection.php');
+requiere('conection.php');
 if(isset($_POST['btningreso'])){
     $Correo = $_POST['CorreoIngreso'];
     $Contraseña = $_POST['ClaveIngreso'];
@@ -65,8 +65,8 @@ if(isset($_POST['btningreso'])){
                 //echo '")</script>';
                 //header("Location: https://agenciadeempleobogota.azurewebsites.net/inicio.php");
                 //exit();
-                echo '<script type="text/javascript"> window.location.href = "https://agenciadeempleobogota.azurewebsites.net/inicio.php"'; 
-                echo '</script>';
+                echo '<script type="text/javascript"> window.location.href = "https://agenciadeempleobogota.azurewebsites.net/inicio.php?',$Idu; 
+                echo '"</script>';
             }
         }
     } else {
