@@ -32,8 +32,6 @@
 
 
 <?php
-session_name("Holamundo");
-session_start();
     function Llamarswal(){
         if(empty($_POST['txt1'])  || empty($_POST['txt2'])){
             echo "<script> swal({
