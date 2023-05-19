@@ -1,5 +1,5 @@
 <?php include('menu.php') ;
-include('conection.php')
+include('conection.php');
 session_start();
  //$Idu = $_SESSION['Idu'];
  echo $_SESSION['Idu'];
