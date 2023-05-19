@@ -61,8 +61,7 @@ if(isset($_POST['btningreso'])){
                 $Idu = $fila->IdUsuario;
                 $_SESSION['Idu'] = $Idu;
                 echo '<script language="javascript">';
-                echo 'alert("Inicio exitoso",' $_SESSION['Idu'] ;
-                echo ','$Idu;
+                echo 'alert("Inicio exitoso"', $_SESSION['Idu'], $Idu;
                 echo ')</script>';
                 //header("Location: https://agenciadeempleobogota.azurewebsites.net/inicio.php");
                 //exit();
