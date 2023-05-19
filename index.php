@@ -60,13 +60,13 @@ if(isset($_POST['btningreso'])){
                 $Ingreso = TRUE;
                 $Idu = $fila->IdUsuario;
                 $_SESSION['Idu'] = $Idu;
-                echo '<script language="javascript">';
-                echo 'alert("Inicio exitoso"', $Idu;
-                echo ')</script>';
+                //echo '<script language="javascript">';
+                //echo 'alert("Inicio exitoso""', $Idu;
+                //echo '")</script>';
                 //header("Location: https://agenciadeempleobogota.azurewebsites.net/inicio.php");
                 //exit();
-                //echo '<script type="text/javascript"> window.location.href = "https://agenciadeempleobogota.azurewebsites.net/inicio.php"'; 
-                //echo '</script>';
+                echo '<script type="text/javascript"> window.location.href = "https://agenciadeempleobogota.azurewebsites.net/inicio.php"'; 
+                echo '</script>';
             }
         }
     } else {
