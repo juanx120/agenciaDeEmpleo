@@ -44,6 +44,7 @@
 
 
 include('conection.php');
+include('session.php');
 if(isset($_POST['btningreso'])){
     $Correo = $_POST['CorreoIngreso'];
     $Contraseña = $_POST['ClaveIngreso'];
