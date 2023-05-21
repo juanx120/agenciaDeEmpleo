@@ -8,7 +8,7 @@
 
 #menu {
     width: 220px;
-    height: auto;
+    height: 100%;
     text-align: center;
     background-color: #F2CA7E;
     position: fixed;
@@ -33,7 +33,7 @@
 #menu a.salir {
     background-color: #B93636;
     color: white;
-    margin-top: 80%;
+    margin-top: 170%;
     margin-bottom: 20px;
 }
 
