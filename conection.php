@@ -14,7 +14,4 @@ if ($conn === false) {
 else{
     //echo("Sirvio, perros XDXDXDX");
 }
-
-session_name("Holamundo");
-session_start();
 ?>
