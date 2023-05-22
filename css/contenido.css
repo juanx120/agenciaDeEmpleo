@@ -1,8 +1,8 @@
 .contenido{
     padding-left: 220px;
     display: flex;
-    align-items: center;
     padding-top:30px;
+    justify-content: center;
 }
 
 .info{
@@ -17,13 +17,19 @@
     height: 50px;
     width: 100%;
     border-radius: 10px 10px 0px 0px;
+
 }
 
 .ttlcuadro h2{
     color: white;
+    padding: 10px 17px;
 }
 
+.txtcuadro{
+    margin: 20px;
+}
 
-h3{
-    margin-top: 20px;
+hr{
+    margin: 20px;
+
 }
