@@ -70,7 +70,7 @@
             <span id="btn-cerrar-modalP" class="material-symbols-outlined btn-cerrar">cancel</span>
         </div>
         <form id="password-form" method="post">
-            <div class="form-group">
+            <div class="form-group" id="pass-from">
                 <input name="CoPassword" type="email" id="registeremail" class="form-iniciar-s" placeholder="Email" required>
             </div>
             <div class="form-group">
