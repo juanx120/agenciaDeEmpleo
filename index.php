@@ -27,6 +27,7 @@
             <input type="text" name="ClaveIngreso" class="txtingreso" placeholder="Contraseña"><br><br>
             </div> 
             <div class="opciones">
+                <h5 id="btn-registro"> No tienes cuenta?  </h5>
                 <a id="btn-registro">Regristrate</a>
             </div>
             <input type="submit" name="btningreso" value="INGRESAR" class="button1">
