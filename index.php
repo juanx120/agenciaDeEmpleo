@@ -112,7 +112,7 @@ if(isset($_POST['btningreso'])){
 if(isset($_POST['btnRegistrarse'])){
     $CoRegistro=$_POST['CoRegistro'];
     $ClRegistro=$_POST['ClRegistro'];
-    $TipoU=$_POST['TipoU']
+    $TipoU=$_POST['TipoU'];
 
     echo '<script language="javascript">';
     echo 'alert("Inicio exitoso""', $CoRegistro,$ClRegistro,$TipoU;
