@@ -22,11 +22,11 @@ const modalP = document.querySelector("#modalp")
 
 //Modal de olvido contraseña
 btnAbrirP.addEventListener("click", () => {
-  modalR.showModal();
+  modalP.showModal();
 });
 
 btnCerrarP.addEventListener("click", () => {
-  modalR.close();
+  modalP.close();
 });
 
 function CerrarModal(){
