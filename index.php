@@ -113,4 +113,6 @@ if(isset($_POST['btningreso'])){
         </form>
     </dialog>
 
+    <script src="js/registro.js"></script>
+
 </body>
