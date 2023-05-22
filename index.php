@@ -64,10 +64,10 @@
     </dialog>
 
     <!--Modal contraseña-->
-    <dialog id="modalr">
+    <dialog id="modalp">
         <div class="T-Modal">
             <h2>Cambiar contraseña</h2>
-            <span id="btn-cerrar-modalR" class="material-symbols-outlined btn-cerrar">cancel</span>
+            <span id="btn-cerrar-modalP" class="material-symbols-outlined btn-cerrar">cancel</span>
         </div>
         <form id="password-form" method="post">
             <div class="form-group">
