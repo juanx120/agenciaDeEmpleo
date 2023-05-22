@@ -12,10 +12,11 @@
 
     <div class = "contenido"> 
     <form id="dt-aspirante" method="post">
-        <div class="cuadro">
+        <div class="ttlcuadro">
             <div class="titulo">
                 <h1>Datos personales</h1>
             </div>
+        </div>  
             <h3> Principales </h3> 
             <label for="nombre">Nombres:</label>
             <input type="text" name="nombre" class="txtformulario">
@@ -41,8 +42,8 @@
             <input type="text" name="direccion" class="txtformulario">
             <h3> Contacto </h3> 
             <label for="telefono">Teléfono:</label>
-            <input type="text" name="telefono" class="txtformulario">
-        </div>   
+            <input type="number" name="telefono" class="txtformulario">
+         
     </form>
     
 
