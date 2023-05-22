@@ -1,14 +1,12 @@
 .contenedor{
-    background-color: #E3E3E3;
-    width: 100%;
-    height: 100%;
     display: flex;
     padding-top: 80px;
 }
 
 #menu {
+    display: flex;
     width: 220px;
-    height: 100%;
+    height: auto;
     text-align: center;
     background-color: #F2CA7E;
     position: fixed;
@@ -33,7 +31,7 @@
 #menu a.salir {
     background-color: #B93636;
     color: white;
-    margin-top: 170%;
+    margin-top: 193%;
     margin-bottom: 20px;
 }
 
