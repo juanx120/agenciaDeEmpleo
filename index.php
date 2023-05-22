@@ -135,25 +135,40 @@ if(isset($_POST['btnRegistrarse'])){
     $CoRegistro=$_POST['CoRegistro'];
     $ClRegistro=$_POST['ClRegistro'];
     $TipoU=$_POST['TipoU'];
+    $CoExix=FALSE;
 
-    echo '<script language="javascript">';
-    echo 'console.log("Inicio exitoso', $CoRegistro,$ClRegistro,$TipoU;
-    echo '")</script>';
+    $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario]");
+    while ($fila = sqlsrv_fetch_object($resultado)) {
+        if($CoRegistro  ==  $fila->Correo){
+            $CoExix=TRUE
+        }
+    }
 
-    $sql = "INSERT INTO [dbo].[Usuario] (Correo, Clave, TipoUsuario) VALUES (?,?,?)";
-    $params = array($CoRegistro, $ClRegistro, $TipoU);
-
-    $stmt = sqlsrv_query( $conn, $sql, $params);
-    if( $stmt === false ) {
-        die( print_r( sqlsrv_errors(), true));
+    if($CoExix){
         echo '<script language="javascript">';
-        echo 'alert("Error al crear usuario")';
+        echo 'alert("El correo ingresado ya existe")';
         echo '</script>';
-    }else{
-        echo '<script language="javascript"> CerrarModal();</script>';
+    }
+    else{
         echo '<script language="javascript">';
-        echo 'alert("Usuario creado con exito")';
-        echo '</script>';
+        echo 'console.log("Inicio exitoso', $CoRegistro,$ClRegistro,$TipoU;
+        echo '")</script>';
+
+        $sql = "INSERT INTO [dbo].[Usuario] (Correo, Clave, TipoUsuario) VALUES (?,?,?)";
+        $params = array($CoRegistro, $ClRegistro, $TipoU);
+
+        $stmt = sqlsrv_query( $conn, $sql, $params);
+        if( $stmt === false ) {
+            die( print_r( sqlsrv_errors(), true));
+            echo '<script language="javascript">';
+            echo 'alert("Error al crear usuario")';
+            echo '</script>';
+        }else{
+            echo '<script language="javascript"> CerrarModal();</script>';
+            echo '<script language="javascript">';
+            echo 'alert("Usuario creado con exito")';
+            echo '</script>';
+        }
     }
 }
 ?>
