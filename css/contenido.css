@@ -1,3 +1,10 @@
 .contenido{
-    padding-left: 220px ;
+    padding-left: 220px;
+    align-items: center;
+}
+
+.ttlcuadro{
+    background-color: rgba(140,35,35); 
+    height: 50px;
+    width: 60%;
 }
