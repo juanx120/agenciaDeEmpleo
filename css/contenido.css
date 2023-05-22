@@ -1,6 +1,11 @@
 .contenido{
     padding-left: 220px;
+    display: flex;
     align-items: center;
+}
+
+.info{
+    width: 60%;
 }
 
 .ttlcuadro{

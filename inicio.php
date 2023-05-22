@@ -11,7 +11,7 @@
 
 
     <div class = "contenido"> 
-    <form id="dt-aspirante" method="post">
+    <form id="dt-aspirante" class='info' method="post">
         <div class="ttlcuadro">
             <div class="titulo">
                 <h1>Datos personales</h1>
