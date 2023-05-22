@@ -140,7 +140,7 @@ if(isset($_POST['btnRegistrarse'])){
     echo 'console.log("Inicio exitoso', $CoRegistro,$ClRegistro,$TipoU;
     echo '")</script>';
 
-    $sql = "INSERT INTO [dbo].[Usuario] (Correo, Clave, TipoUsuario) VALUES ";
+    $sql = "INSERT INTO [dbo].[Usuario] (Correo, Clave, TipoUsuario) VALUES (?,?,?)";
     $params = array($CoRegistro, $ClRegistro, $TipoU);
 
     $stmt = sqlsrv_query( $conn, $sql, $params);
