@@ -35,6 +35,7 @@
             while ($fila = sqlsrv_fetch_object($resultado)) {
                     echo '<option class="txtformulario" value="' , $fila->IdPais , '">' , $fila->Pais , '</option>';
                 }
+            echo '</select>'
             ?>
             <label for="fechanc">Fecha:</label>
             <input type="date" name="fechanc" class="txtformulario">
