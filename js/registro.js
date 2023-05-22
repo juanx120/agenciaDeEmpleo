@@ -9,3 +9,6 @@ btnAbrirR.addEventListener("click", () => {
   btnCerrarR.addEventListener("click", () => {
     modalR.close();
   });
+function CerrarModal(){
+    modalR.close();
+}
