@@ -29,24 +29,9 @@
                         <span class='material-symbols-outlined'>person</span>
                     </li>
                     <li>
-                        <p><b id="Per">Maria Paula Castrillon Orozco</b></p>
+                        <p><b>Maria Paula Castrillon Orozco</b></p>
                     </li>
                 </ul>
             </div>
         </div>
     </header>
-
-<?php
-    $document = new DOMDocument();
-    $document->loadHTML($content);
-
-    $tags = $document->getElementsByTagId('Per');
-    foreach ($tags as $tag) {
-    $tag->setAttribute('src', 
-        str_replace('http://programacion.net', 
-                    'https://programacion.net', 
-                    $tag->getAttribute('src')
-        )
-    );
-    }
-?>
