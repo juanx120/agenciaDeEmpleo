@@ -2,9 +2,9 @@
 <div class=contenedor>
     <div id='menu'>
         <a href='#'>Datos usuario</a>
-        <a href='#'>Hoja de vida</a>
+        <a href='Aspirantes.php'>Aspirantes</a>
         <a href='#'>Vacantes</a>
-        <a href='#'>Empresa</a>
+        <a href='#'>Empresas</a>
         <a href='#'>Reportes</a>
         <a href='#' class='salir'>Cerrar sesión</a>
     </div>
