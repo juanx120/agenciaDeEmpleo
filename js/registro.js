@@ -29,6 +29,6 @@ btnCerrarP.addEventListener("click", () => {
   modalP.close();
 });
 
-function CerrarModal(){
+function CerrarModalP(){
     modalP.close();
 }
