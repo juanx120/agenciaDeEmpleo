@@ -27,12 +27,38 @@
             <input type="text" name="ClaveIngreso" class="txtingreso" placeholder="Contraseña"><br><br>
             </div> 
             <div class="opciones">
-                <p id="btn-registro">¿No tienes cuenta?</p>
-                <a id="btn-registro">Regristrate</a>
+                <p class="btn-registro">¿No tienes cuenta?</p>
+                <a id="btn-registro" class="btn-registro">Regristrate</a>
             </div>
             <input type="submit" name="btningreso" value="INGRESAR" class="button1">
         </form>
     </div>
+
+    <!--Modal registro-->
+    <dialog id="modalr">
+        <div class="T-Modal">
+            <h2>Registro</h2>
+            <span id="btn-cerrar-modalR" class="material-symbols-outlined btn-cerrar">cancel</span>
+        </div>
+        <form id="register-form" method="post">
+            <div class="form-group">
+                <input type="email" id="registeremail" class="form-iniciar-s" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="registerpassword" class="form-iniciar-s" placeholder="Contraseña" required>
+            </div>
+            <div class="form-group">
+            <label for="TipoU">Selecciona tipo de usuario:</label>
+            <select id="TipoU" name="TipoU">
+                <option value="P">Persona</option>
+                <option value="E">Empresa</option>
+            </select>
+            </div>
+            <div class="opciones">
+                <button type="submit" class="btn-ini" name="btnRegistrarse">Registrarse</button>
+            </div>
+        </form>
+    </dialog>
 
 
 <?php
@@ -84,32 +110,6 @@ if(isset($_POST['btningreso'])){
     }
 }
 ?>
-
-    <!--Modal registro-->
-    <dialog id="modalr">
-        <div class="T-Modal">
-            <h2>Registro</h2>
-            <span id="btn-cerrar-modalR" class="material-symbols-outlined btn-cerrar">cancel</span>
-        </div>
-        <form id="register-form">
-            <div class="form-group">
-                <input type="email" id="registeremail" class="form-iniciar-s" placeholder="Email" required>
-            </div>
-            <div class="form-group">
-                <input type="password" id="registerpassword" class="form-iniciar-s" placeholder="Contraseña" required>
-            </div>
-            <div class="form-group">
-            <label for="TipoU">Selecciona tipo de usuario:</label>
-            <select id="TipoU" name="TipoU">
-                <option value="P">Persona</option>
-                <option value="E">Enpresa</option>
-            </select>
-            </div>
-            <div class="opciones">
-                <button type="submit" class="btn-ini">Registrarse</button>
-            </div>
-        </form>
-    </dialog>
 
     <script src="js/registro.js"></script>
 

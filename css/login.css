@@ -79,8 +79,8 @@
 #modalr {
     margin-left: 35%;
     margin-top: 20%;
-    width: 550px;
-    height: 450px;
+    width: 500px;
+    height: 325px;
     border-radius: 26px;
     color:#F2CA7E;
     background-color: rgba(140,35,35,0.95);
@@ -107,13 +107,13 @@
 }
 
 .form-group {
-    margin-top: 25px;
+    margin-top: 20px;
     margin-left: 5%;
 }
 
 .form-iniciar-s {
-    height: 35px;
-    width: 450px;
+    height: 28px;
+    width: 400px;
     padding: 10px;
     border-radius: 50px 50px 50px 50px;
     border:0;
@@ -123,7 +123,7 @@
     background-color: rgba(242,202,126,0.6);
 }
 
-#btn-registro{
+.btn-registro{
     color:#F2CA7E;
     font-size: 20px;
     cursor: pointer;
@@ -147,4 +147,10 @@
 
 .opciones a{
     text-decoration:underline;
+}
+
+#TipoU{
+    background-color: rgba(242,202,126,0.6);
+    border-radius: 10px;
+    font-size: 15px;
 }
