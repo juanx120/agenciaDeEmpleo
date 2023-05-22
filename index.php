@@ -28,7 +28,7 @@
             </div> 
             <input type="submit" name="btningreso" value="INGRESAR" class="button1">
             <div class="opciones">
-                <a id="btn-contraseña" class="btn-registro">¿Has olvidado tu clave?</a>
+                <a id="btn-password" class="btn-registro">¿Has olvidado tu clave?</a>
             </div>
             <div class="opciones">
                 <p class="btn-registro">¿No tienes cuenta?</p>
@@ -62,7 +62,25 @@
             </div>
         </form>
     </dialog>
-    
+
+    <!--Modal contraseña-->
+    <dialog id="modalr">
+        <div class="T-Modal">
+            <h2>Cambiar contraseña</h2>
+            <span id="btn-cerrar-modalR" class="material-symbols-outlined btn-cerrar">cancel</span>
+        </div>
+        <form id="password-form" method="post">
+            <div class="form-group">
+                <input name="CoPassword" type="email" id="registeremail" class="form-iniciar-s" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input name="ClPassword" type="password" id="registerpassword" class="form-iniciar-s" placeholder="Nueva contraseña" required>
+            </div>
+            <div class="opciones">
+                <button type="submit" class="btn-ini" name="btn-password">Cambiar</button>
+            </div>
+        </form>
+    </dialog>
 
 
 <?php
