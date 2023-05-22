@@ -1,10 +1,29 @@
 .contenido{
     padding-left: 220px;
+    display: flex;
     align-items: center;
+    padding-top:30px;
+}
+
+.info{
+    width: 80%;
+    justify-content: center;
+    background-color: #F2CA7E;
+    border-radius: 10px;
 }
 
 .ttlcuadro{
-    background-color: rgba(140,35,35); 
+    background-color: #8C2323; 
     height: 50px;
-    width: 60%;
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.ttlcuadro h2{
+    color: white;
+}
+
+
+h3{
+    margin-top: 20px;
 }
