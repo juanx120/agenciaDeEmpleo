@@ -30,10 +30,10 @@
             <h3> Nacimiento </h3> 
             <label for="lugarnc">Lugar:</label>
             <?php
-            $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario]");
-            echo '<select name="paises">';
+            $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Paises]");
+            echo '<select name="lugarnc">';
             while ($fila = sqlsrv_fetch_object($resultado)) {
-                    echo '<option name="lugarnc" class="txtformulario" value="' . $fila->IdPais . '">' . $fila->Pais . '</option>';
+                    echo '<option class="txtformulario" value="' , $fila->IdPais , '">' , $fila->Pais , '</option>';
                 }
             ?>
             <label for="fechanc">Fecha:</label>
