@@ -98,14 +98,11 @@ if(isset($_POST['btningreso'])){
                 <input type="password" id="registerpassword" class="form-iniciar-s" placeholder="Contraseña" required>
             </div>
             <div class="form-group">
-                <input type="text" id="namer" class="form-iniciar-s" placeholder="Nombre" required>
-            </div>
-            <div class="form-group">
-                <input type="text" id="nicknamer" class="form-iniciar-s" placeholder="Nickname" required>
-            </div>
-            <div class="form-group">
-                <p id="FN">Fecha de nacimiento</p>
-                <input type="date" id="Fnacir" class="form-iniciar-s" placeholder="Fecha de Nacimiento" required>
+            <label for="TipoU">Selecciona tipo de usuario:</label>
+            <select id="TipoU" name="TipoU">
+                <option value="P">Persona</option>
+                <option value="E">Enpresa</option>
+            </select>
             </div>
             <div class="opciones">
                 <button type="submit" class="btn-ini">Registrarse</button>
