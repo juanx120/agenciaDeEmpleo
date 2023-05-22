@@ -24,7 +24,7 @@
             </div>
             <div class="content">
                 <div class="circulo"><span class="material-symbols-outlined">lock</span></div>
-            <input type="text" name="ClaveIngreso" class="txtingreso" placeholder="Contraseña"><br><br>
+            <input type="password" name="ClaveIngreso" class="txtingreso" placeholder="Contraseña"><br><br>
             </div> 
             <div class="opciones">
                 <a id="btn-registro">Regristrate</a>
