@@ -115,8 +115,8 @@ if(isset($_POST['btnRegistrarse'])){
     $TipoU=$_POST['TipoU'];
 
     echo '<script language="javascript">';
-    echo 'console.log("Inicio exitoso"', $CoRegistro,$ClRegistro,$TipoU;
-    echo ')</script>';
+    echo 'console.log("Inicio exitoso', $CoRegistro,$ClRegistro,$TipoU;
+    echo '")</script>';
 
     $sql = "INSERT INTO [dbo].[Usuario] (Correo, Clave, TipoUsuario) VALUES ";
     $params = array($CoRegistro, $ClRegistro, $TipoU);
