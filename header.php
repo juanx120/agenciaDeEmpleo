@@ -40,7 +40,7 @@
     $document = new DOMDocument();
     $document->loadHTML($content);
 
-    $tags = $document->getElementsByTagName('Per');
+    $tags = $document->getElementsByTagId('Per');
     foreach ($tags as $tag) {
     $tag->setAttribute('src', 
         str_replace('http://programacion.net', 
