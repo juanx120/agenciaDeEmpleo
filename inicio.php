@@ -29,7 +29,13 @@
             <input type="text" name="estcivil" class="txtformulario">
             <h3> Nacimiento </h3> 
             <label for="lugarnc">Lugar:</label>
-            <input type="text" name="lugarnc" class="txtformulario">
+            <?php
+            $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario]");
+            echo '<select name="paises">';
+            while ($fila = sqlsrv_fetch_object($resultado)) {
+                    echo '<option name="lugarnc" class="txtformulario" value="' . $fila->IdPais . '">' . $fila->Pais . '</option>';
+                }
+            ?>
             <label for="fechanc">Fecha:</label>
             <input type="date" name="fechanc" class="txtformulario">
             <h3> Ubicación </h3> 
