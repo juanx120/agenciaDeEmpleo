@@ -76,24 +76,14 @@
     cursor: pointer;
 }
 
-#modal {
-    margin-left: 35%;
-    margin-top: 20%;
-    width: 550px;
-    height: 250px;
-    border-radius: 26px;
-}
-
-#modal::backdrop {
-    background-color: rgba(0, 0, 0, .70);
-}
-
 #modalr {
     margin-left: 35%;
     margin-top: 20%;
     width: 550px;
     height: 450px;
     border-radius: 26px;
+    color:#F2CA7E;
+    background-color: rgba(140,35,35,0.95);
 }
 
 #modalr::backdrop {
@@ -110,7 +100,7 @@
 }
 
 .btn-cerrar {
-    color: #FFB800;
+    color: #F2CA7E;
     font-size: 26px;
     justify-content: flex-end;
     cursor: pointer;
@@ -122,22 +112,39 @@
 }
 
 .form-iniciar-s {
-    border-style: solid;
-    border-width: 2px;
-    border-color: aliceblue;
-    border-radius: 10px;
     height: 35px;
     width: 450px;
     padding: 10px;
-    font-size: 20px;
+    border-radius: 50px 50px 50px 50px;
+    border:0;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    font-size: 17px;
+    background-color: rgba(242,202,126,0.6);
 }
 
 #FN{
     margin-bottom: 10px;
 }
+
 #btn-registro{
-    color:#FFB800;
+    color:#F2CA7E;
     font-size: 16px;
     text-decoration: underline;
+    cursor: pointer;
+}
+
+.btn-ini {
+    background-color: #F2CA7E;
+    margin-left: 4%;
+    margin-right: 4.2%;
+    font-size: 18px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-style: none;
+    color: black;
+    border-radius: 15px;
     cursor: pointer;
 }
