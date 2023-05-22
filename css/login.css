@@ -115,3 +115,13 @@
     justify-content: flex-end;
     cursor: pointer;
 }
+
+#FN{
+    margin-bottom: 10px;
+}
+#btn-registro{
+    color:#FFB800;
+    font-size: 16px;
+    text-decoration: underline;
+    cursor: pointer;
+}
