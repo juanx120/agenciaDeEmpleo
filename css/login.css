@@ -116,6 +116,22 @@
     cursor: pointer;
 }
 
+.form-group {
+    margin-top: 25px;
+    margin-left: 5%;
+}
+
+.form-iniciar-s {
+    border-style: solid;
+    border-width: 2px;
+    border-color: aliceblue;
+    border-radius: 10px;
+    height: 35px;
+    width: 450px;
+    padding: 10px;
+    font-size: 20px;
+}
+
 #FN{
     margin-bottom: 10px;
 }
