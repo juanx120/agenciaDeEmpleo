@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/menu.css">
+    <link rel="stylesheet" href="/css/contenido.css">
     <title>Agencia Empleos Bogota</title>
 </head>
 
