@@ -33,7 +33,9 @@
                         include('conection.php');
                         $IdUsuario=$_GET['Idu'];
                         $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario] WHERE IdUsuario=$IdUsuario");
-                        echo <p><b>$resultado->Correo</b></p>;
+                        echo "<p><b>";
+                        echo $resultado->Correo;
+                        echo "</b></p>";
                         ?>
                     </li>
                 </ul>
