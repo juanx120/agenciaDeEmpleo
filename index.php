@@ -26,11 +26,11 @@
                 <div class="circulo"><span class="material-symbols-outlined">lock</span></div>
             <input type="text" name="ClaveIngreso" class="txtingreso" placeholder="Contraseña"><br><br>
             </div> 
+            <input type="submit" name="btningreso" value="INGRESAR" class="button1">
             <div class="opciones">
                 <p class="btn-registro">¿No tienes cuenta?</p>
                 <a id="btn-registro" class="btn-registro">Regristrate</a>
             </div>
-            <input type="submit" name="btningreso" value="INGRESAR" class="button1">
         </form>
     </div>
 
