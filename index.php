@@ -28,6 +28,9 @@
             </div> 
             <input type="submit" name="btningreso" value="INGRESAR" class="button1">
             <div class="opciones">
+                <a id="btn-contraseña" class="btn-registro">¿Has olvidado tu clave?</a>
+            </div>
+            <div class="opciones">
                 <p class="btn-registro">¿No tienes cuenta?</p>
                 <a id="btn-registro" class="btn-registro">Regristrate</a>
             </div>
@@ -59,6 +62,7 @@
             </div>
         </form>
     </dialog>
+    
 
 
 <?php
