@@ -126,8 +126,8 @@
 #btn-registro{
     color:#F2CA7E;
     font-size: 20px;
-    text-decoration: underline;
     cursor: pointer;
+    margin-left: 8px;
 }
 
 .btn-ini {
@@ -143,4 +143,8 @@
     color: black;
     border-radius: 15px;
     cursor: pointer;
+}
+
+.opciones a{
+    text-decoration:underline;
 }
