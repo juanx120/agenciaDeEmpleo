@@ -13,7 +13,7 @@
 
 #ingreso{
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 64%;
 }
 
@@ -155,4 +155,8 @@
     font-size: 15px;
     width: 170px;
     text-align: center;
+}
+
+#password-form{
+    margin-top: 40px !important;
 }
