@@ -115,16 +115,24 @@ if(isset($_POST['btnRegistrarse'])){
     $TipoU=$_POST['TipoU'];
 
     echo '<script language="javascript">';
-    echo 'alert("Inicio exitoso""', $CoRegistro,$ClRegistro,$TipoU;
-    echo '")</script>';
+    echo 'console.log("Inicio exitoso"', $CoRegistro,$ClRegistro,$TipoU;
+    echo ')</script>';
 
-    //$sql = "INSERT INTO [dbo].[Usuario] (Correo, Clave, TipoUsuario) VALUES ";
-    //$params = array(1, "some data");
+    $sql = "INSERT INTO [dbo].[Usuario] (Correo, Clave, TipoUsuario) VALUES ";
+    $params = array($CoRegistro, $ClRegistro, $TipoU);
 
-    //$stmt = sqlsrv_query( $conn, $sql, $params);
-    //if( $stmt === false ) {
-        //die( print_r( sqlsrv_errors(), true));
-//}
+    $stmt = sqlsrv_query( $conn, $sql, $params);
+    if( $stmt === false ) {
+        die( print_r( sqlsrv_errors(), true));
+        echo '<script language="javascript">';
+        echo 'alert("Error al crear usuario")';
+        echo '</script>';
+    }else{
+        echo '<script language="javascript"> CerrarModal();</script>';
+        echo '<script language="javascript">';
+        echo 'alert("Usuario creado con exito")';
+        echo '</script>';
+    }
 }
 ?>
 
