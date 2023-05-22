@@ -42,10 +42,10 @@
         </div>
         <form id="register-form" method="post">
             <div class="form-group">
-                <input type="email" id="registeremail" class="form-iniciar-s" placeholder="Email" required>
+                <input name="CoRegistro" type="email" id="registeremail" class="form-iniciar-s" placeholder="Email" required>
             </div>
             <div class="form-group">
-                <input type="password" id="registerpassword" class="form-iniciar-s" placeholder="Contraseña" required>
+                <input name="ClRegistro" type="password" id="registerpassword" class="form-iniciar-s" placeholder="Contraseña" required>
             </div>
             <div class="form-group">
             <label for="TipoU">Selecciona tipo de usuario:</label>
@@ -108,6 +108,23 @@ if(isset($_POST['btningreso'])){
         echo 'alert("Correo o Clave incorrectos")';
         echo '</script>';
     }
+}
+if(isset($_POST['btnRegistrarse'])){
+    $CoRegistro=$_POST['CoRegistro'];
+    $ClRegistro=$_POST['ClRegistro'];
+    $TipoU=$_POST['TipoU']
+
+    echo '<script language="javascript">';
+    echo 'alert("Inicio exitoso""', $CoRegistro,$ClRegistro,$TipoU;
+    echo '")</script>';
+
+    //$sql = "INSERT INTO [dbo].[Usuario] (Correo, Clave, TipoUsuario) VALUES ";
+    //$params = array(1, "some data");
+
+    //$stmt = sqlsrv_query( $conn, $sql, $params);
+    //if( $stmt === false ) {
+        //die( print_r( sqlsrv_errors(), true));
+}
 }
 ?>
 
