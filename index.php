@@ -38,7 +38,7 @@
     </div>
 
     <!--Modal registro-->
-    <dialog id="modalr">
+    <dialog id="modalr" class="modal">
         <div class="T-Modal">
             <h2>Registro</h2>
             <span id="btn-cerrar-modalR" class="material-symbols-outlined btn-cerrar">cancel</span>
@@ -64,7 +64,7 @@
     </dialog>
 
     <!--Modal contraseña-->
-    <dialog id="modalp">
+    <dialog id="modalp" class="modal">
         <div class="T-Modal">
             <h2>Cambiar contraseña</h2>
             <span id="btn-cerrar-modalP" class="material-symbols-outlined btn-cerrar">cancel</span>
