@@ -4,7 +4,6 @@
 }
 
 #menu {
-    display: flex;
     width: 220px;
     height: auto;
     text-align: center;
@@ -31,7 +30,7 @@
 #menu a.salir {
     background-color: #B93636;
     color: white;
-    margin-top: 193%;
+    margin-top: 170%;
     margin-bottom: 20px;
 }
 
