@@ -1,6 +1,4 @@
 <?php include('menu.php') ;
-include('conection.php');
-include('session.php');
 
  //$Idu = $_SESSION['Idu'];
  echo $_SESSION['Idu'];

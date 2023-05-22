@@ -29,7 +29,12 @@
                         <span class='material-symbols-outlined'>person</span>
                     </li>
                     <li>
-                        <p><b>Maria Paula Castrillon Orozco</b></p>
+                        <?php
+                        include('conection.php');
+                        $IdUsuario=$_GET['Idu'];
+                        $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario] WHERE IdUsuario=$IdUsuario");
+                        echo <p><b>$resultado->Correo</b></p>;
+                        ?>
                     </li>
                 </ul>
             </div>
