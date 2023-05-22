@@ -38,6 +38,7 @@ li {
 li p{
     font-size: 20px;
     margin-top: 8px;
+    padding-top: 3px;
 }
 
 .material-symbols-outlined { 
