@@ -130,7 +130,8 @@
                 <label for="salario">Salario esperado:</label>
                 <input type="number" name="salario" class="txtform">
                 <label for="video">Video:</label>
-                <input type="file" name="video" class="txtformfl"><br>
+                <input type="file" name="video" class="txtformfl">
+                <hr>
                 <label for="descripcion">Descripción:</label>
                 <input type="text" name="descripcion" class="txtformlg"><br><br>
                 <input type="submit" name="gdhoja" value="Guardar" class="button">
