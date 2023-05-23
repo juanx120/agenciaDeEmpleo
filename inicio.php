@@ -256,6 +256,7 @@
             }
         }
     }
-
     ?>
+
+    <script src="js/modal_usuario.js"></script>
 </body>

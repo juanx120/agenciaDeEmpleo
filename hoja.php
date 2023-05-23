@@ -196,4 +196,5 @@
         $CoExix=FALSE;
     }
     ?>
+    <script src="js/modal_hoja.js"></script>
 </body>

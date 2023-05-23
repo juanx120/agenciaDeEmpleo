@@ -19,8 +19,7 @@
     <title>Agencia Empleos Bogota</title>
 </head>
 
-<body>
-    <script src="js/modal.js"></script>    
+<body> 
     <header id='encabezado'>
         <div class='parent'>
             <div>

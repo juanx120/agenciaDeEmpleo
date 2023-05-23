@@ -192,6 +192,6 @@ if(isset($_POST['btn-password'])){
 }
 ?>
 
-    <script src="js/modal.js"></script>
+    <script src="js/modal_registro.js"></script>
 
 </body>
