@@ -156,7 +156,7 @@ if(isset($_POST['btnRegistrarse'])){
         $scope = "SELECT Scope_identity()";
 
         $stmt = sqlsrv_query( $conn, $sql, $params);
-        $scoop= sqlsrv_query( $conn, $scope)
+        $scoop= sqlsrv_query( $conn, $scope);
         if( $stmt === false ) {
             die( print_r( sqlsrv_errors(), true));
             echo '<script language="javascript">';
