@@ -52,7 +52,7 @@
                 <hr>
                 <h3> Contacto </h3> 
                 <label  for="telefono">Teléfono:</label>
-                <input type="number" name="telefono" class="txtform"><br><br>
+                <input type="number" name="telefono" class="txtform"><br>
                 <input type="submit" name="btningreso" value="Guardar" class="button">
             </div>
         </form>
