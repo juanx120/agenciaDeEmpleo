@@ -185,8 +185,8 @@
             $fila = sqlsrv_fetch_array($scoop);
 
             $sql1 = "INSERT INTO [dbo].[Desempleado] (Identificacion, IdUsuario, Nombre, Apellido, Telefono, LugarNacimiento, FechaNacimiento, Genero, EstadoCivil, Profesion, Ubicacion) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-            $params1 = array($Identificacion, $IdUsuario, $Nombre, $Apellido,$TelefonoU,$LugarNacimiento,$Fechanc,$Genero,$Estadocivil,$Profesion,"1");
-            $stmt = sqlsrv_query( $conn, $sql1, $params1);
+            $params1 = array($Identificacion, $_GET['Idu'], $Nombre, $Apellido,$TelefonoU,$LugarNacimiento,$Fechanc,$Genero,$Estadocivil,$Profesion,1);
+            $stmt1 = sqlsrv_query( $conn, $sql1, $params1);
             if( $stmt1 === false ) {
                 die( print_r( sqlsrv_errors(), true));
                 echo '<script language="javascript">';
