@@ -43,7 +43,7 @@
                             die(print_r(sqlsrv_errors($ConsultaNU), true));
                             }
                         else{
-                            if (sqlsrv_has_rows($result))
+                            if (sqlsrv_has_rows($ConsultaNU))
                             {
                                 $ExUsuario=TRUE;
                                 $Nconusu = sqlsrv_fetch_object($ConsultaNU);
