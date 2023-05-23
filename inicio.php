@@ -18,7 +18,7 @@
             </div>
             <div class="txtcuadro"> 
                 <h3> Principales </h3> 
-                <label  for="nombre"> <h5 class= "descripcion">Nombres:</h5></label>
+                <label  for="nombre"> Nombres:</label>
                 <input type="text" name="nombre" class="txtform">
                 <label class= "descripcion" for="apellido">Apellidos:</label>
                 <input type="text" name="apellido" class="txtform">
@@ -52,7 +52,7 @@
                 <hr>
                 <h3> Contacto </h3> 
                 <label  for="telefono">Teléfono:</label>
-                <input type="number" name="telefono" class="txtform">
+                <input type="number" name="telefono" class="txtform"><br><br>
                 <input type="submit" name="btningreso" value="Guardar" class="button">
             </div>
         </form>
