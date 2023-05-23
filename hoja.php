@@ -1,13 +1,4 @@
-<?php include('menu.php') ;
-
-    //$Idu = $_SESSION['Idu'];
-    echo $_SESSION['Idu'];
-    echo '<script>';
-    echo 'console.log ("el valor de usuario es:"', $_SESSION['Idu'];
-    echo ')';
-    echo 'console.log ("el valor de usuario es:"', $_GET['Idu'], $_SESSION['Idu'];
-    echo ')</script>';
-?>
+<?php include('menu.php') ; ?>
 
     <div class = "contenido"> 
         <h1>Hoja de vida</h1>
@@ -28,6 +19,16 @@
                 <input type="submit" name="gdhoja" value="Guardar" class="button">
             </div>
         </form>
+        <?php
+            $IdUsuario;
+            $sql = "SELECT HojaDeVida FROM Desempleado a INNER JOIN Usuario b on a.IdUsuario = b.IdUsuario  where a.IdUsuario = $IdUsuario";
+            $resultado = sqlsrv_query( $conn, $sql);
+            while ($fila = sqlsrv_fetch_object($resultado)) {
+                $info_hoja = $fila->HojaDeVida;
+            }
+            echo "<p>hoja de vida: $info_hoja";
+            if($info_hoja != NULL OR $info_hoja != 0) {
+        ?>
         <div>
             <a id="btn-estudios" class="button2">Añadir estudios</a>
         </div>
@@ -88,6 +89,7 @@
                 </tr>
             </tbody>
         </table>
+        <?php } ?>
     </div>
 
     <!--Modal estudios-->
@@ -188,13 +190,26 @@
     </dialog>
 
     <?php
-    if(isset($_POST['btnguardarN'])){
-        $Nombre=$_POST['Nombre'];
-        $Apellido=$_POST['apellido'];
-        $Identificacion=$_POST['identificacion'];
-        $Genero=$_POST['genero'];
-        $CoExix=FALSE;
-    }
+        if(isset($_POST['gdhoja'])){
+            $Salario=$_POST['salario'];
+            $Descripcion=$_POST['descripcion'];
+            echo '<script> console.log("Llegue a esta zona :3)</script>';
+            
+            $sql = "INSERT INTO [dbo].[HojaVida] (SalarioEsperado, DescripcionPerfil) VALUES (?,?)";
+            $params = array($Salario, $Descripcion);
+            $stmt = sqlsrv_query( $conn, $sql, $params);
+            if( $stmt === FALSE ){
+                die( print_r( sqlsrv_errors(), true));
+                echo '<script language="javascript">';
+                echo 'alert("Error al crear usuario")';
+                echo '</script>';
+            }
+            else{
+                echo '<script language="javascript">';
+                echo 'alert("Datos guardados exitosamente';
+                echo '")</script>';
+            }
+        }
     ?>
     <script src="js/modal_hoja.js"></script>
 </body>
