@@ -171,15 +171,31 @@
         $PaisU=$_POST['PaisU'];
         $DireccionU=$_POST['direccion'];
         $TelefonoU=$_POST['telefono'];
-        $CoExix=FALSE;
+        
+        $sql = "INSERT INTO [dbo].[Ubicacion] (Ciudad, Direccion, Pais) VALUES (?,?,?)";
+        $params = array($CiudadU, $DireccionU, $PaisU);
+        $stmt = sqlsrv_query( $conn, $sql, $params);
+        if( $stmt === TRUE ){
+            $scope = "SELECT MAX(IdUbicacion) FROM [dbo].[Ubicacion]";
+            $scoop= sqlsrv_query( $conn, $scope);
+            $fila = sqlsrv_fetch_array($scoop);
+
+            $sql1 = "INSERT INTO [dbo].[Desempleado] (Identificacion, IdUsuario, Nombre, Apellido, Telefono, LugarNacimiento, FechaNacimiento, Genero, EstadoCivil, Profesion, Ubicacion) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+            $params1 = array($Identificacion, $IdUsuario, $Nombre, $Apellido,$TelefonoU,$LugarNacimiento,$Fechanc,$Genero,$Estadocivil,$Profesion,$fila[0]);
+            $stmt = sqlsrv_query( $conn, $sql1, $params1);
+            if( $stmt1 === false ) {
+                die( print_r( sqlsrv_errors(), true));
+                echo '<script language="javascript">';
+                echo 'alert("Error al crear usuario")';
+                echo '</script>';
+            }else{
+                echo '<script language="javascript">';
+                echo 'alert("Datos guardados exitosamente';
+                echo '")</script>';
+            }
+        }
     }
     ?>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        $(document).ready(function() {
-        $('#selectorPro').select2();
-        });
 </script>
 
 </body>
