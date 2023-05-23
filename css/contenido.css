@@ -38,6 +38,8 @@ hr{
 .descripcion{
     width: 70px;
     height: 20px;
+    font-size: 17px;
+    color: black;
 }
 
 .txtform{
@@ -50,7 +52,7 @@ hr{
     margin-right: 5%;
     margin-left: 5%;
     margin-top: 10px;
-    font-size: 17px;
+    font-size: 14px;
     background-color: rgba(255,255,255,0.7);
 }
 
