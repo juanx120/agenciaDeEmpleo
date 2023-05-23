@@ -22,7 +22,7 @@
     <header id='encabezado'>
         <div class='parent'>
             <div>
-                <img src='/img/logo.png' alt='logo agencia de empleo'>
+                <a href='inicio.php'><img src='/img/logo.png' alt='logo agencia de empleo' ></a>
             </div>
             <div class='derecha'>
                 <ul>
