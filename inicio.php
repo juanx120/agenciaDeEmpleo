@@ -166,7 +166,8 @@
         $Estadocivil=$_POST['estcivil'];
         $Profesion=$_POST['profesion'];
         $Lugarnc=$_POST['lugarnc'];
-        $Fechanc=$_POST['fechanc'];
+        $Fechanc=strtotime($_POST['fechanc']);
+        $Fechanc=date('Y-m-d', $Fechanc);
         $CiudadU=$_POST['ciudad'];
         $PaisU=$_POST['PaisU'];
         $DireccionU=$_POST['direccion'];
