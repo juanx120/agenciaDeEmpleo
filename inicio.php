@@ -158,7 +158,7 @@
     </div>
 
     <?php
-    if(isset($_POST['gdpersona '])){
+    if(isset($_POST['gdpersona'])){
         $Nombre=$_POST['nombre'];
         $Apellido=$_POST['apellido'];
         $Identificacion=$_POST['identificacion'];
