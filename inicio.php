@@ -102,7 +102,7 @@
         <form id="dt-empresa" class='info' method="post">
             <div class="ttlcuadro">
                 <div class="titulo">
-                    <h2>Datos del usuario</h2>
+                    <h2>Datos de la empresa</h2>
                 </div>
             </div>
             <div class="txtcuadro"> 
@@ -146,10 +146,11 @@
             <div class="txtcuadro"> 
                 <label for="salario">Salario esperado:</label>
                 <input type="number" name="salario" class="txtform">
-                <label for="video">Video:</label>
-                <input type="file" name="video" class="txtform">
+                <label class="archivo" for="video">Video:</label>
+                <input type="file" name="video" class="txtformfl">
+                <br><br>
                 <label for="descripcion">Descripción:</label>
-                <input type="text" name="descripcion" class="txtform"><br>
+                <input type="text" name="descripcion" class="txtformlg"><br><br>
                 <input type="submit" name="gdhoja" value="Guardar" class="button">
             </div>
         </form>
