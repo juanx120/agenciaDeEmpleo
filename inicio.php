@@ -24,10 +24,10 @@
                 <label for="nombre"> Nombres:</label>
                 <?php
                 if($ExUsuario){
-                    echo '<input type="text" name="nombre" class="txtform" value="'.$Nconusu->Nombre.'">'
+                    echo '<input type="text" name="nombre" class="txtform" value="'.$Nconusu->Nombre.'">';
                 }
                 else{
-                    echo '<input type="text" name="nombre" class="txtform">'
+                    echo '<input type="text" name="nombre" class="txtform">';
                 }
                 ?>
                 <label for="apellido">Apellidos:</label>
