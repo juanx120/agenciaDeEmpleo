@@ -164,10 +164,10 @@ if(isset($_POST['btnRegistrarse'])){
         }else{
             $scope = "SELECT MAX(IdUsuario) FROM [dbo].[Usuario]";
             $scoop= sqlsrv_query( $conn, $scope);
-            $fila = sqlsrv_fetch_object($scoop);
+            $fila = sqlsrv_fetch_array($scoop);
             echo '<script language="javascript"> CerrarModal();</script>';
             echo '<script language="javascript">';
-            echo 'alert("el escope es:',$fila;
+            echo 'alert("el escope es:',$fila[0];
             echo '")</script>';
         }
     }
