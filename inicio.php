@@ -25,7 +25,7 @@
                 <input type="text" name="apellido" class="txtform">
                 <label for="identificacion">No. Identificación:</label>
                 <input type="text" name="identificacion" class="txtform">
-                <label  for="genero">Genero</label>
+                <label  for="genero">Género:</label>
                 <select name="genero" class="txtform">
                     <option value="">Selecciona un género</option>
                     <option value="masculino">Masculino</option>
