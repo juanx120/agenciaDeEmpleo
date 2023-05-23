@@ -9,6 +9,7 @@
     echo ')</script>';
 ?>
 
+
     <div class = "contenido"> 
         <form id="dt-aspirante" class='info' method="post">
             <div class="ttlcuadro">
@@ -57,7 +58,7 @@
                 <label for="profesion">Profesión:</label>
                 <?php
                 $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Profesiones]");
-                echo '<select name="profesion" class="txtform">';
+                echo '<select name="profesion" class="txtform" id="selectorPro">';
                 while ($fila = sqlsrv_fetch_object($resultado)) {
                         echo '<option value="' , $fila->IdProfesion , '">' , $fila->Profesion , '</option>';
                     }
@@ -173,4 +174,12 @@
         $CoExix=FALSE;
     }
     ?>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function() {
+        $('#selectorPro').select2();
+        });
+</script>
+
 </body>
