@@ -117,15 +117,17 @@ label {
     color: white;
 }
 
-table{
+table, th{
     margin-top: 2%;
+}
+
+table, th , td{
     border-radius: 5px;
 }
 
 .row_titulo{
     background-color: #8C2323;
     color: white;
-    border-radius: 5px;
     height: 50px;
     font-size: 17px;
     text-align: center;
@@ -134,5 +136,4 @@ table{
 .row{
     margin-top:20px;
     background-color: #F2CA7E;
-    border-radius: 5px;
 }
