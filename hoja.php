@@ -26,7 +26,7 @@
             while ($fila = sqlsrv_fetch_object($resultado)) {
                 $info_hoja = $fila->HojaDeVida;
             }
-
+            echo "<p>hoja de vida: $info_hoja";
             if($info_hoja != NULL OR $info_hoja != 0) {
         ?>
         <div>
