@@ -49,6 +49,26 @@
             </tbody>
         </table>
         <div>
+            <a id="btn-experiencia" class="button2">Añadir experiencia</a>
+        </div>
+        <table id="referencias">
+            <thead class="row_titulo">
+                <tr>
+                    <th>Experiencia laboral</th>
+                </tr>
+            </thead>    
+            <tbody>
+                <tr class="espacio"></tr>
+                <tr class="row">
+                    <td>Dato 1<td>
+                </tr>
+                <tr class="espacio"></tr>
+                <tr class="row">
+                    <td>Dato 2<td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
             <a id="btn-referencia" class="button2">Añadir referencias</a>
         </div>
         <table id="referencias">
@@ -106,6 +126,67 @@
         </form>
     </dialog>
 
+    <!--Modal experiencias-->
+    <dialog id="modalexp" class="modal">
+        <div class="T-Modal">
+            <h2>Añadir experiencia laboral</h2>
+            <span id="btn-cerrar-modalExp" class="material-symbols-outlined btn-cerrar">cancel</span>
+        </div>
+        <form id="register-form" method="post">
+            <div class="form-group">
+                <label for="institucion">Empresa:</label>
+                <input name="institucion" type="text" id="estinstitucion" class="form-iniciar-s" required>
+            </div>
+            <div class="form-group">
+                <label for="titulo">Puesto ocupado:</label>
+                <input name="titulo" type="text" id="esttitulo" class="form-iniciar-s" required>
+            </div>
+            <div class="form-group">
+                <label for="final">Año:</label>
+                <input name="final" type="text" id="estfinal" class="form-iniciar-s" required>
+            </div>
+            <div class="form-group">
+                <label for="descripcionExp">Descripción:</label>
+                <input name="descripcionExp" type="text" id="estfinal" class="form-iniciar-s" required>
+            </div>
+            <div class="opciones">
+                <button type="submit" class="btn-ini" name="btnReferencia">Añadir</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!--Modal referencias-->
+    <dialog id="modalref" class="modal">
+        <div class="T-Modal">
+            <h2>Añadir referencias</h2>
+            <span id="btn-cerrar-modalRef" class="material-symbols-outlined btn-cerrar">cancel</span>
+        </div>
+        <form id="register-form" method="post">
+            <div class="form-group">
+                <label for="nomref">Nombre completo:</label>
+                <input name="nomref" type="text" id="estinstitucion" class="form-iniciar-s" required>
+            </div>
+            <div class="form-group">
+                <label for="telefonoref">Télefono:</label>
+                <input name="telefonoref" type="number" id="esttitulo" class="form-iniciar-s" required>
+            </div>
+            <div class="form-group">
+                <label for="correoref">Correo:</label>
+                <input name="correoref" type="email" id="esttitulo" class="form-iniciar-s" required>
+            </div>
+            <div class="form-group">
+                <label for="tiporef">Tipo referencia:</label>
+                <select name="tiporef" class="form-iniciar-s">
+                    <option value="personal">Personal</option>
+                    <option value="laboral">Laboral</option>
+                </select>
+            </div>
+            <div class="opciones">
+                <button type="submit" class="btn-ini" name="btnReferencia">Añadir</button>
+            </div>
+        </form>
+    </dialog>
+
     <?php
     if(isset($_POST['btnguardarN'])){
         $Nombre=$_POST['Nombre'];
@@ -116,5 +197,5 @@
     }
     ?>
 
-    <script src="js/registro.js"></script>
+    <script src="js/modal.js"></script>
 </body>
