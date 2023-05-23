@@ -153,7 +153,7 @@ if(isset($_POST['btnRegistrarse'])){
 
         $sql = "INSERT INTO [dbo].[Usuario] (Correo, Clave, TipoUsuario) VALUES (?,?,?)";
         $params = array($CoRegistro, $ClRegistro, $TipoU);
-        $scope = "SELECT Scope_identity()";
+        $scope = "SELECT MAX IdUsuario FROM [dbo].[Usuario]";
 
         $stmt = sqlsrv_query( $conn, $sql, $params);
         $scoop= sqlsrv_query( $conn, $scope);
