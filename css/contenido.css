@@ -117,9 +117,26 @@ label {
     color: white;
 }
 
+.button2{
+    width: 15%;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    background-color: #D98014;
+    float: right;
+    text-align: center;
+    padding: 15px;
+}
+
+.button2:hover{
+    background-color: #8C2323;
+    color: white;
+}
 
 table, th, td{
-    margin-top: 2%;
+    margin-top: 1%;
     border-radius: 10px;
 }
 

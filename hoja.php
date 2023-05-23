@@ -28,13 +28,13 @@
                 <input type="submit" name="gdhoja" value="Guardar" class="button">
             </div>
         </form>
-        <div class="button">
-                <a id="btn-estudios">Añadir estudios</a>
+        <div>
+            <a id="btn-estudios" class="button2">Añadir estudios</a>
         </div>
         <table id="estudios">
             <thead class="row_titulo">
                 <tr>
-                    <th>Estudios</th>
+                    <th>Formación</th>
                 </tr>
             </thead>    
             <tbody>
@@ -48,8 +48,8 @@
                 </tr>
             </tbody>
         </table>
-        <div class="button">
-                <a id="btn-referencia">Añadir referencias</a>
+        <div>
+            <a id="btn-referencia" class="button2">Añadir referencias</a>
         </div>
         <table id="referencias">
             <thead class="row_titulo">
@@ -70,6 +70,42 @@
         </table>
     </div>
 
+    <!--Modal estudios-->
+    <dialog id="modalest" class="modal">
+        <div class="T-Modal">
+            <h2>Añadir estudios</h2>
+            <span id="btn-cerrar-modalEst" class="material-symbols-outlined btn-cerrar">cancel</span>
+        </div>
+        <form id="register-form" method="post">
+            <div class="form-group">
+                <label for="institucion">Instutución:</label>
+                <input name="institucion" type="text" id="estinstitucion" class="form-iniciar-s" required>
+            </div>
+            <div class="form-group">
+                <label for="titulo">Título profesional:</label>
+                <input name="titulo" type="text" id="esttitulo" class="form-iniciar-s" required>
+            </div>
+            <div class="form-group">
+                <label for="profesion">Profesión:</label>
+                <?php
+                $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Profesiones]");
+                echo '<select name="profesion" class="txtform" id="selectorPro">';
+                while ($fila = sqlsrv_fetch_object($resultado)) {
+                        echo '<option value="' , $fila->IdProfesion , '">' , $fila->Profesion , '</option>';
+                    }
+                echo '</select>'
+                ?>
+            </div>
+            <div class="form-group">
+                <label for="final">Año finalización:</label>
+                <input name="final" type="text" id="estfinal" class="form-iniciar-s" required>
+            </div>
+            <div class="opciones">
+                <button type="submit" class="btn-ini" name="btnEstudios">Añadir</button>
+            </div>
+        </form>
+    </dialog>
+
     <?php
     if(isset($_POST['btnguardarN'])){
         $Nombre=$_POST['Nombre'];
@@ -79,4 +115,6 @@
         $CoExix=FALSE;
     }
     ?>
+
+    <script src="js/registro.js"></script>
 </body>

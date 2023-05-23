@@ -1,0 +1,95 @@
+.opciones{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 27px;
+}
+#abrir-modal {
+    cursor: pointer;
+}
+
+.modal {
+    margin-left: 35%;
+    margin-top: 20%;
+    width: 500px;
+    height: 325px;
+    border-radius: 26px;
+    color:#F2CA7E;
+    background-color: rgba(140,35,35,0.95);
+}
+
+.modal::backdrop {
+    background-color: rgba(0, 0, 0, .70);
+}
+
+.T-Modal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 4.5%;
+    margin-top: 20px;
+}
+
+.btn-cerrar {
+    color: #F2CA7E;
+    font-size: 26px;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-top: 20px;
+    margin-left: 5%;
+}
+
+.form-iniciar-s {
+    height: 28px;
+    width: 400px;
+    padding: 10px;
+    border-radius: 50px 50px 50px 50px;
+    border:0;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    font-size: 17px;
+    background-color: rgba(242,202,126,0.6);
+}
+
+.btn-registro{
+    color:#F2CA7E;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.btn-ini {
+    background-color: #F2CA7E;
+    margin-left: 4%;
+    margin-right: 4.2%;
+    font-size: 18px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-style: none;
+    color: black;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.opciones a{
+    text-decoration:underline;
+}
+
+#TipoU{
+    background-color: rgba(242,202,126,0.6);
+    border-radius: 10px;
+    font-size: 15px;
+    width: 170px;
+    height: 30px;
+    text-align: center;
+}
+
+#pass-from{
+    margin-top: 40px !important;
+}
