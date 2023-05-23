@@ -251,7 +251,7 @@
         $DireccionEmp=$_POST['direccionemp'];
         
         $sql = "INSERT INTO [dbo].[Ubicacion] (Ciudad, Direccion, Pais) VALUES (?,?,?)";
-        $params = array($CiudadU, $DireccionU, $PaisU);
+        $params = array($CiudadEmp, $DireccionEmp, $PaisEmp);
         $stmt = sqlsrv_query( $conn, $sql, $params);
         if( $stmt === FALSE ){
 
