@@ -25,7 +25,7 @@
         </div>
     </form>
 
-    <table>
+    <table id="rslaspirantes">
         <thead class="row_titulo">
             <tr>
                 <th>Resultados</th>
