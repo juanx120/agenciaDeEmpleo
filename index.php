@@ -155,19 +155,15 @@ if(isset($_POST['btnRegistrarse'])){
         $params = array($CoRegistro, $ClRegistro, $TipoU);
 
         $stmt = sqlsrv_query( $conn, $sql, $params);
-        
         if( $stmt === false ) {
             die( print_r( sqlsrv_errors(), true));
             echo '<script language="javascript">';
             echo 'alert("Error al crear usuario")';
             echo '</script>';
         }else{
-            $scope = "SELECT MAX(IdUsuario) FROM [dbo].[Usuario]";
-            $scoop= sqlsrv_query( $conn, $scope);
-            $fila = sqlsrv_fetch_array($scoop);
             echo '<script language="javascript"> CerrarModal();</script>';
             echo '<script language="javascript">';
-            echo 'alert("el escope es:',$fila[0];
+            echo 'alert("Usuario creado con exito';
             echo '")</script>';
         }
     }
