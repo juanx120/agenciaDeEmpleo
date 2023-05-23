@@ -28,6 +28,9 @@
                 <input type="submit" name="gdhoja" value="Guardar" class="button">
             </div>
         </form>
+        <div class="button">
+                <a id="btn-estudios">Añadir estudios</a>
+        </div>
         <table id="estudios">
             <thead class="row_titulo">
                 <tr>
@@ -45,6 +48,9 @@
                 </tr>
             </tbody>
         </table>
+        <div class="button">
+                <a id="btn-referencia">Añadir referencias</a>
+        </div>
         <table id="referencias">
             <thead class="row_titulo">
                 <tr>

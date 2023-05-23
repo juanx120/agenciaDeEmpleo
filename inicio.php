@@ -135,26 +135,7 @@
                 <input type="text" name="direccionemp" class="txtform"><br>
                 <input type="submit" name="gdempresa" value="Guardar" class="button">
             </div>
-        </form>
-        <br> <br>
-        <h1>Hoja de vida</h1>
-        <form id="dt-hoja" class='info' method="post">
-            <div class="ttlcuadro">
-                <div class="titulo">
-                    <h2>Información básica</h2>
-                </div>
-            </div>
-            <div class="txtcuadro"> 
-                <label for="salario">Salario esperado:</label>
-                <input type="number" name="salario" class="txtform">
-                <label class="archivo" for="video">Video:</label>
-                <input type="file" name="video" class="txtformfl">
-                <br>
-                <label for="descripcion">Descripción:</label>
-                <input type="text" name="descripcion" class="txtformlg"><br><br>
-                <input type="submit" name="gdhoja" value="Guardar" class="button">
-            </div>
-        </form>
+        </form>+
     </div>
 
     <?php
@@ -200,6 +181,40 @@
             }
         }
     }
+
+    if(isset($_POST['gdempresa'])){
+        $Nit=$_POST['nit'];
+        $Razsocial=$_POST['razsocial'];
+        $Representante=$_POST['repre'];
+        echo '<script> console.log("Llegue a esta zona :3)</script>';
+        
+        $sql = "INSERT INTO [dbo].[Ubicacion] (Ciudad, Direccion, Pais) VALUES (?,?,?)";
+        $params = array($CiudadU, $DireccionU, $PaisU);
+        $stmt = sqlsrv_query( $conn, $sql, $params);
+        if( $stmt === FALSE ){
+
+        }
+        else{
+            $scope = "SELECT MAX(IdUbicacion) FROM [dbo].[Ubicacion]";
+            $scoop= sqlsrv_query( $conn, $scope);
+            $fila = sqlsrv_fetch_array($scoop);
+
+            $sql1 = "INSERT INTO [dbo].[Desempleado] (Identificacion, IdUsuario, Nombre, Apellido, Telefono, LugarNacimiento, FechaNacimiento, Genero, EstadoCivil, Profesion, Ubicacion) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+            $params1 = array($Identificacion, $_GET['Idu'], $Nombre, $Apellido,$TelefonoU,$Lugarnc,$Fechanc,$Genero,$Estadocivil,$Profesion,$fila[0]);
+            $stmt1 = sqlsrv_query( $conn, $sql1, $params1);
+            if( $stmt1 === false ) {
+                die( print_r( sqlsrv_errors(), true));
+                echo '<script language="javascript">';
+                echo 'alert("Error al crear usuario")';
+                echo '</script>';
+            }else{
+                echo '<script language="javascript">';
+                echo 'alert("Datos guardados exitosamente';
+                echo '")</script>';
+            }
+        }
+    }
+
     ?>
 </script>
 
