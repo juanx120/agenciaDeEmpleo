@@ -162,7 +162,7 @@ if(isset($_POST['btnRegistrarse'])){
             echo 'alert("Error al crear usuario")';
             echo '</script>';
         }else{
-            $scope = "SELECT MAX IdUsuario FROM [dbo].[Usuario]";
+            $scope = "SELECT MAX(IdUsuario) FROM [dbo].[Usuario]";
             $scoop= sqlsrv_query( $conn, $scope);
             echo '<script language="javascript"> CerrarModal();</script>';
             echo '<script language="javascript">';
