@@ -29,7 +29,6 @@
                 <input type="text" name="identificacion" class="txtform">
                 <label  for="genero">Género:</label>
                 <select name="genero" class="txtform">
-                    <option value="">Selecciona un género</option>
                     <option value="masculino">Masculino</option>
                     <option value="femenino">Femenino</option>
                     <option value="no-binario">No binario</option>
@@ -47,7 +46,6 @@
                 </select>
                 <label for="estcivil">Estado civil:</label>
                 <select name="estcivil" class="txtform">
-                    <option value="">Selecciona un estado civil</option>
                     <option value="soltero">Soltero/a</option>
                     <option value="casado">Casado/a</option>
                     <option value="divorciado">Divorciado/a</option>
@@ -160,7 +158,7 @@
     </div>
 
     <?php
-    if(isset($_POST['btnguardarN'])){
+    if(isset($_POST['gdpersona '])){
         $Nombre=$_POST['Nombre'];
         $Apellido=$_POST['apellido'];
         $Identificacion=$_POST['identificacion'];
