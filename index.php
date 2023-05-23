@@ -167,7 +167,7 @@ if(isset($_POST['btnRegistrarse'])){
             $fila = sqlsrv_fetch_object($scoop);
             echo '<script language="javascript"> CerrarModal();</script>';
             echo '<script language="javascript">';
-            echo 'alert("el escope es:',$fila['IdUsuario'];
+            echo 'alert("el escope es:',$fila->IdUsuario;
             echo '")</script>';
         }
     }
