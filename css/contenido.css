@@ -114,3 +114,19 @@ label {
     background-color: #8C2323;
     color: white;
 }
+
+table{
+    margin-top: 1%;
+}
+
+.row_titulo{
+    background-color: #8C2323;
+    color: white;
+    border-radius: 5px;
+}
+
+.row{
+    margin:10px;
+    background-color: #F2CA7E;
+    border-radius: 5px;
+}
