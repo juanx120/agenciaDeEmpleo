@@ -18,19 +18,19 @@
             </div>
             <div class="txtcuadro"> 
                 <h3> Principales </h3> 
-                <label class= "descripcion" for="nombre">Nombres:</label>
+                <p class= "descripcion">Nombres:</p>
                 <input type="text" name="nombre" class="txtform">
-                <label class= "descripcion" for="apellido">Apellidos:</label>
+                <p class= "descripcion">Apellidos:</p>
                 <input type="text" name="apellido" class="txtform">
-                <label class= "descripcion" for="identificacion">No. Identificación:</label>
+                <p class= "descripcion">No. Identificación:</p>
                 <input type="text" name="identificacion" class="txtform">
-                <label class= "descripcion" for="genero">Genero</label>
+                <p class= "descripcion">Genero</p>
                 <input type="text" name="genero" class="txtform">
-                <label class= "descripcion" for="estcivil">Estado civil</label>
+                <p class= "descripcion">Estado civil</p>
                 <input type="text" name="estcivil" class="txtform">
                 <hr>
                 <h3> Nacimiento </h3> 
-                <label class= "descripcion" for="lugarnc">Lugar:</label>
+                <p class= "descripcion">Lugar:</p>
                 <?php
                 $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Paises]");
                 echo '<select name="lugarnc" class="txtform">';
@@ -39,19 +39,19 @@
                     }
                 echo '</select>'
                 ?>
-                <label class= "descripcion" class= "descripcion" for="fechanc">Fecha:</label>
+                <p class= "descripcion" class= "descripcion" for="fechanc">Fecha:</p>
                 <input type="date" name="fechanc" class="txtform">
                 <hr>
                 <h3> Ubicación </h3> 
-                <label class= "descripcion" for="ciudad">Ciudad:</label>
+                <p class= "descripcion">Ciudad:</p>
                 <input type="text" name="ciudad" class="txtform">
-                <label class= "descripcion" for="pais">País:</label>
+                <p class= "descripcion">País:</p>
                 <input type="text" name="pais" class="txtform">
-                <label class= "descripcion" for="direccion">Dirección:</label>
+                <p class= "descripcion">Dirección:</p>
                 <input type="text" name="direccion" class="txtform">
                 <hr>
                 <h3> Contacto </h3> 
-                <label class= "descripcion" for="telefono">Teléfono:</label>
+                <p class= "descripcion">Teléfono:</p>
                 <input type="number" name="telefono" class="txtform">
                 <input type="submit" name="btningreso" value="Guardar" class="button">
             </div>
