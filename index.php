@@ -173,9 +173,10 @@ if(isset($_POST['btn-password'])){
     $CorreP=$_POST['CoPassword'];
     $CLaveP=$_POST['ClPassword'];
 
-    $sql = "UPDATE [dbo].[Usuario] SET Clave=CLaveP WHERE Correo=$CorreP";
+    $sql = "UPDATE [dbo].[Usuario] SET Clave=? WHERE Correo=?";
+    $params = array($CLaveP,$CorreP);
 
-    $stmt = sqlsrv_query( $conn, $sql);
+    $stmt = sqlsrv_query( $conn, $sql, $params);
     if( $stmt === false ) {
         die( print_r( sqlsrv_errors(), true));
         echo '<script language="javascript">';
