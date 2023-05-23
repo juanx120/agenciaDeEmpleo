@@ -46,7 +46,14 @@
                 <label  for="ciudad">Ciudad:</label>
                 <input type="text" name="ciudad" class="txtform">
                 <label  for="pais">País:</label>
-                <input type="text" name="pais" class="txtform">
+                <?php
+                $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Paises]");
+                echo '<select name="pais" class="txtform">';
+                while ($fila = sqlsrv_fetch_object($resultado)) {
+                        echo '<option value="' , $fila->IdPais , '">' , $fila->Pais , '</option>';
+                    }
+                echo '</select>'
+                ?>
                 <label  for="direccion">Dirección:</label>
                 <input type="text" name="direccion" class="txtform">
                 <hr>
