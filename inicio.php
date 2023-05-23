@@ -129,7 +129,7 @@
             <div class="txtcuadro"> 
                 <label for="salario">Salario esperado:</label>
                 <input type="number" name="salario" class="txtform">
-                <label for="video">Video:</label>
+                <label class="archivo" for="video">Video:</label>
                 <input type="file" name="video" class="txtformfl">
                 <hr>
                 <label for="descripcion">Descripción:</label>
