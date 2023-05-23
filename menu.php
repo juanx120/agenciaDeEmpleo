@@ -3,6 +3,7 @@
     <div id='menu'>
         <a href='#'>Datos usuario</a>
         <a href='Aspirantes.php'>Aspirantes</a>
+        <a href='#'>Hoja de vida</a>
         <a href='#'>Vacantes</a>
         <a href='#'>Empresas</a>
         <a href='#'>Reportes</a>

@@ -1,12 +1,15 @@
 .contenido{
-    padding-left: 220px;
+    padding-left: 25%;
+    width: 70%;
     display: flex;
     padding-top: 1%;
     justify-content: center;
+    flex-direction: column;
+    margin-bottom: 30px;
 }
 
 .info{
-    width: 80%;
+    width: 100%;
     justify-content: center;
     background-color: #F2CA7E;
     border-radius: 10px;
@@ -33,6 +36,10 @@
 hr{
     margin: 20px;
     border: 1px solid #D98014;
+}
+
+h1{
+    margin-bottom: 20px;
 }
 
 label {
