@@ -18,43 +18,43 @@
             </div>
             <div class="txtcuadro"> 
                 <h3> Principales </h3> 
-                <label for="nombre">Nombres:</label>
-                <input type="text" name="nombre" class="txtformulario">
-                <label for="apellido">Apellidos:</label>
-                <input type="text" name="apellido" class="txtformulario">
-                <label for="identificacion">No. Identificación:</label>
-                <input type="text" name="identificacion" class="txtformulario">
-                <label for="genero">Genero</label>
-                <input type="text" name="genero" class="txtformulario">
+                <label  for="nombre"> <h5 class= "descripcion">Nombres:</h5></label>
+                <input type="text" name="nombre" class="txtform">
+                <label class= "descripcion" for="apellido">Apellidos:</label>
+                <input type="text" name="apellido" class="txtform">
+                <label  for="identificacion">No. Identificación:</label>
+                <input type="text" name="identificacion" class="txtform">
+                <label  for="genero">Genero</label>
+                <input type="text" name="genero" class="txtform">
                 <label for="estcivil">Estado civil</label>
-                <input type="text" name="estcivil" class="txtformulario">
+                <input type="text" name="estcivil" class="txtform">
                 <hr>
                 <h3> Nacimiento </h3> 
                 <label for="lugarnc">Lugar:</label>
                 <?php
                 $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Paises]");
-                echo '<select name="lugarnc">';
+                echo '<select name="lugarnc" class="txtform">';
                 while ($fila = sqlsrv_fetch_object($resultado)) {
-                        echo '<option class="txtformulario" value="' , $fila->IdPais , '">' , $fila->Pais , '</option>';
+                        echo '<option value="' , $fila->IdPais , '">' , $fila->Pais , '</option>';
                     }
                 echo '</select>'
                 ?>
-                <label for="fechanc">Fecha:</label>
-                <input type="date" name="fechanc" class="txtformulario">
+                <label   for="fechanc">Fecha:</label>
+                <input type="date" name="fechanc" class="txtform">
                 <hr>
                 <h3> Ubicación </h3> 
-                <label for="ciudad">Ciudad:</label>
-                <input type="text" name="ciudad" class="txtformulario">
-                <label for="pais">País:</label>
-                <input type="text" name="pais" class="txtformulario">
-                <label for="direccion">Dirección:</label>
-                <input type="text" name="direccion" class="txtformulario">
+                <label  for="ciudad">Ciudad:</label>
+                <input type="text" name="ciudad" class="txtform">
+                <label  for="pais">País:</label>
+                <input type="text" name="pais" class="txtform">
+                <label  for="direccion">Dirección:</label>
+                <input type="text" name="direccion" class="txtform">
                 <hr>
                 <h3> Contacto </h3> 
-                <label for="telefono">Teléfono:</label>
-                <input type="number" name="telefono" class="txtformulario">
+                <label  for="telefono">Teléfono:</label>
+                <input type="number" name="telefono" class="txtform">
+                <input type="submit" name="btningreso" value="Guardar" class="button">
             </div>
         </form>
-
     </div>
 </body>

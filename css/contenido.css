@@ -23,13 +23,50 @@
 .ttlcuadro h2{
     color: white;
     padding: 10px 17px;
+    font-weight: bold;
 }
 
 .txtcuadro{
-    margin: 20px;
+    margin: 25px;
 }
 
 hr{
     margin: 20px;
+    border: 1px solid #D98014;
+}
 
+label {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+  }
+
+.txtform{
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border:0;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 10px;
+    font-size: 14px;
+    background-color: rgba(255,255,255,0.7);
+}
+
+.button{
+    width: 415px;
+    height: 60px;
+    margin-top: 20px;
+    border:0;
+    border-radius: 50px;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    background-color: #D98014;
+}
+
+.button:hover{
+    background-color: #8C2323;
 }
