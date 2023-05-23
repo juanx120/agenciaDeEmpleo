@@ -148,7 +148,7 @@
                 <input type="number" name="salario" class="txtform">
                 <label class="archivo" for="video">Video:</label>
                 <input type="file" name="video" class="txtformfl">
-                <br><br>
+                <br>
                 <label for="descripcion">Descripción:</label>
                 <input type="text" name="descripcion" class="txtformlg"><br><br>
                 <input type="submit" name="gdhoja" value="Guardar" class="button">
