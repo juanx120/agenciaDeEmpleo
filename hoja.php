@@ -24,8 +24,10 @@
             $sql = "SELECT HojaDeVida FROM Desempleado a INNER JOIN Usuario b on a.IdUsuario = b.IdUsuario  where a.IdUsuario = $IdUsuario";
             $resultado = sqlsrv_query( $conn, $sql);
             while ($fila = sqlsrv_fetch_object($resultado)) {
-                echo "<p>hoja de vida : $fila->HojaDeVida </p>";
+                $info_hoja = $fila->HojaDeVida;
             }
+
+            if($info_hoja != NULL OR $info_hoja != 0) {
         ?>
         <div>
             <a id="btn-estudios" class="button2">Añadir estudios</a>
@@ -87,6 +89,7 @@
                 </tr>
             </tbody>
         </table>
+        <?php } ?>
     </div>
 
     <!--Modal estudios-->
@@ -192,30 +195,19 @@
             $Descripcion=$_POST['descripcion'];
             echo '<script> console.log("Llegue a esta zona :3)</script>';
             
-            $sql = "INSERT INTO [dbo].[Ubicacion] (Ciudad, Direccion, Pais) VALUES (?,?,?)";
-            $params = array($CiudadU, $DireccionU, $PaisU);
+            $sql = "INSERT INTO [dbo].[HojaVida] (SalarioEsperado, DescripcionPerfil) VALUES (?,?)";
+            $params = array($Salario, $Descripcion);
             $stmt = sqlsrv_query( $conn, $sql, $params);
             if( $stmt === FALSE ){
-    
+                die( print_r( sqlsrv_errors(), true));
+                echo '<script language="javascript">';
+                echo 'alert("Error al crear usuario")';
+                echo '</script>';
             }
             else{
-                $scope = "SELECT IdUbicacion FROM [dbo].[Ubicacion] WHERE Direccion LIKE '%$DireccionU%' AND Ciudad LIKE '%$CiudadU%' AND Pais = $PaisU";
-                $scoop= sqlsrv_query( $conn, $scope);
-                $fila = sqlsrv_fetch_array($scoop);
-    
-                $sql1 = "INSERT INTO [dbo].[Desempleado] (Identificacion, IdUsuario, Nombre, Apellido, Telefono, LugarNacimiento, FechaNacimiento, Genero, EstadoCivil, Profesion, Ubicacion) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-                $params1 = array($Identificacion, $_GET['Idu'], $Nombre, $Apellido,$TelefonoU,$Lugarnc,$Fechanc,$Genero,$Estadocivil,$Profesion,$fila[0]);
-                $stmt1 = sqlsrv_query( $conn, $sql1, $params1);
-                if( $stmt1 === false ) {
-                    die( print_r( sqlsrv_errors(), true));
-                    echo '<script language="javascript">';
-                    echo 'alert("Error al crear usuario")';
-                    echo '</script>';
-                }else{
-                    echo '<script language="javascript">';
-                    echo 'alert("Datos guardados exitosamente';
-                    echo '")</script>';
-                }
+                echo '<script language="javascript">';
+                echo 'alert("Datos guardados exitosamente';
+                echo '")</script>';
             }
         }
     ?>
