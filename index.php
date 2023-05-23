@@ -188,7 +188,6 @@ if(isset($_POST['btn-password'])){
         echo '</script>';
     }
 }
-}
 ?>
 
     <script src="js/registro.js"></script>
