@@ -171,7 +171,7 @@
         $CiudadU=$_POST['ciudad'];
         $PaisU=$_POST['PaisU'];
         $DireccionU=$_POST['direccion'];
-        $TelefonoU=$_POST['telefono'];
+        $TelefonoU=INT($_POST['telefono']);
         echo '<script> console.log("Llegue a esta zona :3)</script>';
         
         $sql = "INSERT INTO [dbo].[Ubicacion] (Ciudad, Direccion, Pais) VALUES (?,?,?)";
