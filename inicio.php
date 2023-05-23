@@ -96,7 +96,7 @@
                 <h3> Contacto </h3> 
                 <label for="telefono">Teléfono:</label>
                 <input type="number" name="telefono" class="txtform"><br>
-                <input type="submit" name="gdpersona" value="Guardar" class="button">
+                <button type="submit" name="gdpersona" value="Guardar" class="button">Guardar</button>
             </div>
         </form>
         <br> <br>
