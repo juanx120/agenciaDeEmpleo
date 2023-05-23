@@ -20,6 +20,7 @@
 </head>
 
 <body>
+    <script src="js/modal.js"></script>    
     <header id='encabezado'>
         <div class='parent'>
             <div>
