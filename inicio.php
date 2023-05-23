@@ -114,29 +114,71 @@
                 <input type="text" name="razsocial" class="txtform">
                 <label for="repre">Representante:</label>
                 <input type="text" name="repre" class="txtform">
-                <hr>
-                <h3> Sede </h3> 
+                <br>
+                <input type="submit" name="gdempresa" value="Guardar" class="button">
+            </div>
+        </form>
+        <div>
+            <a id="btn-sedes" class="button2">Añadir sede</a>
+        </div>
+        <table id="estudios">
+            <thead class="row_titulo">
+                <tr>
+                    <th>Sedes</th>
+                </tr>
+            </thead>    
+            <tbody>
+                <tr class="espacio"></tr>
+                <tr class="row">
+                    <td>Dato 1<td>
+                </tr>
+                <tr class="espacio"></tr>
+                <tr class="row">
+                    <td>Dato 2<td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--Modal sedes-->
+    <dialog id="modals" class="modal">
+        <div class="T-Modal">
+            <h2>Añadir sede</h2>
+            <span id="btn-cerrar-modalS" class="material-symbols-outlined btn-cerrar">cancel</span>
+        </div>
+        <form id="register-form" method="post">
+            <div class="form-group">
                 <label for="nombresd"> Nombre:</label>
-                <input type="number" name="nombresd" class="txtform">
-                <label for="telesd">télefono:</label>
-                <input type="number" name="telesd" class="txtform">
-                <label for="paisemp">País:</label>
+                <input type="number" name="nombresd" class="form-iniciar-s" required>
+            </div>
+            <div class="form-group">
+                <label for="telefonosd">Télefono:</label>
+                <input name="telefonosd" type="number" id="esttitulo" class="form-iniciar-s" required>
+            </div>
+            <div class="form-group">
+                <label for="paissd">País:</label>
                 <?php
                 $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Paises]");
-                echo '<select name="paisemp" class="txtform">';
+                echo '<select name="paissd" class="form-iniciar-s">';
                 while ($fila = sqlsrv_fetch_object($resultado)) {
                         echo '<option value="' , $fila->IdPais , '">' , $fila->Pais , '</option>';
                     }
                 echo '</select>'
                 ?>
-                <label for="ciudademp">Ciudad:</label>
-                <input type="text" name="ciudademp" class="txtform">
-                <label for="direccionemp">Dirección:</label>
-                <input type="text" name="direccionemp" class="txtform"><br>
-                <input type="submit" name="gdempresa" value="Guardar" class="button">
             </div>
-        </form>+
-    </div>
+            <div class="form-group">
+                <label for="ciudadesd">Ciudad:</label>
+                <input type="text" name="ciudadesd" class="form-iniciar-s" required>
+            </div>
+            <div class="form-group">
+                <label for="direccionsd">Direccion:</label>
+                <input type="text" name="direccionsd" class="form-iniciar-s" required>
+            </div>
+            <div class="opciones">
+                <button type="submit" class="btn-ini" name="btnSede">Añadir</button>
+            </div>
+        </form>
+    </dialog>
 
     <?php
     if(isset($_POST['gdpersona'])){
@@ -217,5 +259,5 @@
 
     ?>
 </script>
-
+<script src="js/modal.js"></script>
 </body>

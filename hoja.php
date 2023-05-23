@@ -150,7 +150,7 @@
                 <input name="descripcionExp" type="text" id="estfinal" class="form-iniciar-s" required>
             </div>
             <div class="opciones">
-                <button type="submit" class="btn-ini" name="btnReferencia">Añadir</button>
+                <button type="submit" class="btn-ini" name="btnExperiencia">Añadir</button>
             </div>
         </form>
     </dialog>
