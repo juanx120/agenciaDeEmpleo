@@ -33,27 +33,36 @@
                     <li>
                         <?php
                         include('conection.php');
+                        $ExUsuario=FALSE;
                         $IdUsuario=$_GET['Idu'];
                         echo '<script>';
                         echo 'console.log ("el valor de usuario es:', $IdUsuario;
                         echo '")</script>';
                         $ConsultaNU = sqlsrv_query($conn, "SELECT * FROM [dbo].[Desempleado] WHERE IdUsuario=$IdUsuario");
                         if( $ConsultaNU === FALSE ){
-                            $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario] WHERE IdUsuario=$IdUsuario");
-                            while ($fila = sqlsrv_fetch_object($resultado)) {
-                            echo "<p><b>";
-                            echo $fila->Correo;
-                            echo "</b></p>";
+                            die(print_r(sqlsrv_errors($ConsultaNU), true));
                             }
-                        }
                         else{
-                            $Nconusu = sqlsrv_fetch_object($ConsultaNU);
-                            echo "<p><b>";
-                            echo $Nconusu->Nombre;
-                            echo "' '";
-                            echo $Nconusu->Apellido;
-                            echo "</b></p>";
-                        }
+                            if (sqlsrv_has_rows($ConsultaNU))
+                            {
+                                $ExUsuario=TRUE;
+                                $Nconusu = sqlsrv_fetch_object($ConsultaNU);
+                                echo "<p><b>";
+                                echo $Nconusu->Nombre;
+                                echo " ";
+                                echo $Nconusu->Apellido;
+                                echo "</b></p>";
+                            }
+                            else
+                            {
+                                $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario] WHERE IdUsuario=$IdUsuario");
+                                    while ($fila = sqlsrv_fetch_object($resultado)) {
+                                    echo "<p><b>";
+                                    echo $fila->Correo;
+                                    echo "</b></p>";
+                                }
+                            }
+                        }   
                         ?>
                     </li>
                 </ul>
