@@ -18,7 +18,7 @@
             </div>
             <div class="txtcuadro"> 
                 <h3> Principales </h3> 
-                <label  for="nombre"> <p class= "descripcion">Nombres:</p></label>
+                <label  for="nombre"> <h5 class= "descripcion">Nombres:</h5></label>
                 <input type="text" name="nombre" class="txtform">
                 <label class= "descripcion" for="apellido">Apellidos:</label>
                 <input type="text" name="apellido" class="txtform">
