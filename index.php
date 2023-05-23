@@ -166,7 +166,7 @@ if(isset($_POST['btnRegistrarse'])){
             $scoop= sqlsrv_query( $conn, $scope);
             echo '<script language="javascript"> CerrarModal();</script>';
             echo '<script language="javascript">';
-            echo 'alert("el escope es:',$scoop->IdUsuario;
+            echo 'alert("el escope es:',$scoop;
             echo '")</script>';
         }
     }
