@@ -153,8 +153,10 @@ if(isset($_POST['btnRegistrarse'])){
 
         $sql = "INSERT INTO [dbo].[Usuario] (Correo, Clave, TipoUsuario) VALUES (?,?,?)";
         $params = array($CoRegistro, $ClRegistro, $TipoU);
+        $scope = "SELECT Scope_identity()";
 
         $stmt = sqlsrv_query( $conn, $sql, $params);
+        $scoop= sqlsrv_query( $conn, $scope)
         if( $stmt === false ) {
             die( print_r( sqlsrv_errors(), true));
             echo '<script language="javascript">';
@@ -163,8 +165,8 @@ if(isset($_POST['btnRegistrarse'])){
         }else{
             echo '<script language="javascript"> CerrarModal();</script>';
             echo '<script language="javascript">';
-            echo 'alert("Usuario creado con exito")';
-            echo '</script>';
+            echo 'alert("el escope es:',&scoop;
+            echo '")</script>';
         }
     }
 }
