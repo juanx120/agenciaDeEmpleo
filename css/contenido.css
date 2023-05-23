@@ -133,5 +133,9 @@ table, th, td{
 
 .row{
     background-color: #F2CA7E;
+    height: auto;
 }
 
+.espacio{
+    height: 20px;
+}
