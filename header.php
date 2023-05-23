@@ -44,13 +44,13 @@
                             echo "<p><b>";
                             echo $fila->Correo;
                             echo "</b></p>";
+                            }
                         }
                         else{
                             $Nconusu = sqlsrv_fetch_object($ConsultaNU);
                             echo "<p><b>";
                             echo $Nconusu->Nombre;
                             echo "</b></p>";
-                        }
                         }
                         ?>
                     </li>
