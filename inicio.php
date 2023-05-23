@@ -24,8 +24,24 @@
                 <input type="text" name="apellido" class="txtform">
                 <label for="identificacion">No. Identificación:</label>
                 <input type="text" name="identificacion" class="txtform">
-                <label for="genero">Género:</label>
-                <input type="text" name="genero" class="txtform">
+                <label  for="genero">Genero</label>
+                <select name="genero" class="txtform">
+                    <option value="">Selecciona un género</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="no-binario">No binario</option>
+                    <option value="género-fluido">Género fluido</option>
+                    <option value="agénero">Agénero</option>
+                    <option value="androginx">Androginx</option>
+                    <option value="bigénero">Bigénero</option>
+                    <option value="pangénero">Pangénero</option>
+                    <option value="transgénero">Transgénero</option>
+                    <option value="cisgénero">Cisgénero</option>
+                    <option value="intergénero">Intergénero</option>
+                    <option value="trigénero">Trigénero</option>
+                    <option value="ninguno">Ninguno</option>
+                    <option value="otro">Otro</option>
+                </select>
                 <label for="estcivil">Estado civil:</label>
                 <input type="text" name="estcivil" class="txtform">
                 <label for="profesion">Profesión:</label>
@@ -121,4 +137,14 @@
             </div>
         </form>
     </div>
+
+    <?php
+    if(isset($_POST['btnguardarN'])){
+        $Nombre=$_POST['Nombre'];
+        $Apellido=$_POST['apellido'];
+        $Identificacion=$_POST['identificacion'];
+        $Genero=$_POST['genero'];
+        $CoExix=FALSE;
+    }
+    ?>
 </body>
