@@ -27,12 +27,17 @@
 }
 
 .txtcuadro{
-    margin: 20px;
+    margin: 25px;
 }
 
 hr{
     margin: 20px;
     border: 1px solid black;
+}
+
+label{
+    width: 70px;
+    height: 20px;
 }
 
 .txtform{
@@ -42,6 +47,9 @@ hr{
     border:0;
     font-family: 'Montserrat', sans-serif;
     outline: none;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 10px;
     font-size: 17px;
     background-color: rgba(255,255,255,0.7);
 }

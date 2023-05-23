@@ -33,9 +33,9 @@
                 <label for="lugarnc">Lugar:</label>
                 <?php
                 $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Paises]");
-                echo '<select name="lugarnc">';
+                echo '<select name="lugarnc" class="txtform">';
                 while ($fila = sqlsrv_fetch_object($resultado)) {
-                        echo '<option class="txtform" value="' , $fila->IdPais , '">' , $fila->Pais , '</option>';
+                        echo '<option value="' , $fila->IdPais , '">' , $fila->Pais , '</option>';
                     }
                 echo '</select>'
                 ?>
