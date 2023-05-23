@@ -18,19 +18,21 @@
             </div>
             <div class="txtcuadro"> 
                 <h3> Principales </h3> 
-                <label  for="nombre"> Nombres:</label>
+                <label for="nombre"> Nombres:</label>
                 <input type="text" name="nombre" class="txtform">
-                <label class= "descripcion" for="apellido">Apellidos:</label>
+                <label for="apellido">Apellidos:</label>
                 <input type="text" name="apellido" class="txtform">
-                <label  for="identificacion">No. Identificación:</label>
+                <label for="identificacion">No. Identificación:</label>
                 <input type="text" name="identificacion" class="txtform">
-                <label  for="genero">Genero</label>
+                <label for="genero">Género:</label>
                 <input type="text" name="genero" class="txtform">
-                <label for="estcivil">Estado civil</label>
+                <label for="estcivil">Estado civil:</label>
                 <input type="text" name="estcivil" class="txtform">
+                <label for="profesion">Profesión:</label>
+                <input type="text" name="profesion" class="txtform">
                 <hr>
                 <h3> Nacimiento </h3> 
-                <label for="lugarnc">Lugar:</label>
+                <label for="lugarnc">País:</label>
                 <?php
                 $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Paises]");
                 echo '<select name="lugarnc" class="txtform">';
@@ -39,21 +41,76 @@
                     }
                 echo '</select>'
                 ?>
-                <label   for="fechanc">Fecha:</label>
+                <label for="fechanc">Fecha:</label>
                 <input type="date" name="fechanc" class="txtform">
                 <hr>
                 <h3> Ubicación </h3> 
-                <label  for="ciudad">Ciudad:</label>
+                <label for="ciudad">Ciudad:</label>
                 <input type="text" name="ciudad" class="txtform">
-                <label  for="pais">País:</label>
+                <label for="pais">País:</label>
                 <input type="text" name="pais" class="txtform">
-                <label  for="direccion">Dirección:</label>
+                <label for="direccion">Dirección:</label>
                 <input type="text" name="direccion" class="txtform">
                 <hr>
                 <h3> Contacto </h3> 
-                <label  for="telefono">Teléfono:</label>
+                <label for="telefono">Teléfono:</label>
                 <input type="number" name="telefono" class="txtform"><br>
-                <input type="submit" name="btningreso" value="Guardar" class="button">
+                <input type="submit" name="gdpersona" value="Guardar" class="button">
+            </div>
+        </form>
+        <br> <br>
+        <form id="dt-empresa" class='info' method="post">
+            <div class="ttlcuadro">
+                <div class="titulo">
+                    <h2>Datos del usuario</h2>
+                </div>
+            </div>
+            <div class="txtcuadro"> 
+                <h3> Principales </h3> 
+                <label for="nit"> NIT:</label>
+                <input type="number" name="nit" class="txtform">
+                <label for="razsocial">Razón social:</label>
+                <input type="text" name="razsocial" class="txtform">
+                <label for="repre">Representante:</label>
+                <input type="text" name="repre" class="txtform">
+                <hr>
+                <h3> Sede </h3> 
+                <label for="nombresd"> Nombre:</label>
+                <input type="number" name="nombresd" class="txtform">
+                <label for="telesd">télefono:</label>
+                <input type="number" name="telesd" class="txtform">
+                <label for="paisemp">País:</label>
+                <?php
+                $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Paises]");
+                echo '<select name="paisemp" class="txtform">';
+                while ($fila = sqlsrv_fetch_object($resultado)) {
+                        echo '<option value="' , $fila->IdPais , '">' , $fila->Pais , '</option>';
+                    }
+                echo '</select>'
+                ?>
+                <label for="ciudademp">Ciudad:</label>
+                <input type="text" name="ciudademp" class="txtform">
+                <label for="direccionemp">Dirección:</label>
+                <input type="text" name="direccionemp" class="txtform"><br>
+                <input type="submit" name="gdempresa" value="Guardar" class="button">
+            </div>
+        </form>
+        <br> <br>
+        <h1>Hoja de vida</h1>
+        <form id="dt-hoja" class='info' method="post">
+            <div class="ttlcuadro">
+                <div class="titulo">
+                    <h2>Información básica</h2>
+                </div>
+            </div>
+            <div class="txtcuadro"> 
+                <label for="salario">Salario esperado:</label>
+                <input type="number" name="salario" class="txtform">
+                <label for="video">Video:</label>
+                <input type="file" name="video" class="txtform">
+                <label for="descripcion">Descripción:</label>
+                <input type="text" name="descripcion" class="txtform"><br>
+                <input type="submit" name="gdhoja" value="Guardar" class="button">
             </div>
         </form>
     </div>
