@@ -140,7 +140,7 @@ if(isset($_POST['btnRegistrarse'])){
     $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario]");
     while ($fila = sqlsrv_fetch_object($resultado)) {
         if($CoRegistro  ==  $fila->Correo){
-            $CoExix=TRUE
+            $CoExix=TRUE;
         }
     }
 
@@ -150,9 +150,6 @@ if(isset($_POST['btnRegistrarse'])){
         echo '</script>';
     }
     else{
-        echo '<script language="javascript">';
-        echo 'console.log("Inicio exitoso', $CoRegistro,$ClRegistro,$TipoU;
-        echo '")</script>';
 
         $sql = "INSERT INTO [dbo].[Usuario] (Correo, Clave, TipoUsuario) VALUES (?,?,?)";
         $params = array($CoRegistro, $ClRegistro, $TipoU);
@@ -169,6 +166,27 @@ if(isset($_POST['btnRegistrarse'])){
             echo 'alert("Usuario creado con exito")';
             echo '</script>';
         }
+    }
+}
+
+if(isset($_POST['btn-password'])){
+    $CorreP=$_POST['CoPassword'];
+    $CLaveP=$_POST['ClPassword'];
+
+    $sql = "UPDATE [dbo].[Usuario] SET Clave=? WHERE Correo=?";
+    $params = array($CLaveP,$CorreP);
+
+    $stmt = sqlsrv_query( $conn, $sql, $params);
+    if( $stmt === false ) {
+        die( print_r( sqlsrv_errors(), true));
+        echo '<script language="javascript">';
+        echo 'alert("Error al cambiar clave")';
+        echo '</script>';
+    }else{
+        echo '<script language="javascript"> CerrarModalP();</script>';
+        echo '<script language="javascript">';
+        echo 'alert("Cambio Exitoso")';
+        echo '</script>';
     }
 }
 ?>
