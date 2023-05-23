@@ -43,9 +43,26 @@
                     <option value="otro">Otro</option>
                 </select>
                 <label for="estcivil">Estado civil:</label>
-                <input type="text" name="estcivil" class="txtform">
+                <select name="estcivil" class="txtform">
+                    <option value="">Selecciona un estado civil</option>
+                    <option value="soltero">Soltero/a</option>
+                    <option value="casado">Casado/a</option>
+                    <option value="divorciado">Divorciado/a</option>
+                    <option value="viudo">Viudo/a</option>
+                    <option value="union_libre">Unión libre</option>
+                    <option value="anulado">Anulado/a</option>
+                    <option value="separado">Separado/a</option>
+                    <option value="conviviente">Conviviente</option>
+                </select>
                 <label for="profesion">Profesión:</label>
-                <input type="text" name="profesion" class="txtform">
+                <?php
+                $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Profesiones]");
+                echo '<select name="profesion" class="txtform">';
+                while ($fila = sqlsrv_fetch_object($resultado)) {
+                        echo '<option value="' , $fila->IdProfesion , '">' , $fila->Profesion , '</option>';
+                    }
+                echo '</select>'
+                ?>
                 <hr>
                 <h3> Nacimiento </h3> 
                 <label for="lugarnc">País:</label>
@@ -66,7 +83,7 @@
                 <label  for="pais">País:</label>
                 <?php
                 $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Paises]");
-                echo '<select name="lugarnc" class="txtform">';
+                echo '<select name="PaisU" class="txtform">';
                 while ($fila = sqlsrv_fetch_object($resultado)) {
                         echo '<option value="' , $fila->IdPais , '">' , $fila->Pais , '</option>';
                     }
@@ -145,6 +162,14 @@
         $Apellido=$_POST['apellido'];
         $Identificacion=$_POST['identificacion'];
         $Genero=$_POST['genero'];
+        $Estadocivil=$_POST['estcivil'];
+        $Profesion=$_POST['profesion'];
+        $Lugarnc=$_POST['lugarnc'];
+        $Fechanc=$_POST['fechanc'];
+        $CiudadU=$_POST['ciudad'];
+        $PaisU=$_POST['PaisU'];
+        $DireccionU=$_POST['direccion'];
+        $TelefonoU=$_POST['telefono'];
         $CoExix=FALSE;
     }
     ?>
