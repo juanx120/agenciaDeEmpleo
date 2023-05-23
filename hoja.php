@@ -28,6 +28,40 @@
                 <input type="submit" name="gdhoja" value="Guardar" class="button">
             </div>
         </form>
+        <table id="estudios">
+            <thead class="row_titulo">
+                <tr>
+                    <th>Estudios</th>
+                </tr>
+            </thead>    
+            <tbody>
+                <tr class="espacio"></tr>
+                <tr class="row">
+                    <td>Dato 1<td>
+                </tr>
+                <tr class="espacio"></tr>
+                <tr class="row">
+                    <td>Dato 2<td>
+                </tr>
+            </tbody>
+        </table>
+        <table id="referencias">
+            <thead class="row_titulo">
+                <tr>
+                    <th>Referencias</th>
+                </tr>
+            </thead>    
+            <tbody>
+                <tr class="espacio"></tr>
+                <tr class="row">
+                    <td>Dato 1<td>
+                </tr>
+                <tr class="espacio"></tr>
+                <tr class="row">
+                    <td>Dato 2<td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <?php
