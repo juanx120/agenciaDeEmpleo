@@ -24,7 +24,6 @@
 #menu a:hover {
     background-color: #D98014;
     font-size: 17px;
-    padding: 20px;
     color: white;
     text-decoration: double;
 }
@@ -33,7 +32,6 @@
     background-color: #8C2323;
     color: white;
     font-size: 17px;
-    padding: 20px;
     margin-top: 100%;
     margin-bottom: 20px;
 }

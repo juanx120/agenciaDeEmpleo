@@ -35,12 +35,11 @@ hr{
     border: 1px solid #D98014;
 }
 
-.descripcion{
-    width: 70px;
-    height: 20px;
-    font-size: 17px;
-    color: black;
-}
+label {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+  }
 
 .txtform{
     width: 200px;
