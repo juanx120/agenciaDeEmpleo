@@ -24,7 +24,7 @@
                 <input type="submit" name="gdpersona" value="Buscar" class="button">
             </div>
         </form>
-        
+
         <table>
             <thead class="row_titulo">
                 <tr>
@@ -32,12 +32,12 @@
                 </tr>
             </thead>    
             <tbody>
-                <tr >
-                    <td>Resultados<td>
+                <tr class="row">>
+                    <td>Dato 1<td>
                 </tr>
-            <tr class="row">
-                <td>iNFORMACIÓN<td>
-            </tr>
+                <tr class="row">>
+                    <td>Dato 2<td>
+                </tr>
             </tbody>
         </table>
 
