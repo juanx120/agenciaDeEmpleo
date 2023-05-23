@@ -165,7 +165,7 @@ if(isset($_POST['btnRegistrarse'])){
         }else{
             echo '<script language="javascript"> CerrarModal();</script>';
             echo '<script language="javascript">';
-            echo 'alert("el escope es:',&scoop;
+            echo 'alert("el escope es:',$scoop;
             echo '")</script>';
         }
     }
