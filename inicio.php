@@ -22,7 +22,14 @@
             <div class="txtcuadro"> 
                 <h3> Principales </h3> 
                 <label for="nombre"> Nombres:</label>
-                <input type="text" name="nombre" class="txtform">
+                <?php
+                if($ExUsuario){
+                    echo '<input type="text" name="nombre" class="txtform" value="'.$Nconusu->Nombre.'">'
+                }
+                else{
+                    echo '<input type="text" name="nombre" class="txtform">'
+                }
+                ?>
                 <label for="apellido">Apellidos:</label>
                 <input type="text" name="apellido" class="txtform">
                 <label for="identificacion">No. Identificación:</label>
