@@ -117,13 +117,9 @@ label {
     color: white;
 }
 
-table, th{
-    margin-top: 2%;
-    margin-bottom:20px;
-    background-color: #F2CA7E;
-}
 
-table, th , td{
+table, th, td{
+    margin-top: 2%;
     border-radius: 10px;
 }
 
@@ -134,3 +130,8 @@ table, th , td{
     font-size: 17px;
     text-align: center;
 }
+
+.row{
+    background-color: #F2CA7E;
+}
+

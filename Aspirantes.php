@@ -10,36 +10,38 @@
 ?>
 
 <div class = "contenido"> 
-        <form id="dt-aspirante" class='info' method="post">
-            <div class="txtcuadro"> 
-                <h3> Filtro aspirantes</h3> 
-                <label for="nombre"> Profesión:</label>
-                <input type="text" name="nombre" class="txtform">
-                <label for="educación">Educación:</label>
-                <input type="text" name="educación" class="txtform">
-                <label for="ubicacion">Ubicación:</label>
-                <input type="text" name="ubicacion" class="txtform">
-                <label for="edad">Edad:</label>
-                <input type="text" name="edad" class="txtform">
-                <input type="submit" name="gdpersona" value="Buscar" class="button">
-            </div>
-        </form>
+    <form id="dt-aspirante" class='info' method="post">
+        <div class="txtcuadro"> 
+            <h3> Filtro aspirantes</h3> 
+            <label for="nombre"> Profesión:</label>
+            <input type="text" name="nombre" class="txtform">
+            <label for="educación">Educación:</label>
+            <input type="text" name="educación" class="txtform">
+            <label for="ubicacion">Ubicación:</label>
+            <input type="text" name="ubicacion" class="txtform">
+            <label for="edad">Edad:</label>
+            <input type="text" name="edad" class="txtform">
+            <input type="submit" name="gdpersona" value="Buscar" class="button">
+        </div>
+    </form>
 
-        <table>
-            <thead class="row_titulo">
-                <tr>
-                    <th>Resultados</th>
-                </tr>
-            </thead>    
-            <tbody>
-                <tr>
-                    <td>Dato 1<td>
-                </tr>
-                <tr>
-                    <td>Dato 2<td>
-                </tr>
-            </tbody>
-        </table>
+    <table>
+        <thead class="row_titulo">
+            <tr>
+                <th>Resultados</th>
+            </tr>
+        </thead>    
+        <tbody>
+            <tr class="espacio"></tr>
+            <tr class="row">
+                <td>Dato 1<td>
+            </tr>
+            <tr class="espacio"></tr>
+            <tr class="row">
+                <td>Dato 2<td>
+            </tr>
+        </tbody>
+    </table>
 
 </div>
 
