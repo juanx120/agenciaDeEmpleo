@@ -32,10 +32,10 @@
                 </tr>
             </thead>    
             <tbody>
-                <tr class="row">
+                <tr>
                     <td>Dato 1<td>
                 </tr>
-                <tr class="row">
+                <tr>
                     <td>Dato 2<td>
                 </tr>
             </tbody>

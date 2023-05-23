@@ -119,10 +119,12 @@ label {
 
 table, th{
     margin-top: 2%;
+    margin-bottom:20px;
+    background-color: #F2CA7E;
 }
 
 table, th , td{
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .row_titulo{
@@ -131,9 +133,4 @@ table, th , td{
     height: 50px;
     font-size: 17px;
     text-align: center;
-}
-
-.row{
-    margin-top:20px;
-    background-color: #F2CA7E;
 }
