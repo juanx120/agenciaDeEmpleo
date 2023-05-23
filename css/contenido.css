@@ -32,17 +32,17 @@
 
 hr{
     margin: 20px;
-    border: 1px solid black;
+    border: 1px solid #D98014;
 }
 
-label{
+.descripcion{
     width: 70px;
     height: 20px;
 }
 
 .txtform{
-    width: 100px;
-    height: 20px;
+    width: 200px;
+    height: 30px;
     border-radius: 5px;
     border:0;
     font-family: 'Montserrat', sans-serif;
@@ -63,5 +63,9 @@ label{
     font-size: 20px;
     font-family: 'Montserrat', sans-serif;
     color: black;
+    background-color: #D98014;
+}
+
+.button:hover{
     background-color: #8C2323;
 }
