@@ -108,12 +108,29 @@
             </div>
             <div class="txtcuadro"> 
                 <h3> Principales </h3> 
+                <label for="nombreemp"> Nombre:</label>
+                <input type="text" name="nombreemp" class="txtform">
                 <label for="nit"> NIT:</label>
                 <input type="number" name="nit" class="txtform">
                 <label for="razsocial">Razón social:</label>
                 <input type="text" name="razsocial" class="txtform">
                 <label for="repre">Representante:</label>
                 <input type="text" name="repre" class="txtform">
+                <hr>
+                <h3> Ubicación </h3> 
+                <label for="ciudademp">Ciudad:</label>
+                <input type="text" name="ciudademp" class="txtform">
+                <label  for="paisemp">País:</label>
+                <?php
+                $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Paises]");
+                echo '<select name="paisemp" class="txtform">';
+                while ($fila = sqlsrv_fetch_object($resultado)) {
+                        echo '<option value="' , $fila->IdPais , '">' , $fila->Pais , '</option>';
+                    }
+                echo '</select>'
+                ?>
+                <label  for="direccionemp">Dirección:</label>
+                <input type="text" name="direccionemp" class="txtform">
                 <br>
                 <input type="submit" name="gdempresa" value="Guardar" class="button">
             </div>
@@ -204,7 +221,7 @@
 
         }
         else{
-            $scope = "SELECT MAX(IdUbicacion) FROM [dbo].[Ubicacion]";
+            $scope = "SELECT IdUbicacion FROM [dbo].[Ubicacion] WHERE Direccion LIKE '%$DireccionU%' AND Ciudad LIKE '%$CiudadU%' AND Pais = $PaisU";
             $scoop= sqlsrv_query( $conn, $scope);
             $fila = sqlsrv_fetch_array($scoop);
 
@@ -225,10 +242,13 @@
     }
 
     if(isset($_POST['gdempresa'])){
+        $Nombreemp=$_POST['nombreemp'];
         $Nit=$_POST['nit'];
         $Razsocial=$_POST['razsocial'];
         $Representante=$_POST['repre'];
-        echo '<script> console.log("Llegue a esta zona :3)</script>';
+        $CiudadEmp=$_POST['ciudademp'];
+        $PaisEmp=$_POST['paisemp'];
+        $DireccionEmp=$_POST['direccionemp'];
         
         $sql = "INSERT INTO [dbo].[Ubicacion] (Ciudad, Direccion, Pais) VALUES (?,?,?)";
         $params = array($CiudadU, $DireccionU, $PaisU);
@@ -237,12 +257,12 @@
 
         }
         else{
-            $scope = "SELECT MAX(IdUbicacion) FROM [dbo].[Ubicacion]";
+            $scope = "SELECT IdUbicacion FROM [dbo].[Ubicacion] WHERE Direccion LIKE '%$DireccionEmp%' AND Ciudad LIKE '%$CiudadEmp%' AND Pais = $PaisEmp";
             $scoop= sqlsrv_query( $conn, $scope);
             $fila = sqlsrv_fetch_array($scoop);
 
-            $sql1 = "INSERT INTO [dbo].[Desempleado] (Identificacion, IdUsuario, Nombre, Apellido, Telefono, LugarNacimiento, FechaNacimiento, Genero, EstadoCivil, Profesion, Ubicacion) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-            $params1 = array($Identificacion, $_GET['Idu'], $Nombre, $Apellido,$TelefonoU,$Lugarnc,$Fechanc,$Genero,$Estadocivil,$Profesion,$fila[0]);
+            $sql1 = "INSERT INTO [dbo].[Empresa] ( IdUsuario, Nombre, NIT, RazonSocial, RepresentanteL, Ubicacion) VALUES (?,?,?,?,?,?)";
+            $params1 = array( $_GET['Idu'], $Nombreemp, $Nit, $Razsocial,$Representante,$fila[0]);
             $stmt1 = sqlsrv_query( $conn, $sql1, $params1);
             if( $stmt1 === false ) {
                 die( print_r( sqlsrv_errors(), true));
