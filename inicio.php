@@ -176,7 +176,7 @@
         
         $sql = "INSERT INTO [dbo].[Ubicacion] (Ciudad, Direccion, Pais) VALUES (?,?,?)";
         $params = array($CiudadU, $DireccionU, $PaisU);
-        //$stmt = sqlsrv_query( $conn, $sql, $params);
+        $stmt = sqlsrv_query( $conn, $sql, $params);
         if( $stmt === FALSE ){
 
         }
@@ -186,7 +186,7 @@
             $fila = sqlsrv_fetch_array($scoop);
 
             $sql1 = "INSERT INTO [dbo].[Desempleado] (Identificacion, IdUsuario, Nombre, Apellido, Telefono, LugarNacimiento, FechaNacimiento, Genero, EstadoCivil, Profesion, Ubicacion) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-            $params1 = array($Identificacion, $_GET['Idu'], $Nombre, $Apellido,$TelefonoU,$Lugarnc,$Fechanc,$Genero,$Estadocivil,$Profesion,1);
+            $params1 = array($Identificacion, $_GET['Idu'], $Nombre, $Apellido,$TelefonoU,$Lugarnc,$Fechanc,$Genero,$Estadocivil,$Profesion,$fila[0]);
             $stmt1 = sqlsrv_query( $conn, $sql1, $params1);
             if( $stmt1 === false ) {
                 die( print_r( sqlsrv_errors(), true));
