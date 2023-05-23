@@ -221,18 +221,25 @@
                 <hr>
                 <h3> Ubicación </h3> 
                 <label for="ciudad">Ciudad:</label>
-                <input type="text" name="ciudad" class="txtform">
-                <label  for="pais">País:</label>
+                <input type="text" name="ciudad" class="txtform" value="<?php echo ($ExUsuario ? obtenerCiudad($conn, $Nconusu->Ubicacion) : ''); ?>">
+                
+                <label for="pais">País:</label>
                 <?php
                 $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Paises]");
                 echo '<select name="PaisU" class="txtform">';
                 while ($fila = sqlsrv_fetch_object($resultado)) {
+                    if ($ExUsuario && obtenerPais($conn, $Nconusu->Ubicacion) == $fila->IdPais) {
+                        echo '<option value="' , $fila->IdPais , '" selected>' , $fila->Pais , '</option>';
+                    } else {
                         echo '<option value="' , $fila->IdPais , '">' , $fila->Pais , '</option>';
                     }
-                echo '</select>'
+                }
+                echo '</select>';
                 ?>
-                <label  for="direccion">Dirección:</label>
-                <input type="text" name="direccion" class="txtform">
+
+                <label for="direccion">Dirección:</label>
+                <input type="text" name="direccion" class="txtform" value="<?php echo ($ExUsuario ? obtenerDireccion($conn, $Nconusu->Ubicacion) : ''); ?>">
+
                 <hr>
                 <h3> Contacto </h3> 
                 <label for="telefono">Teléfono:</label>
@@ -416,6 +423,48 @@
                 echo '")</script>';
             }
         }
+    }
+
+    function obtenerCiudad($conn, $ubicacionId) {
+        $query = "SELECT Ciudad FROM [dbo].[Ubicacion] WHERE IdUbicacion = ?";
+        $params = array($ubicacionId);
+        $result = sqlsrv_query($conn, $query, $params);
+        $ciudad = '';
+    
+        if ($result && sqlsrv_has_rows($result)) {
+            $row = sqlsrv_fetch_array($result);
+            $ciudad = $row['Ciudad'];
+        }
+    
+        return $ciudad;
+    }
+    
+    function obtenerPais($conn, $ubicacionId) {
+        $query = "SELECT Pais FROM [dbo].[Ubicacion] WHERE IdUbicacion = ?";
+        $params = array($ubicacionId);
+        $result = sqlsrv_query($conn, $query, $params);
+        $paisId = '';
+    
+        if ($result && sqlsrv_has_rows($result)) {
+            $row = sqlsrv_fetch_array($result);
+            $paisId = $row['Pais'];
+        }
+    
+        return $paisId;
+    }
+    
+    function obtenerDireccion($conn, $ubicacionId) {
+        $query = "SELECT Direccion FROM [dbo].[Ubicacion] WHERE IdUbicacion = ?";
+        $params = array($ubicacionId);
+        $result = sqlsrv_query($conn, $query, $params);
+        $direccion = '';
+    
+        if ($result && sqlsrv_has_rows($result)) {
+            $row = sqlsrv_fetch_array($result);
+            $direccion = $row['Direccion'];
+        }
+    
+        return $direccion;
     }
     ?>
 
