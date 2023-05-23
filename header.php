@@ -50,6 +50,8 @@
                             $Nconusu = sqlsrv_fetch_object($ConsultaNU);
                             echo "<p><b>";
                             echo $Nconusu->Nombre;
+                            echo "' '";
+                            echo $Nconusu->Apellido;
                             echo "</b></p>";
                         }
                         ?>
