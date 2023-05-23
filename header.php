@@ -34,8 +34,8 @@
                         include('conection.php');
                         $IdUsuario=$_GET['Idu'];
                         echo '<script>';
-                        echo 'console.log ("el valor de usuario es:"', $IdUsuario;
-                        echo ')</script>';
+                        echo 'console.log ("el valor de usuario es:', $IdUsuario;
+                        echo '")</script>';
                         $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario] WHERE IdUsuario=$IdUsuario");
                         while ($fila = sqlsrv_fetch_object($resultado)) {
                         echo "<p><b>";
