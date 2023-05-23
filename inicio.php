@@ -24,7 +24,7 @@
                 <label for="nombre"> Nombres:</label>
                 <?php
                 if($ExUsuario){
-                    echo '<input type="text" name="nombre" class="txtform" value="'.$Nconusu->Nombre.'">';
+                    echo '<input type="text" name="nombre" class="txtform" value="'.$Nconusu->Nombre.'" disamble>';
                 }
                 else{
                     echo '<input type="text" name="nombre" class="txtform">';
