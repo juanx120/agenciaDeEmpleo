@@ -31,43 +31,173 @@
                 }
                 ?>
                 <label for="apellido">Apellidos:</label>
-                <input type="text" name="apellido" class="txtform">
+                <?php
+                if($ExUsuario){
+                    echo '<input type="text" name="apellido" class="txtform" value="'.$Nconusu->Apellido.'" disabled>';
+                }
+                else{
+                    echo '<input type="text" name="apellido" class="txtform">';
+                }
+                ?>
                 <label for="identificacion">No. Identificación:</label>
-                <input type="text" name="identificacion" class="txtform">
+                <?php
+                if($ExUsuario){
+                    echo '<input type="text" name="identificacion" class="txtform" value="'.$Nconusu->Identificacion.'" disabled>';
+                }
+                else{
+                    echo '<input type="text" name="identificacion" class="txtform">';
+                }
+                ?>
                 <label  for="genero">Género:</label>
                 <select name="genero" class="txtform">
-                    <option value="masculino">Masculino</option>
-                    <option value="femenino">Femenino</option>
-                    <option value="no-binario">No binario</option>
-                    <option value="género-fluido">Género fluido</option>
-                    <option value="agénero">Agénero</option>
-                    <option value="androginx">Androginx</option>
-                    <option value="bigénero">Bigénero</option>
-                    <option value="pangénero">Pangénero</option>
-                    <option value="transgénero">Transgénero</option>
-                    <option value="cisgénero">Cisgénero</option>
-                    <option value="intergénero">Intergénero</option>
-                    <option value="trigénero">Trigénero</option>
-                    <option value="ninguno">Ninguno</option>
-                    <option value="otro">Otro</option>
+                <?php
+                    if ($ExUsuario && $Nconusu->Genero == "masculino") {
+                        echo '<option value="masculino" selected>Masculino</option>';
+                    } else {
+                        echo '<option value="masculino">Masculino</option>';
+                    }
+
+                    if ($ExUsuario && $Nconusu->Genero == "femenino") {
+                        echo '<option value="femenino" selected>Femenino</option>';
+                    } else {
+                        echo '<option value="femenino">Femenino</option>';
+                    }
+
+                    if ($ExUsuario && $Nconusu->Genero == "no-binario") {
+                        echo '<option value="no-binario" selected>No binario</option>';
+                    } else {
+                        echo '<option value="no-binario">No binario</option>';
+                    }
+
+                    if ($ExUsuario && $Nconusu->Genero == "género-fluido") {
+                        echo '<option value="género-fluido" selected>Género fluido</option>';
+                    } else {
+                        echo '<option value="género-fluido">Género fluido</option>';
+                    }
+
+                    if ($ExUsuario && $Nconusu->Genero == "agénero") {
+                        echo '<option value="agénero" selected>Agénero</option>';
+                    } else {
+                        echo '<option value="agénero">Agénero</option>';
+                    }
+
+                    if ($ExUsuario && $Nconusu->Genero == "androginx") {
+                        echo '<option value="androginx" selected>Androginx</option>';
+                    } else {
+                        echo '<option value="androginx">Androginx</option>';
+                    }
+
+                    if ($ExUsuario && $Nconusu->Genero == "bigénero") {
+                        echo '<option value="bigénero" selected>Bigénero</option>';
+                    } else {
+                        echo '<option value="bigénero">Bigénero</option>';
+                    }
+
+                    if ($ExUsuario && $Nconusu->Genero == "pangénero") {
+                        echo '<option value="pangénero" selected>Pangénero</option>';
+                    } else {
+                        echo '<option value="pangénero">Pangénero</option>';
+                    }
+
+                    if ($ExUsuario && $Nconusu->Genero == "transgénero") {
+                        echo '<option value="transgénero" selected>Transgénero</option>';
+                    } else {
+                        echo '<option value="transgénero">Transgénero</option>';
+                    }
+
+                    if ($ExUsuario && $Nconusu->Genero == "cisgénero") {
+                        echo '<option value="cisgénero" selected>Cisgénero</option>';
+                    } else {
+                        echo '<option value="cisgénero">Cisgénero</option>';
+                    }
+
+                    if ($ExUsuario && $Nconusu->Genero == "intergénero") {
+                        echo '<option value="intergénero" selected>Intergénero</option>';
+                    } else {
+                        echo '<option value="intergénero">Intergénero</option>';
+                    }
+
+                    if ($ExUsuario && $Nconusu->Genero == "trigénero") {
+                        echo '<option value="trigénero" selected>Trigénero</option>';
+                    } else {
+                        echo '<option value="trigénero">Trigénero</option>';
+                    }
+
+                    if ($ExUsuario && $Nconusu->Genero == "ninguno") {
+                        echo '<option value="ninguno" selected>Ninguno</option>';
+                    } else {
+                        echo '<option value="ninguno">Ninguno</option>';
+                    }
+
+                    if ($ExUsuario && $Nconusu->Genero == "otro") {
+                        echo '<option value="otro" selected>Otro</option>';
+                    } else {
+                        echo '<option value="otro">Otro</option>';
+                    }
+                ?>
                 </select>
                 <label for="estcivil">Estado civil:</label>
                 <select name="estcivil" class="txtform">
-                    <option value="soltero">Soltero/a</option>
-                    <option value="casado">Casado/a</option>
-                    <option value="divorciado">Divorciado/a</option>
-                    <option value="viudo">Viudo/a</option>
-                    <option value="union_libre">Unión libre</option>
-                    <option value="anulado">Anulado/a</option>
-                    <option value="separado">Separado/a</option>
-                    <option value="conviviente">Conviviente</option>
+                    <?php
+                    if ($ExUsuario && $Nconusu->EstadoCivil == "soltero") {
+                        echo '<option value="soltero" selected>Soltero/a</option>';
+                    } else {
+                        echo '<option value="soltero">Soltero/a</option>';
+                    }
+
+                    if ($ExUsuario && $Nconusu->EstadoCivil == "casado") {
+                        echo '<option value="casado" selected>Casado/a</option>';
+                    } else {
+                        echo '<option value="casado">Casado/a</option>';
+                    }
+
+                    if ($ExUsuario && $Nconusu->EstadoCivil == "divorciado") {
+                        echo '<option value="divorciado" selected>Divorciado/a</option>';
+                    } else {
+                        echo '<option value="divorciado">Divorciado/a</option>';
+                    }
+
+                    if ($ExUsuario && $Nconusu->EstadoCivil == "viudo") {
+                        echo '<option value="viudo" selected>Viudo/a</option>';
+                    } else {
+                        echo '<option value="viudo">Viudo/a</option>';
+                    }
+
+                    if ($ExUsuario && $Nconusu->EstadoCivil == "union_libre") {
+                        echo '<option value="union_libre" selected>Unión libre</option>';
+                    } else {
+                        echo '<option value="union_libre">Unión libre</option>';
+                    }
+
+                    if ($ExUsuario && $Nconusu->EstadoCivil == "anulado") {
+                        echo '<option value="anulado" selected>Anulado/a</option>';
+                    } else {
+                        echo '<option value="anulado">Anulado/a</option>';
+                    }
+
+                    if ($ExUsuario && $Nconusu->EstadoCivil == "separado") {
+                        echo '<option value="separado" selected>Separado/a</option>';
+                    } else {
+                        echo '<option value="separado">Separado/a</option>';
+                    }
+
+                    if ($ExUsuario && $Nconusu->EstadoCivil == "conviviente") {
+                        echo '<option value="conviviente" selected>Conviviente</option>';
+                    } else {
+                        echo '<option value="conviviente">Conviviente</option>';
+                    }
+                ?>
                 </select>
                 <label for="profesion">Profesión:</label>
                 <?php
                 $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Profesiones]");
                 echo '<select name="profesion" class="txtform" id="selectorPro">';
                 while ($fila = sqlsrv_fetch_object($resultado)) {
+                    if ($ExUsuario && $fila->IdProfesion==$Nconusu->Profesion){
+                        echo '<option value="' , $fila->IdProfesion , '" selected>' , $fila->Profesion , '</option>';
+                    }else{
                         echo '<option value="' , $fila->IdProfesion , '">' , $fila->Profesion , '</option>';
+                    }
                     }
                 echo '</select>'
                 ?>
@@ -76,29 +206,40 @@
                 <label for="lugarnc">País:</label>
                 <?php
                 $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Paises]");
-                echo '<select name="lugarnc" class="txtform">';
+                echo '<select name="lugarnc" class="txtform" ' . ($ExUsuario ? 'disabled' : '') . '>';
                 while ($fila = sqlsrv_fetch_object($resultado)) {
+                    if ($ExUsuario && $fila->IdPais == $Nconusu->LugarNacimiento) {
+                        echo '<option value="' , $fila->IdPais , '" selected>' , $fila->Pais , '</option>';
+                    } else {
                         echo '<option value="' , $fila->IdPais , '">' , $fila->Pais , '</option>';
                     }
-                echo '</select>'
+                }
+                echo '</select>';
                 ?>
                 <label for="fechanc">Fecha:</label>
-                <input type="date" name="fechanc" class="txtform">
+                <input type="date" name="fechanc" class="txtform" <?php echo ($ExUsuario ? 'readonly' : ''); ?> value="<?php echo ($ExUsuario ? $Nconusu->FechaNacimiento->format('Y-m-d') : ''); ?>">
                 <hr>
                 <h3> Ubicación </h3> 
                 <label for="ciudad">Ciudad:</label>
-                <input type="text" name="ciudad" class="txtform">
-                <label  for="pais">País:</label>
+                <input type="text" name="ciudad" class="txtform" value="<?php echo ($ExUsuario ? obtenerCiudad($conn, $Nconusu->Ubicacion) : ''); ?>">
+                
+                <label for="pais">País:</label>
                 <?php
                 $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Paises]");
                 echo '<select name="PaisU" class="txtform">';
                 while ($fila = sqlsrv_fetch_object($resultado)) {
+                    if ($ExUsuario && obtenerPais($conn, $Nconusu->Ubicacion) == $fila->IdPais) {
+                        echo '<option value="' , $fila->IdPais , '" selected>' , $fila->Pais , '</option>';
+                    } else {
                         echo '<option value="' , $fila->IdPais , '">' , $fila->Pais , '</option>';
                     }
-                echo '</select>'
+                }
+                echo '</select>';
                 ?>
-                <label  for="direccion">Dirección:</label>
-                <input type="text" name="direccion" class="txtform">
+
+                <label for="direccion">Dirección:</label>
+                <input type="text" name="direccion" class="txtform" value="<?php echo ($ExUsuario ? obtenerDireccion($conn, $Nconusu->Ubicacion) : ''); ?>">
+
                 <hr>
                 <h3> Contacto </h3> 
                 <label for="telefono">Teléfono:</label>
@@ -282,6 +423,48 @@
                 echo '")</script>';
             }
         }
+    }
+
+    function obtenerCiudad($conn, $ubicacionId) {
+        $query = "SELECT Ciudad FROM [dbo].[Ubicacion] WHERE IdUbicacion = ?";
+        $params = array($ubicacionId);
+        $result = sqlsrv_query($conn, $query, $params);
+        $ciudad = '';
+    
+        if ($result && sqlsrv_has_rows($result)) {
+            $row = sqlsrv_fetch_array($result);
+            $ciudad = $row['Ciudad'];
+        }
+    
+        return $ciudad;
+    }
+    
+    function obtenerPais($conn, $ubicacionId) {
+        $query = "SELECT Pais FROM [dbo].[Ubicacion] WHERE IdUbicacion = ?";
+        $params = array($ubicacionId);
+        $result = sqlsrv_query($conn, $query, $params);
+        $paisId = '';
+    
+        if ($result && sqlsrv_has_rows($result)) {
+            $row = sqlsrv_fetch_array($result);
+            $paisId = $row['Pais'];
+        }
+    
+        return $paisId;
+    }
+    
+    function obtenerDireccion($conn, $ubicacionId) {
+        $query = "SELECT Direccion FROM [dbo].[Ubicacion] WHERE IdUbicacion = ?";
+        $params = array($ubicacionId);
+        $result = sqlsrv_query($conn, $query, $params);
+        $direccion = '';
+    
+        if ($result && sqlsrv_has_rows($result)) {
+            $row = sqlsrv_fetch_array($result);
+            $direccion = $row['Direccion'];
+        }
+    
+        return $direccion;
     }
     ?>
 
