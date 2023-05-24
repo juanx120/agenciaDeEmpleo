@@ -132,7 +132,6 @@
             <div class="opciones">
                 <button type="submit" class="btn-ini" name="btn-Estudios">Añadir</button>
             </div>
-           
         </form>
     </dialog>
 
