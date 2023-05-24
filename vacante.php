@@ -34,7 +34,7 @@
                         $fechaFin = $fila['FechaFin']->format('Y/m/d');
                         echo "<tr class='espacio'></tr>";
                         echo "<tr class='row_HV'> <td>".$fila['Titulo']."</td><td>".$fila['RazonSocial']."</td><td>".$fila['Profesion']."</td>
-                        <td>".$fechaFin."</td></tr>";
+                        <td>".$fila['Salario']."</td><td>".$fechaFin."</td></tr>";
                     }
                 ?>
         </tbody>
