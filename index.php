@@ -119,10 +119,8 @@ if(isset($_POST['btningreso'])){
                 //echo '")</script>';
                 //header("Location: https://agenciadeempleobogota.azurewebsites.net/inicio.php");
                 //exit();
-                header("Location: inicio.php");
-                exit();
-                //echo '<script type="text/javascript"> window.location.href = "https://agenciadeempleobogota.azurewebsites.net/inicio.php?Idu=',$Idu; 
-                //echo '"</script>';
+                echo '<script type="text/javascript"> window.location.href = "https://agenciadeempleobogota.azurewebsites.net/inicio.php?Idu=',$Idu; 
+                echo '"</script>';
             }
         }
     } else {
