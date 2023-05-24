@@ -20,18 +20,14 @@
             </div>
         </form>
         <?php
-            $IdUsuario;
-            $sql = "SELECT HojaDeVida, Identificacion FROM Desempleado a INNER JOIN Usuario b on a.IdUsuario = b.IdUsuario  where a.IdUsuario = $IdUsuario";
-            $resultado = sqlsrv_query( $conn, $sql);
-            // Obtener los resultados como un array asociativo
-            $row = mysqli_fetch_assoc($resultado);
-
-            // Guardar los datos en variables de PHP
-            $hoja_de_vida = $row["HojaDeVida"];
-            $identificacion = $row["Identificacion"];
             
-            echo "<p>hoja de vida: $hoja_de_vida";
-            echo "<p>Identificación: $identificacion";
+            echo $IdUsuario;
+
+            $sql = "SELECT HojaDeVida FROM Desempleado a INNER JOIN Usuario b on a.IdUsuario = b.IdUsuario  where a.IdUsuario = $IdUsuario";
+            $resultado = sqlsrv_query( $conn, $sql);
+            $infoHV = sqlsrv_fetch_object($resultado);
+
+            echo "<p>hoja de vida: $infoHV->HojaDeVija </p>";
             #if($info_hoja[0] != NULL OR $info_hoja[0] != 0) {
         ?>
         <div>
@@ -211,9 +207,8 @@
                 $scoop= sqlsrv_query( $conn, $scope);
                 $fila = sqlsrv_fetch_array($scoop);
 
-                $sql1 = "INSERT INTO [dbo].[Desempleado] (HojaDeVida) VALUES (?)";
-                $params1 = array($fila[0]);
-                $stmt1 = sqlsrv_query( $conn, $sql1, $params1);
+                $sql1 = "UPDATE[dbo].[Desempleado] SET HojaDeVida = $fila[0] WHERE IdUsuario = $IdUsuario";
+                $stmt1 = sqlsrv_query( $conn, $sql1);
             if( $stmt1 === false ) {
                 die( print_r( sqlsrv_errors(), true));
                 echo '<script language="javascript">';
