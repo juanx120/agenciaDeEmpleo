@@ -19,16 +19,7 @@
                 <input type="submit" name="gdhoja" value="Guardar" class="button">
             </div>
         </form>
-        <?php
-            
-            echo $IdUsuario;
-            $sql = "SELECT HojaDeVida FROM [dbo].[Desempleado] where IdUsuario = ?";
-            $params = array( $IdUsuario);
-            $resultado = sqlsrv_query( $conn, $sql, $params);
-            $infoHV = sqlsrv_fetch_object($resultado);
-            echo "<p>hoja de vida: $infoHV->HojaDeVida </p>";
-            if($info_hoja->HojaDeVida != null)  { echo paso; };
-        ?>
+        
         <div>
             <a id="btn-estudios" class="button2">Añadir estudios</a>
         </div>
