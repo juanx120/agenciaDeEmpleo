@@ -24,7 +24,7 @@
             $sql = "SELECT HojaDeVida, Identificacion FROM Desempleado a INNER JOIN Usuario b on a.IdUsuario = b.IdUsuario  where a.IdUsuario = $IdUsuario";
             $resultado = sqlsrv_query( $conn, $sql);
             // Obtener los resultados como un array asociativo
-            $row = mysqli_fetch_assoc($res);
+            $row = mysqli_fetch_assoc($resultado);
 
             // Guardar los datos en variables de PHP
             $hoja_de_vida = $row["HojaDeVida"];
