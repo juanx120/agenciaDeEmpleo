@@ -15,7 +15,7 @@
             <label for="fechaInicio">Fecha inicio:</label>
             <input type="date" name="fechaInicio" class="txtform" require>
             <label for="fechaFinal">Fecha final:</label>
-            <input type="date" name="fechaInicio" class="txtform" require>
+            <input type="date" name="fechaFinal" class="txtform" require>
             <label for="profesionva">Profesion:</label>
             <?php
                 $resultado = sqlsrv_query($conn, "SELECT IdProfesion, Profesion FROM [dbo].[Profesiones]");
