@@ -1,13 +1,4 @@
-<?php include('menu.php') ;
-
-    //$Idu = $_SESSION['Idu'];
-    echo $_SESSION['Idu'];
-    echo '<script>';
-    echo 'console.log ("el valor de usuario es:"', $_SESSION['Idu'];
-    echo ')';
-    echo 'console.log ("el valor de usuario es:"', $_GET['Idu'], $_SESSION['Idu'];
-    echo ')</script>';
-?>
+<?php include('menu.php') ; ?>
 
 <div class = "contenido"> 
     <form id="dt-aspirante" class='info' method="post">
@@ -32,14 +23,18 @@
             </tr>
         </thead>    
         <tbody>
-            <tr class="espacio"></tr>
-            <tr class="row">
-                <td>Dato 1<td>
-            </tr>
-            <tr class="espacio"></tr>
-            <tr class="row">
-                <td>Dato 2<td>
-            </tr>
+        <tr class='espacio'></tr>
+                <tr class='row_HVsub'><td>Nombre</td><td>Télefono</td><td>Profesion</td></tr>
+                <?php
+                    $sql = "SELECT  IdUsuario,Nombre,Apellido,Telefono,b.Profesion FROM Desempleado a 
+                    INNER JOIN Profesiones b on b.IdProfesion = a.Profesion where IdUsuario = ?";
+                    $params = array($IdUsuario);
+                    $resultado = sqlsrv_query( $conn, $sql, $params);
+                    while ($fila = sqlsrv_fetch_object($resultado)) {
+                        echo "<tr class='espacio'></tr>";
+                        echo "<tr class='row_HV'> <td>$fila->Nombre $fila->Apellido</td><td>$fila->Telefono</td><td>$fila->Profesion</td></tr>";
+                    }
+                ?>
         </tbody>
     </table>
 
