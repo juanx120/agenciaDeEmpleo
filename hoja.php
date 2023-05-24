@@ -26,7 +26,7 @@
                 <label for="descripcion">Descripción:</label>
                 <?php
                 if($Nconusu->HojaDeVida != NULL){
-                    echo '<input type="number" name="salario" class="txtform" value="'.$Valho->DescripcionPerfil.'">';
+                    echo '<input type="text" name="descripcion" class="txtformlg" value="'.$Valho->DescripcionPerfil.'"><br><br>';
                 }else{
                     echo '<input type="text" name="descripcion" class="txtformlg"><br><br>';
                 }
