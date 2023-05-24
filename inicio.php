@@ -277,7 +277,7 @@ include('menu.php') ;
                 <label for="nombreemp"> Nombre:</label>
                 <?php
                 if($ExEmpresa){
-                    echo '<input type="text" name="nombreemp" class="txtform" value="'.$ConsultaNE->Nombre.'" disabled>';
+                    echo '<input type="text" name="nombreemp" class="txtform" value="'.$Nconemp->Nombre.'" disabled>';
                 }else{
                     echo '<input type="text" name="nombreemp" class="txtform">';
                 }
@@ -285,7 +285,7 @@ include('menu.php') ;
                 <label for="nit"> NIT:</label>
                 <?php
                 if($ExEmpresa){
-                    echo '<input type="number" name="nit" class="txtform" value="'.$ConsultaNE->NIT.'" disabled>';
+                    echo '<input type="number" name="nit" class="txtform" value="'.$Nconemp->NIT.'" disabled>';
                 }else{
                     echo '<input type="number" name="nit" class="txtform">';
                 }
@@ -293,7 +293,7 @@ include('menu.php') ;
                 <label for="razsocial">Razón social:</label>
                 <?php
                 if($ExEmpresa){
-                    echo '<input type="text" name="razsocial" class="txtform" value="'.$ConsultaNE->RazonSocial.'" disabled>';
+                    echo '<input type="text" name="razsocial" class="txtform" value="'.$Nconemp->RazonSocial.'" disabled>';
                 }else{
                     echo '<input type="text" name="razsocial" class="txtform">';
                 }
@@ -301,7 +301,7 @@ include('menu.php') ;
                 <label for="repre">Representante:</label>
                 <?php
                 if($ExEmpresa){
-                    echo '<input type="text" name="repre" class="txtform" value="'.$ConsultaNE->RepresentanteL.'">';
+                    echo '<input type="text" name="repre" class="txtform" value="'.$Nconemp->RepresentanteL.'">';
                 }else{
                     echo '<input type="text" name="repre" class="txtform">';
                 }
@@ -309,13 +309,13 @@ include('menu.php') ;
                 <hr>
                 <h3> Ubicación </h3> 
                 <label for="ciudademp">Ciudad:</label>
-                <input type="text" name="ciudademp" class="txtform" value="<?php echo ($ExEmpresa ? obtenerCiudad($conn, $ConsultaNE->Ubicacion) : ''); ?>">
+                <input type="text" name="ciudademp" class="txtform" value="<?php echo ($ExEmpresa ? obtenerCiudad($conn, $Nconemp->Ubicacion) : ''); ?>">
                 <label  for="paisemp">País:</label>
                 <?php
                 $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Paises]");
                 echo '<select name="paisemp" class="txtform">';
                 while ($fila = sqlsrv_fetch_object($resultado)) {
-                    if ($ExEmpresa && obtenerPais($conn, $ConsultaNE->Ubicacion) == $fila->IdPais) {
+                    if ($ExEmpresa && obtenerPais($conn, $Nconemp->Ubicacion) == $fila->IdPais) {
                         echo '<option value="' , $fila->IdPais , '" selected>' , $fila->Pais , '</option>';
                     } else {
                         echo '<option value="' , $fila->IdPais , '">' , $fila->Pais , '</option>';
@@ -324,7 +324,7 @@ include('menu.php') ;
                 echo '</select>';
                 ?>
                 <label  for="direccionemp">Dirección:</label>
-                <input type="text" name="direccionemp" class="txtform" value="<?php echo ($ExEmpresa ? obtenerDireccion($conn, $ConsultaNE->Ubicacion) : ''); ?>">
+                <input type="text" name="direccionemp" class="txtform" value="<?php echo ($ExEmpresa ? obtenerDireccion($conn, $Nconemp->Ubicacion) : ''); ?>">
                 <br>
                 <input type="submit" name="gdempresa" value="Guardar" class="button">
             </div>
