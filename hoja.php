@@ -274,7 +274,7 @@
             $Ano = $_POST['Ano'];
             $DescripcionExp = $_POST['descripcionExp'];
         
-            $sql = "INSERT INTO [dbo].[ExperienciaLaboral] (Empresa, PuestoOcupado, Ano, Descripcion) VALUES (?,?,?)";
+            $sql = "INSERT INTO [dbo].[ExperienciaLaboral] (Empresa, PuestoOcupado, Ano, Descripcion) VALUES (?,?,?,?)";
             $params = array($Empresa, $Puesto, $Ano, $DescripcionExp);
         
             $stmt = sqlsrv_query( $conn, $sql, $params);
