@@ -345,6 +345,17 @@ include('menu.php') ;
                 <tr class="row">
                     <td>Dato 1<td>
                 </tr>
+                
+                <?php
+                    //$sql = "SELECT Nombre, Telefono, Ubicacion FROM [dbo].[Formacion] INNER JOIN [dbo].[SedesXEmpresa] on IdFormacion = Estudios
+                    //INNER JOIN [dbo].[Profesiones] on TituloOtorgado = IdProfesion WHERE HojaVida = ?";
+                    //$params = array($infoHV->HojaDeVida);
+                    //$resultado = sqlsrv_query( $conn, $sql, $params);
+                    //while ($fila = sqlsrv_fetch_object($resultado)) {
+                    //    echo "<tr class='espacio'></tr>";
+                    //    echo "<tr class='row_HV'> <td>$fila->Institucion</td><td>$fila->Profesion</td><td>$fila->AnoFinalizacion</td></tr>";
+                    //}
+                ?>
                 <tr class="espacio"></tr>
                 <tr class="row">
                     <td>Dato 2<td>
@@ -362,7 +373,7 @@ include('menu.php') ;
         <form id="register-form" method="post">
             <div class="form-group">
                 <label for="nombresd"> Nombre:</label>
-                <input type="number" name="nombresd" class="form-iniciar-s" required>
+                <input type="text" name="nombresd" class="form-iniciar-s" required>
             </div>
             <div class="form-group">
                 <label for="telefonosd">Télefono:</label>
