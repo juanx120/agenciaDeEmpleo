@@ -23,11 +23,16 @@
             $IdUsuario;
             $sql = "SELECT HojaDeVida, Identificacion FROM Desempleado a INNER JOIN Usuario b on a.IdUsuario = b.IdUsuario  where a.IdUsuario = $IdUsuario";
             $resultado = sqlsrv_query( $conn, $sql);
-            $info_hoja = sqlsrv_fetch_array($resultado)
+            // Obtener los resultados como un array asociativo
+            $row = mysqli_fetch_assoc($res);
+
+            // Guardar los datos en variables de PHP
+            $hoja_de_vida = $row["HojaDeVida"];
+            $identificacion = $row["Identificacion"];
             
-            echo "<p>hoja de vida: $info_hoja[0]";
-            echo "<p>Identificación: $info_hoja[1]";
-            if($info_hoja[0] != NULL OR $info_hoja[0] != 0) {
+            echo "<p>hoja de vida: $hoja_de_vida";
+            echo "<p>Identificación: $identificacion";
+            #if($info_hoja[0] != NULL OR $info_hoja[0] != 0) {
         ?>
         <div>
             <a id="btn-estudios" class="button2">Añadir estudios</a>
@@ -89,7 +94,7 @@
                 </tr>
             </tbody>
         </table>
-        <?php } ?>
+        <?php #} ?>
     </div>
 
     <!--Modal estudios-->
