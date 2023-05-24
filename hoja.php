@@ -24,8 +24,8 @@
             $params = array( $IdUsuario);
             $resultado = sqlsrv_query( $conn, $sql, $params);
             $infoHV = sqlsrv_fetch_object($resultado);
-            echo "<p>hoja de vida: $infoHV->HojaDeVida </p>";
-            if($infoHV->HojaDeVida != NULL) { $IdHoja = $infoHV->HojaDeVida; echo $IdHoja;
+            echo "<p>hoja de vida: </p>";
+            if($infoHV->HojaDeVida != NULL) { $IdHoja = $infoHV->HojaDeVida;
         ?>
         <div>
             <a id="btn-estudios" class="button2">Añadir estudios</a>
@@ -40,7 +40,7 @@
                 <?php
                     $sql = "SELECT Institucion, TituloOtorgado, AnoFinalizacion FROM [dbo].[Formacion] INNER JOIN FormacionXHoja on IdFormacion = Estudios
                     WHERE HojaVida = ?";
-                    $params = array($IdHoja);
+                    $params = array($infoHV->HojaDeVida);
                     $resultado = sqlsrv_query( $conn, $sql, $params);
                     while ($fila = sqlsrv_fetch_object($resultado)) {
                         echo "<tr class='row'> <td>$fila->Empresa<td><td>$fila->PuestoOcupado<td><td>$fila->Ano<td> <td>$fila->Descipcion<td> </tr>";
