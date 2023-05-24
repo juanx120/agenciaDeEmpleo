@@ -33,10 +33,12 @@
         <table id="estudios">
             <thead class="row_titulo">
                 <tr>
-                    <th>Estudios</th>
+                    <th colspan = '3'>Estudios</th>
                 </tr>
             </thead>    
             <tbody>
+                <tr class='espacio'></tr>
+                <tr class='row_HV'><td>Institución</td><td>Título</td><td>Año finalización</td></tr>
                 <?php
                     $sql = "SELECT Institucion, Profesion, AnoFinalizacion FROM [dbo].[Formacion] INNER JOIN [dbo].[FormacionXHoja] on IdFormacion = Estudios
                     INNER JOIN [dbo].[Profesiones] on TituloOtorgado = IdProfesion WHERE HojaVida = ?";
