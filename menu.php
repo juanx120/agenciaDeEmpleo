@@ -4,12 +4,12 @@
         <a href='inicio.php'>Datos usuario</a>
         <?php if($TaUser->TipoUsuario == 'P' || $TaUser->TipoUsuario == 'A'){ ?> 
         <a href='hoja.php'>Hoja de vida</a>
-        <a href='#'>Vacantes</a>
         <a href='empresas.php'>Empresas</a>
+        <a href='vacante.php'>Vacantes</a>
         <?php } ?>
         <?php if($TaUser->TipoUsuario == 'E' || $TaUser->TipoUsuario == 'A'){ ?> 
         <a href='aspirantes.php'>Aspirantes</a>
-        <a href='#'>Crear vacante</a>
+        <a href='crearVacante.php'>Crear vacante</a>
         <a href='#'>Reportes</a>
         <?php } ?>
         <form method="post">
