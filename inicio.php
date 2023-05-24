@@ -243,7 +243,13 @@
                 <hr>
                 <h3> Contacto </h3> 
                 <label for="telefono">Teléfono:</label>
-                <input type="number" name="telefono" class="txtform"><br>
+                <?php
+                if ($ExUsuario) {
+                    echo '<input type="number" name="telefono" class="txtform" value="' . $Nconusu->Telefono . '"><br>';
+                } else {
+                    echo '<input type="number" name="telefono" class="txtform"><br>';
+                }
+                ?>
                 <button type="submit" name="gdpersona" value="Guardar" class="button">Guardar</button>
             </div>
         </form>
@@ -346,45 +352,75 @@
     </dialog>
 
     <?php
-    if(isset($_POST['gdpersona'])){
-        $Nombre=$_POST['nombre'];
-        $Apellido=$_POST['apellido'];
-        $Identificacion=$_POST['identificacion'];
-        $Genero=$_POST['genero'];
-        $Estadocivil=$_POST['estcivil'];
-        $Profesion=$_POST['profesion'];
-        $Lugarnc=$_POST['lugarnc'];
-        $Fechanc=strtotime($_POST['fechanc']);
-        $Fechanc=date('Y-m-d', $Fechanc);
-        $CiudadU=$_POST['ciudad'];
-        $PaisU=$_POST['PaisU'];
-        $DireccionU=$_POST['direccion'];
-        $TelefonoU=$_POST['telefono'];
-        echo '<script> console.log("Llegue a esta zona :3)</script>';
-        
-        $sql = "INSERT INTO [dbo].[Ubicacion] (Ciudad, Direccion, Pais) VALUES (?,?,?)";
-        $params = array($CiudadU, $DireccionU, $PaisU);
-        $stmt = sqlsrv_query( $conn, $sql, $params);
-        if( $stmt === FALSE ){
-
-        }
-        else{
-            $scope = "SELECT IdUbicacion FROM [dbo].[Ubicacion] WHERE Direccion LIKE '%$DireccionU%' AND Ciudad LIKE '%$CiudadU%' AND Pais = $PaisU";
-            $scoop= sqlsrv_query( $conn, $scope);
-            $fila = sqlsrv_fetch_array($scoop);
-
-            $sql1 = "INSERT INTO [dbo].[Desempleado] (Identificacion, IdUsuario, Nombre, Apellido, Telefono, LugarNacimiento, FechaNacimiento, Genero, EstadoCivil, Profesion, Ubicacion) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-            $params1 = array($Identificacion, $_GET['Idu'], $Nombre, $Apellido,$TelefonoU,$Lugarnc,$Fechanc,$Genero,$Estadocivil,$Profesion,$fila[0]);
-            $stmt1 = sqlsrv_query( $conn, $sql1, $params1);
-            if( $stmt1 === false ) {
-                die( print_r( sqlsrv_errors(), true));
+    if (isset($_POST['gdpersona'])) {
+        $Nombre = $_POST['nombre'];
+        $Apellido = $_POST['apellido'];
+        $Identificacion = $_POST['identificacion'];
+        $Genero = $_POST['genero'];
+        $Estadocivil = $_POST['estcivil'];
+        $Profesion = $_POST['profesion'];
+        $Lugarnc = $_POST['lugarnc'];
+        $Fechanc = strtotime($_POST['fechanc']);
+        $Fechanc = date('Y-m-d', $Fechanc);
+        $CiudadU = $_POST['ciudad'];
+        $PaisU = $_POST['PaisU'];
+        $DireccionU = $_POST['direccion'];
+        $TelefonoU = $_POST['telefono'];
+    
+        if ($ExUsuario) {
+            // Actualizar el usuario existente
+            $sqlUpdate = "UPDATE [dbo].[Desempleado] SET Genero = ?, EstadoCivil = ?, Profesion = ?, Telefono = ? WHERE Identificacion = ?";
+            $paramsUpdate = array($Genero, $Estadocivil, $Profesion, $TelefonoU, $Identificacion);
+            $stmtUpdate = sqlsrv_query($conn, $sqlUpdate, $paramsUpdate);
+            
+            // Actualizar la ubicación
+            $sqlUpdateUbicacion = "UPDATE [dbo].[Ubicacion] SET Ciudad = ?, Pais = ?, Direccion = ? WHERE IdUbicacion = ?";
+            $paramsUpdateUbicacion = array($CiudadU, $PaisU, $DireccionU, $Nconusu->Ubicacion);
+            $stmtUpdateUbicacion = sqlsrv_query($conn, $sqlUpdateUbicacion, $paramsUpdateUbicacion);
+    
+            if ($stmtUpdate === false || $stmtUpdateUbicacion === false) {
+                die(print_r(sqlsrv_errors(), true));
                 echo '<script language="javascript">';
-                echo 'alert("Error al crear usuario")';
+                echo 'alert("Error al actualizar usuario")';
                 echo '</script>';
-            }else{
+            } else {
                 echo '<script language="javascript">';
-                echo 'alert("Datos guardados exitosamente';
-                echo '")</script>';
+                echo 'alert("Datos actualizados exitosamente")';
+                echo '</script>';
+            }
+        } else {
+            // Insertar un nuevo usuario
+            $sqlInsertUbicacion = "INSERT INTO [dbo].[Ubicacion] (Ciudad, Direccion, Pais) VALUES (?,?,?)";
+            $paramsInsertUbicacion = array($CiudadU, $DireccionU, $PaisU);
+            $stmtInsertUbicacion = sqlsrv_query($conn, $sqlInsertUbicacion, $paramsInsertUbicacion);
+    
+            if ($stmtInsertUbicacion === false) {
+                die(print_r(sqlsrv_errors(), true));
+                echo '<script language="javascript">';
+                echo 'alert("Error al crear ubicación")';
+                echo '</script>';
+            } else {
+                // Obtener el IdUbicacion insertado
+                $queryIdUbicacion = "SELECT SCOPE_IDENTITY() AS IdUbicacion";
+                $stmtIdUbicacion = sqlsrv_query($conn, $queryIdUbicacion);
+                $rowIdUbicacion = sqlsrv_fetch_array($stmtIdUbicacion);
+                $IdUbicacion = $rowIdUbicacion['IdUbicacion'];
+    
+                // Insertar el nuevo usuario
+                $sqlInsertUser = "INSERT INTO [dbo].[Desempleado] (Identificacion, IdUsuario, Nombre, Apellido, Telefono, LugarNacimiento, FechaNacimiento, Genero, EstadoCivil, Profesion, Ubicacion) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+                $paramsInsertUser = array($Identificacion, $_GET['Idu'], $Nombre, $Apellido, $TelefonoU, $Lugarnc, $Fechanc, $Genero, $Estadocivil, $Profesion, $IdUbicacion);
+                $stmtInsertUser = sqlsrv_query($conn, $sqlInsertUser, $paramsInsertUser);
+    
+                if ($stmtInsertUser === false) {
+                    die(print_r(sqlsrv_errors(), true));
+                    echo '<script language="javascript">';
+                    echo 'alert("Error al crear usuario")';
+                    echo '</script>';
+                } else {
+                    echo '<script language="javascript">';
+                    echo 'alert("Datos guardados exitosamente")';
+                    echo '</script>';
+                }
             }
         }
     }
