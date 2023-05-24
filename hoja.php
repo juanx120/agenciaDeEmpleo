@@ -21,17 +21,11 @@
         </form>
         <?php
             $IdUsuario;
-            $sql = "SELECT HojaDeVida, Identificacion FROM Desempleado a INNER JOIN Usuario b on a.IdUsuario = b.IdUsuario  where a.IdUsuario = $IdUsuario";
+            $sql = "SELECT HojaDeVida  FROM Desempleado a INNER JOIN Usuario b on a.IdUsuario = b.IdUsuario  where a.IdUsuario = $IdUsuario";
             $resultado = sqlsrv_query( $conn, $sql);
-            // Obtener los resultados como un array asociativo
-            $row = mysqli_fetch_assoc($resultado);
+            $infoHV = sqlsrv_fetch_object($resultado);
 
-            // Guardar los datos en variables de PHP
-            $hoja_de_vida = $row["HojaDeVida"];
-            $identificacion = $row["Identificacion"];
-            
-            echo "<p>hoja de vida: $hoja_de_vida";
-            echo "<p>Identificación: $identificacion";
+            echo "<p>hoja de vida: $infoHV";
             #if($info_hoja[0] != NULL OR $info_hoja[0] != 0) {
         ?>
         <div>
