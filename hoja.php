@@ -99,7 +99,7 @@
         <form id="register-form" method="post">
             <div class="form-group">
                 <label for="institucion">Instutución:</label>
-                <input name="institucion" type="text" id="estinstitucion" class="form-iniciar-s" required>
+                <input name="institucion" type="text" class="form-iniciar-s" required>
             </div>
             <div class="form-group">
                 <label for="profesion">Titulo profesional:</label>
@@ -114,7 +114,7 @@
             </div>
             <div class="form-group">
                 <label for="final">Año finalización:</label>
-                <input name="final" type="text" id="estfinal" class="form-iniciar-s" required>
+                <input name="final" type="text" class="form-iniciar-s" required>
             </div>
             <div class="opciones">
                 <button type="submit" class="btn-ini" name="btn-Estudios">Añadir</button>
@@ -128,22 +128,22 @@
             <h2>Añadir experiencia laboral</h2>
             <span id="btn-cerrar-modalExp" class="material-symbols-outlined btn-cerrar">cancel</span>
         </div>
-        <form id="register-form" method="post">
+        <form method="post">
             <div class="form-group">
-                <label for="empresa">Empresa:</label>
-                <input name="empresa" type="text" id="estinstitucion" class="form-iniciar-s" required>
+                <label for="empresaepx">Empresa:</label>
+                <input name="empresaexp" type="text" class="form-iniciar-s" required>
             </div>
             <div class="form-group">
                 <label for="puesto">Puesto ocupado:</label>
-                <input name="puesto" type="text" id="esttitulo" class="form-iniciar-s" required>
+                <input name="puesto" type="text" class="form-iniciar-s" required>
             </div>
             <div class="form-group">
                 <label for="ano">Año:</label>
-                <input name="ano" type="text" id="estfinal" class="form-iniciar-s" required>
+                <input name="ano" type="text" class="form-iniciar-s" required>
             </div>
             <div class="form-group">
                 <label for="descripcionExp">Descripción:</label>
-                <input name="descripcionExp" type="text" id="estfinal" class="form-iniciar-s" required>
+                <input name="descripcionExp" type="text" class="form-iniciar-s" required>
             </div>
             <div class="opciones">
                 <button type="submit" class="btn-ini" name="btn-Experiencia">Añadir</button>
@@ -217,19 +217,19 @@
         }
 
         if(isset($_POST['btn-Estudios'])){
-            $Institucion=$_POST['institucion'];
+            $Institucionest=$_POST['institucion'];
             $Profesion=$_POST['profesion'];
             $Final=$_POST['final'];
         
             $sql = "INSERT INTO [dbo].[Formacion] (Institucion, TituloOtorgado, AnoFinalizacion) VALUES (?,?,?)";
-            $params = array($Institucion, $Profesion, $Final);
+            $params = array($Institucionest, $Profesion, $Final);
         
             $stmt = sqlsrv_query( $conn, $sql, $params);
             if( $stmt === FALSE ){
                 die( print_r( sqlsrv_errors(), true));
             }
             else{
-                $scope = "SELECT IdFormacion FROM Formacion where Institucion = '$Institucion' AND TituloOtorgado = '$Profesion' AND
+                $scope = "SELECT IdFormacion FROM Formacion where Institucion = '$Institucionest' AND TituloOtorgado = '$Profesion' AND
                             AñoFinalizacion = $Final";
                 $scoop= sqlsrv_query( $conn, $scope);
                 $fila = sqlsrv_fetch_array($scoop);
