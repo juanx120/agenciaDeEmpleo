@@ -18,6 +18,17 @@
     background-color: rgba(140,35,35,0.95);
 }
 
+
+.modal_lg {
+    margin-left: 35%;
+    margin-top: 20%;
+    width: 700px;
+    /* height: auto; */
+    border-radius: 26px;
+    color: #F2CA7E;
+    background-color: rgba(140,35,35,0.95);
+}
+
 .modal::backdrop {
     background-color: rgba(0, 0, 0, .70);
 }
@@ -55,6 +66,17 @@
     background-color: rgba(242,202,126,0.6);
 }
 
+.form-iniciar-lg {
+    width: 450px;
+    padding: 10px;
+    border-radius: 50px 50px 50px 50px;
+    border: 0;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    font-size: 17px;
+    background-color: rgba(242,202,126,0.6);
+}
+
 .btn-registro{
     color:#F2CA7E;
     font-size: 20px;
@@ -75,6 +97,22 @@
     color: black;
     border-radius: 15px;
     cursor: pointer;
+}
+
+.btn-lg{
+    background-color: #F2CA7E;
+    margin-right: 10%;
+    font-size: 18px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-style: none;
+    color: black;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 25%;
+    height: 40px;
+    margin-bottom: 3%;
 }
 
 .opciones a{

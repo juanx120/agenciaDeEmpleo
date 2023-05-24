@@ -119,7 +119,7 @@
     </div>
 
     <!--Modal estudios-->
-    <dialog id="modalest" class="modal">
+    <dialog id="modalest" class="modal_lg">
         <div class="T-Modal">
             <h2>Añadir estudios</h2>
             <span id="btn-cerrar-modalEst" class="material-symbols-outlined btn-cerrar">cancel</span>
@@ -127,13 +127,13 @@
         <form id="register-form" method="post">
             <div class="form-group">
                 <label for="institucion">Instutución:</label>
-                <input name="institucion" type="text" class="form-iniciar-s" required>
+                <input name="institucion" type="text" class="form-iniciar-lg" required>
             </div>
             <div class="form-group">
                 <label for="profesion">Titulo profesional:</label>
                 <?php
                 $resultado = sqlsrv_query($conn, "SELECT IdProfesion, Profesion FROM [dbo].[Profesiones]");
-                echo '<select name="profesion" class="txtform" id="selectorPro">';
+                echo '<select name="profesion" class="form-iniciar-lg" id="selectorPro">';
                 while ($prof = sqlsrv_fetch_object($resultado)) {
                         echo '<option value="' , $prof->IdProfesion , '">' , $prof->Profesion , '</option>';
                     }
@@ -142,16 +142,16 @@
             </div>
             <div class="form-group">
                 <label for="final">Año finalización:</label>
-                <input name="final" type="text" class="form-iniciar-s" required>
+                <input name="final" type="text" class="form-iniciar-lg" required>
             </div>
             <div class="opciones">
-                <button type="submit" class="btn-ini" name="btn-Estudios">Añadir</button>
+                <button type="submit" class="btn-lg" name="btn-Estudios">Añadir</button>
             </div>
         </form>
     </dialog>
 
     <!--Modal experiencias-->
-    <dialog id="modalexp" class="modal">
+    <dialog id="modalexp" class="modal_lg">
         <div class="T-Modal">
             <h2>Añadir experiencia laboral</h2>
             <span id="btn-cerrar-modalExp" class="material-symbols-outlined btn-cerrar">cancel</span>
@@ -159,28 +159,28 @@
         <form method="post">
             <div class="form-group">
                 <label for="empresaexp">Empresa:</label>
-                <input name="empresaexp" type="text" class="form-iniciar-s" required>
+                <input name="empresaexp" type="text" class="form-iniciar-lg" required>
             </div>
             <div class="form-group">
                 <label for="puesto">Puesto ocupado:</label>
-                <input name="puesto" type="text" class="form-iniciar-s" required>
+                <input name="puesto" type="text" class="form-iniciar-lg" required>
             </div>
             <div class="form-group">
                 <label for="anoexp">Año:</label>
-                <input name="anoexp" type="text" class="form-iniciar-s" required>
+                <input name="anoexp" type="text" class="form-iniciar-lg" required>
             </div>
             <div class="form-group">
                 <label for="descripcionExp">Descripción:</label>
-                <input name="descripcionExp" type="text" class="form-iniciar-s" required>
+                <input name="descripcionExp" type="text" class="form-iniciar-lg" required>
             </div>
             <div class="opciones">
-                <button type="submit" class="btn-ini" name="btn-Experiencia">Añadir</button>
+                <button type="submit" class="btn-lg" name="btn-Experiencia">Añadir</button>
             </div>
         </form>
     </dialog>
 
     <!--Modal referencias-->
-    <dialog id="modalref" class="modal">
+    <dialog id="modalref" class="modal_lg">
         <div class="T-Modal">
             <h2>Añadir referencias</h2>
             <span id="btn-cerrar-modalRef" class="material-symbols-outlined btn-cerrar">cancel</span>
@@ -188,25 +188,25 @@
         <form id="register-form" method="post">
             <div class="form-group">
                 <label for="nomref">Nombre completo:</label>
-                <input name="nomref" type="text" id="estinstitucion" class="form-iniciar-s" required>
+                <input name="nomref" type="text" id="estinstitucion" class="form-iniciar-lg" required>
             </div>
             <div class="form-group">
                 <label for="telefonoref">Télefono:</label>
-                <input name="telefonoref" type="number" id="esttitulo" class="form-iniciar-s" required>
+                <input name="telefonoref" type="number" id="esttitulo" class="form-iniciar-lg" required>
             </div>
             <div class="form-group">
                 <label for="correoref">Correo:</label>
-                <input name="correoref" type="email" id="esttitulo" class="form-iniciar-s" required>
+                <input name="correoref" type="email" id="esttitulo" class="form-iniciar-lg" required>
             </div>
             <div class="form-group">
                 <label for="tiporef">Tipo referencia:</label>
-                <select name="tiporef" class="form-iniciar-s">
+                <select name="tiporef" class="form-iniciar-lg">
                     <option value="personal">Personal</option>
                     <option value="laboral">Laboral</option>
                 </select>
             </div>
             <div class="opciones">
-                <button type="submit" class="btn-ini" name="btnReferencia">Añadir</button>
+                <button type="submit" class="btn-lg" name="btnReferencia">Añadir</button>
             </div>
         </form>
     </dialog>
