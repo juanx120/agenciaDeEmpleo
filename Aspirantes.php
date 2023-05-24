@@ -27,9 +27,8 @@
                 <tr class='row_HVsub'><td>Nombre</td><td>Télefono</td><td>Profesion</td></tr>
                 <?php
                     $sql = "SELECT  IdUsuario,Nombre,Apellido,Telefono,b.Profesion FROM Desempleado a 
-                    INNER JOIN Profesiones b on b.IdProfesion = a.Profesion where IdUsuario = ?";
-                    $params = array($IdUsuario);
-                    $resultado = sqlsrv_query( $conn, $sql, $params);
+                    INNER JOIN Profesiones b on b.IdProfesion = a.Profesion";
+                    $resultado = sqlsrv_query( $conn, $sql);
                     while ($fila = sqlsrv_fetch_object($resultado)) {
                         echo "<tr class='espacio'></tr>";
                         echo "<tr class='row_HV'> <td>$fila->Nombre $fila->Apellido</td><td>$fila->Telefono</td><td>$fila->Profesion</td></tr>";
