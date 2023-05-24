@@ -25,12 +25,6 @@
                     }
                 echo '</select>'
             ?>
-            <label for="edMin">Edad minima:</label>
-            <input type="number" name="edMin" class="txtform" require>
-            <label for="edMax">Edad maxima:</label>
-            <input type="number" name="edMax" class="txtform" require>
-            <label for="nvlEducacion">Nivel educación:</label>
-            <input type="text" name="nvlEducacion" class="txtform" require>
             <label for="sedeva">Sede:</label>
             <?php
                 $resultado = sqlsrv_query($conn, "SELECT IdSede, a.Nombre FROM Sede a INNER JOIN SedesXEmpresa on IdSede = Sede
@@ -41,6 +35,12 @@
                     }
                 echo '</select>'
             ?>
+            <label for="edMin">Edad minima:</label>
+            <input type="number" name="edMin" class="txtform" require>
+            <label for="edMax">Edad maxima:</label>
+            <input type="number" name="edMax" class="txtform" require>
+            <label for="nvlEducacion">Nivel educación:</label>
+            <input type="text" name="nvlEducacion" class="txtform" require>
             <br><br>
             <label for="descripcionva">Descripción:</label>
             <input type="text" name="descripcionva" class="txtformlg" require><br><br>
