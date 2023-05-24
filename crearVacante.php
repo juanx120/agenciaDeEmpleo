@@ -96,9 +96,9 @@
             die( print_r( sqlsrv_errors(), true));
         }
         else{
-            $scope = "SELECT IdFormacion FROM Formacion where Titulo = '$Titulova' AND Salario = '$Salario' AND FechaInicio = $Fechin AND FechaFin = $Fechfin
-            AND Profesion = '$Profesion' AND Sede = '$Sedeva' AND EdadMinima = '$EdMin' AND EdadMaxima = '$EdMax' AND EducacionRequerida = '$NvlEducacion'
-            AND DescripcionVacante = '$Descripcionva'";
+            $scope = "SELECT IdVacante FROM Vacante where Titulo like '%$Titulova%' AND Salario = '$Salario' AND FechaInicio = $Fechin AND FechaFin = $Fechfin
+            AND Profesion = '$Profesion' AND Sede = '$Sedeva' AND EdadMinima = '$EdMin' AND EdadMaxima = '$EdMax' AND EducacionRequerida like '%$NvlEducacion%'
+            AND DescripcionVacante like '%$Descripcionva%'";
             $scoop= sqlsrv_query( $conn, $scope);
             $fila1 = sqlsrv_fetch_array($scoop);
 
@@ -106,7 +106,7 @@
             $scoop2= sqlsrv_query( $conn, $scope2);
             $fila2 = sqlsrv_fetch_array($scoop2);
 
-            $sql1 = "INSERT INTO [dbo].[VacanteXEmpresa] (Estudios, HojaVida) VALUES (?,?)";
+            $sql1 = "INSERT INTO [dbo].[VacanteXEmpresa] (Vacante, Empresa) VALUES (?,?)";
             $params1 = array($fila1[0], $fila2[0]);
             $stmt1 = sqlsrv_query($conn, $sql1, $params1);
         if( $stmt1 === false ) {
