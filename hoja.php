@@ -349,8 +349,8 @@
                 die( print_r( sqlsrv_errors(), true));
             }
             else{
-                $scope = "SELECT IdReferencia FROM [dbo].[Referencia] where NombrePersona = $NombreRef AND Telefono = $TelefonoRef AND
-                            Email = $CorreoRef AND TipoReferencia = $TipoRef";
+                $scope = "SELECT IdReferencia FROM [dbo].[Referencia] where NombrePersona LIKE '%$NombreRef%' AND Telefono LIKE '%$TelefonoRef%' AND
+                            Email LIKE '%$CorreoRef%' AND TipoReferencia LIKE '%$TipoRef%'";
                 $scoop= sqlsrv_query( $conn, $scope);
                 $fila1 = sqlsrv_fetch_array($scoop);
 
