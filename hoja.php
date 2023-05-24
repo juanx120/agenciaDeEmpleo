@@ -15,7 +15,7 @@
                     $sqlho = "SELECT * FROM [dbo].[HojaVida] WHERE IdHojaVida=?";
                     $paramsho = array( $TaUser->HojaDeVida);
                     $resultadoho = sqlsrv_query( $conn, $sqlho, $paramsho);
-                    $Valho = sqlsrv_fetch_object($resultado);
+                    $Valho = sqlsrv_fetch_object($resultadoho);
                     echo '<input type="number" name="salario" class="txtform" value="'.$Valho->SalarioEsperado.'">';
                 }else{
                     echo '<input type="number" name="salario" class="txtform">';
