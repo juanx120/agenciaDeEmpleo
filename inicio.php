@@ -12,20 +12,20 @@
     $ConsultaUs = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario] WHERE IdUsuario=$IdUsuario");
     $TaUser= sqlsrv_fetch_object($ConsultaUs);
     if ($TaUser->TipoUsuario == 'P') {
-        $claseAspirante = 'dt-aspirante-visible';
-        $claseEmpresa = 'dt-empresa-oculto';
+        $VisivilidadAspirante = 'dt-aspirante-visible';
+        $VisivilidadEmpresa = 'dt-empresa-oculto';
     } elseif ($TaUser->TipoUsuario == 'E') {
-        $claseAspirante = 'dt-aspirante-oculto';
-        $claseEmpresa = 'dt-empresa-visible';
+        $VisivilidadAspirante = 'dt-aspirante-oculto';
+        $VisivilidadEmpresa = 'dt-empresa-visible';
     }else{
-        $claseAspirante = 'dt-aspirante-visible';
-        $claseEmpresa = 'dt-empresa-visible';
+        $VisivilidadAspirante = 'dt-aspirante-visible';
+        $VisivilidadEmpresa = 'dt-empresa-visible';
     }
 ?>
 
 
     <div class = "contenido"> 
-        <form id="<?php echo $claseAspirante; ?>" class='info' method="post">
+        <form id="<?php echo $VisivilidadAspirante; ?>" class='info' method="post">
             <div class="ttlcuadro">
                 <div class="titulo">
                     <h2>Datos del usuario</h2>
@@ -266,7 +266,7 @@
             </div>
         </form>
         <br> <br>
-        <form id="<?php echo $claseEmpresa; ?>" class='info' method="post">
+        <form id="<?php echo $VisivilidadEmpresa; ?>" class='info' method="post">
             <div class="ttlcuadro">
                 <div class="titulo">
                     <h2>Datos de la empresa</h2>
@@ -301,10 +301,10 @@
                 <input type="submit" name="gdempresa" value="Guardar" class="button">
             </div>
         </form>
-        <div>
+        <div id="<?php echo $VisivilidadEmpresa; ?>">
             <a id="btn-sedes" class="button2">Añadir sede</a>
         </div>
-        <table id="estudios">
+        <table id="estudios <?php echo $VisivilidadEmpresa; ?>">
             <thead class="row_titulo">
                 <tr>
                     <th>Sedes</th>
