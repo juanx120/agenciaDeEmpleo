@@ -106,7 +106,7 @@
             $scoop2= sqlsrv_query( $conn, $scope2);
             $fila2 = sqlsrv_fetch_array($scoop2);
 
-            $sql1 = "INSERT INTO [dbo].[VacanteXEmpresa] (Estudios, HojaVida) VALUES (?,?)";
+            $sql1 = "INSERT INTO [dbo].[VacanteXEmpresa] (Vacante, Empresa) VALUES (?,?)";
             $params1 = array($fila1[0], $fila2[0]);
             $stmt1 = sqlsrv_query($conn, $sql1, $params1);
         if( $stmt1 === false ) {
