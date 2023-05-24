@@ -23,8 +23,9 @@
             
             echo $IdUsuario;
 
-            $sql = "SELECT HojaDeVida FROM Desempleado a INNER JOIN Usuario b on a.IdUsuario = b.IdUsuario  where a.IdUsuario = $IdUsuario";
-            $resultado = sqlsrv_query( $conn, $sql);
+            $sql = "SELECT HojaDeVida FROM Desempleado a INNER JOIN Usuario b on a.IdUsuario = b.IdUsuario  where a.IdUsuario = ?";
+            $params = array( $IdUsuario);
+            $resultado = sqlsrv_query( $conn, $sql, $params);
             $infoHV = sqlsrv_fetch_object($resultado);
 
             echo "<p>hoja de vida: $infoHV->HojaDeVija </p>";
@@ -207,8 +208,9 @@
                 $scoop= sqlsrv_query( $conn, $scope);
                 $fila = sqlsrv_fetch_array($scoop);
 
-                $sql1 = "UPDATE[dbo].[Desempleado] SET HojaDeVida = $fila[0] WHERE IdUsuario = $IdUsuario";
-                $stmt1 = sqlsrv_query( $conn, $sql1);
+                $sql1 = "UPDATE dbo.Desempleado SET HojaDeVida = ? WHERE IdUsuario = ?";
+                $params1 = array($fila[0], $IdUsuario);
+                $stmt1 = sqlsrv_query($conn, $sql1, $params1);
             if( $stmt1 === false ) {
                 die( print_r( sqlsrv_errors(), true));
                 echo '<script language="javascript">';
