@@ -142,7 +142,7 @@
         </div>
         <form method="post">
             <div class="form-group">
-                <label for="empresaepx">Empresa:</label>
+                <label for="empresaexp">Empresa:</label>
                 <input name="empresaexp" type="text" class="form-iniciar-s" required>
             </div>
             <div class="form-group">
@@ -150,8 +150,8 @@
                 <input name="puesto" type="text" class="form-iniciar-s" required>
             </div>
             <div class="form-group">
-                <label for="ano">Año:</label>
-                <input name="ano" type="text" class="form-iniciar-s" required>
+                <label for="anoexp">Año:</label>
+                <input name="anoexp" type="text" class="form-iniciar-s" required>
             </div>
             <div class="form-group">
                 <label for="descripcionExp">Descripción:</label>
@@ -269,9 +269,9 @@
         }
 
         if(isset($_POST['btn-Experiencia'])){
-            $Empresa = $_POST['Empresa'];
+            $Empresa = $_POST['empresaexp'];
             $Puesto = $_POST['puesto'];
-            $Ano = $_POST['Ano'];
+            $Ano = $_POST['anoexp'];
             $DescripcionExp = $_POST['descripcionExp'];
         
             $sql = "INSERT INTO [dbo].[ExperienciaLaboral] (Empresa, PuestoOcupado, Ano, Descripcion) VALUES (?,?,?,?)";
