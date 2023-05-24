@@ -25,7 +25,7 @@
             $resultado = sqlsrv_query( $conn, $sql, $params);
             $infoHV = sqlsrv_fetch_object($resultado);
             echo "<p>hoja de vida: $infoHV->HojaDeVida </p>";
-            if($infoHV->HojaDeVida != NULL)  { 
+            if($infoHV->HojaDeVida != NULL) { 
         ?>
         <div>
             <a id="btn-estudios" class="button2">Añadir estudios</a>
@@ -37,14 +37,14 @@
                 </tr>
             </thead>    
             <tbody>
-                <tr class="espacio"></tr>
-                <tr class="row">
-                    <td>Dato 1<td>
-                </tr>
-                <tr class="espacio"></tr>
-                <tr class="row">
-                    <td>Dato 2<td>
-                </tr>
+                <?php
+                    $sql = "SELECT Empresa, PuestoOcupado, Ano, Descipcion FROM [dbo].[ExperienciaLaboral] WHERE IdUsuario = ?";
+                    $params = array( $IdUsuario);
+                    $resultado = sqlsrv_query( $conn, $sql, $params);
+                    while ($fila = sqlsrv_fetch_object($resultado)) {
+                        echo "<tr class='row'> <td>$fila->Empresa<td> </tr>";
+                    }
+                ?>
             </tbody>
         </table>
         <div>
