@@ -430,7 +430,7 @@ include('menu.php') ;
                 echo '</script>';
             } else {
                 // Obtener el IdUbicacion insertado
-                $queryIdUbicacion = "SELECT SCOPE_IDENTITY() AS IdUbicacion";
+                $queryIdUbicacion = "SELECT IdUbicacion FROM [dbo].[Ubicacion] WHERE Direccion LIKE '%$DireccionU%' AND Ciudad LIKE '%$CiudadU%' AND Pais = $PaisU";
                 $stmtIdUbicacion = sqlsrv_query($conn, $queryIdUbicacion);
                 $rowIdUbicacion = sqlsrv_fetch_array($stmtIdUbicacion);
                 $IdUbicacion = $rowIdUbicacion['IdUbicacion'];
