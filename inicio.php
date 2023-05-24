@@ -235,7 +235,6 @@ include('menu.php') ;
                 <h3> Ubicación </h3> 
                 <label for="ciudad">Ciudad:</label>
                 <input type="text" name="ciudad" class="txtform" value="<?php echo ($ExUsuario ? obtenerCiudad($conn, $Nconusu->Ubicacion) : ''); ?>">
-                
                 <label for="pais">País:</label>
                 <?php
                 $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Paises]");
@@ -276,28 +275,56 @@ include('menu.php') ;
             <div class="txtcuadro"> 
                 <h3> Principales </h3> 
                 <label for="nombreemp"> Nombre:</label>
-                <input type="text" name="nombreemp" class="txtform">
+                <?php
+                if($ExEmpresa){
+                    echo '<input type="text" name="nombreemp" class="txtform" value="'.$ConsultaNE->Nombre'" disabled>';
+                }else{
+                echo '<input type="text" name="nombreemp" class="txtform">';
+                }
+                ?>
                 <label for="nit"> NIT:</label>
-                <input type="number" name="nit" class="txtform">
+                <?php
+                if($ExEmpresa){
+                    echo '<input type="number" name="nit" class="txtform" value="'.$ConsultaNE->NIT'" disabled>';
+                }else{
+                echo '<input type="number" name="nit" class="txtform">';
+                }
+                ?>
                 <label for="razsocial">Razón social:</label>
-                <input type="text" name="razsocial" class="txtform">
+                <?php
+                if($ExEmpresa){
+                    echo '<input type="text" name="razsocial" class="txtform" value="'.$ConsultaNE->RazonSocial'" disabled>';
+                }else{
+                echo '<input type="text" name="razsocial" class="txtform">';
+                }
+                ?>
                 <label for="repre">Representante:</label>
-                <input type="text" name="repre" class="txtform">
+                <?php
+                if($ExEmpresa){
+                    echo '<input type="text" name="repre" class="txtform" value="'.$ConsultaNE->RepresentanteL'">';
+                }else{
+                echo '<input type="text" name="repre" class="txtform">';
+                }
+                ?>
                 <hr>
                 <h3> Ubicación </h3> 
                 <label for="ciudademp">Ciudad:</label>
-                <input type="text" name="ciudademp" class="txtform">
+                <input type="text" name="ciudademp" class="txtform" value="<?php echo ($ExEmpresa ? obtenerCiudad($conn, $ConsultaNE->Ubicacion) : ''); ?>">
                 <label  for="paisemp">País:</label>
                 <?php
                 $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Paises]");
                 echo '<select name="paisemp" class="txtform">';
                 while ($fila = sqlsrv_fetch_object($resultado)) {
+                    if ($ExEmpresa && obtenerPais($conn, $ConsultaNE->Ubicacion) == $fila->IdPais) {
+                        echo '<option value="' , $fila->IdPais , '" selected>' , $fila->Pais , '</option>';
+                    } else {
                         echo '<option value="' , $fila->IdPais , '">' , $fila->Pais , '</option>';
                     }
-                echo '</select>'
+                    }
+                echo '</select>';
                 ?>
                 <label  for="direccionemp">Dirección:</label>
-                <input type="text" name="direccionemp" class="txtform">
+                <input type="text" name="direccionemp" class="txtform" value="<?php echo ($ExEmpresa ? obtenerDireccion($conn, $ConsultaNE->Ubicacion) : ''); ?>">
                 <br>
                 <input type="submit" name="gdempresa" value="Guardar" class="button">
             </div>
