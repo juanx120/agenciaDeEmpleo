@@ -22,14 +22,12 @@
         <?php
             
             echo $IdUsuario;
-
             $sql = "SELECT HojaDeVida FROM [dbo].[Desempleado] where IdUsuario = ?";
             $params = array( $IdUsuario);
             $resultado = sqlsrv_query( $conn, $sql, $params);
             $infoHV = sqlsrv_fetch_object($resultado);
-
             echo "<p>hoja de vida: $infoHV->HojaDeVida </p>";
-            if(int($info_hoja->HojaDeVida) == 5)  { echo paso; };
+            if($info_hoja->HojaDeVida != null)  { echo paso; };
         ?>
         <div>
             <a id="btn-estudios" class="button2">Añadir estudios</a>
@@ -106,11 +104,7 @@
                 <input name="institucion" type="text" id="estinstitucion" class="form-iniciar-s" required>
             </div>
             <div class="form-group">
-                <label for="titulo">Título profesional:</label>
-                <input name="titulo" type="text" id="esttitulo" class="form-iniciar-s" required>
-            </div>
-            <div class="form-group">
-                <label for="profesion">Profesión:</label>
+                <label for="profesion">Titulo profesional:</label>
                 <?php
                 $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Profesiones]");
                 echo '<select name="profesion" class="txtform" id="selectorPro">';
@@ -125,7 +119,7 @@
                 <input name="final" type="text" id="estfinal" class="form-iniciar-s" required>
             </div>
             <div class="opciones">
-                <button type="submit" class="btn-ini" name="btnEstudios">Añadir</button>
+                <button type="submit" class="btn-ini" name="btn-Estudios">Añadir</button>
             </div>
         </form>
     </dialog>
@@ -138,23 +132,23 @@
         </div>
         <form id="register-form" method="post">
             <div class="form-group">
-                <label for="institucion">Empresa:</label>
-                <input name="institucion" type="text" id="estinstitucion" class="form-iniciar-s" required>
+                <label for="empresa">Empresa:</label>
+                <input name="empresa" type="text" id="estinstitucion" class="form-iniciar-s" required>
             </div>
             <div class="form-group">
-                <label for="titulo">Puesto ocupado:</label>
-                <input name="titulo" type="text" id="esttitulo" class="form-iniciar-s" required>
+                <label for="puesto">Puesto ocupado:</label>
+                <input name="puesto" type="text" id="esttitulo" class="form-iniciar-s" required>
             </div>
             <div class="form-group">
-                <label for="final">Año:</label>
-                <input name="final" type="text" id="estfinal" class="form-iniciar-s" required>
+                <label for="ano">Año:</label>
+                <input name="ano" type="text" id="estfinal" class="form-iniciar-s" required>
             </div>
             <div class="form-group">
                 <label for="descripcionExp">Descripción:</label>
                 <input name="descripcionExp" type="text" id="estfinal" class="form-iniciar-s" required>
             </div>
             <div class="opciones">
-                <button type="submit" class="btn-ini" name="btnExperiencia">Añadir</button>
+                <button type="submit" class="btn-ini" name="btn-Experiencia">Añadir</button>
             </div>
         </form>
     </dialog>
@@ -186,7 +180,7 @@
                 </select>
             </div>
             <div class="opciones">
-                <button type="submit" class="btn-ini" name="btnReferencia">Añadir</button>
+                <button type="submit" class="btn-ini" name="btn-Referencia">Añadir</button>
             </div>
         </form>
     </dialog>
@@ -210,6 +204,83 @@
 
                 $sql1 = "UPDATE dbo.Desempleado SET HojaDeVida = ? WHERE IdUsuario = ?";
                 $params1 = array($fila[0], $IdUsuario);
+                $stmt1 = sqlsrv_query($conn, $sql1, $params1);
+            if( $stmt1 === false ) {
+                die( print_r( sqlsrv_errors(), true));
+                echo '<script language="javascript">';
+                echo 'alert("Error al crear usuario")';
+                echo '</script>';
+            }else{
+                echo '<script language="javascript">';
+                echo 'alert("Datos guardados exitosamente';
+                echo '")</script>';
+            }
+            }
+        }
+
+        if(isset($_POST['btn-Estudios'])){
+            $Institucion=$_POST['institucion'];
+            $Profesion=$_POST['profesion'];
+            $Final=$_POST['final'];
+        
+            $sql = "INSERT INTO [dbo].[Formacion] (Institucion, TituloOtorgado, AnoFinalizacion) VALUES (?,?,?)";
+            $params = array($Institucion, $Profesion, $Final);
+        
+            $stmt = sqlsrv_query( $conn, $sql, $params);
+            if( $stmt === FALSE ){
+
+            }
+            else{
+                $scope = "SELECT IdFormacion FROM Formacion where Institucion = '$Institucion' AND TituloOtorgado = '$Profesion' AND
+                            AñoFinalizacion = $Final";
+                $scoop= sqlsrv_query( $conn, $scope);
+                $fila = sqlsrv_fetch_array($scoop);
+
+                $scope1 = "SELECT HojaDeVida FROM Desempleado where IdUsuario = $IdUsuario";
+                $scoop1= sqlsrv_query( $conn, $scope1);
+                $fila1 = sqlsrv_fetch_array($scoop1);
+
+                $sql1 = "INSERT INTO [dbo].[FormacionXHoja] (Estudios, HojaVida) VALUES (?,?)";
+                $params1 = array($fila[0], $fila1[0]);
+                $stmt1 = sqlsrv_query($conn, $sql1, $params1);
+            if( $stmt1 === false ) {
+                die( print_r( sqlsrv_errors(), true));
+                echo '<script language="javascript">';
+                echo 'alert("Error al crear usuario")';
+                echo '</script>';
+            }else{
+                echo '<script language="javascript">';
+                echo 'alert("Datos guardados exitosamente';
+                echo '")</script>';
+            }
+            }
+        }
+
+        if(isset($_POST['btn-Experiencia'])){
+            $Empresa = $_POST['Empresa'];
+            $Puesto = $_POST['puesto'];
+            $Ano = $_POST['Ano'];
+            $DescripcionExp = $_POST['descripcionExp'];
+        
+            $sql = "INSERT INTO [dbo].[ExperienciaLaboral] (Empresa, PuestoOcupado, Ano, Descripcion) VALUES (?,?,?)";
+            $params = array($Empresa, $Puesto, $Ano, $DescripcionExp);
+        
+            $stmt = sqlsrv_query( $conn, $sql, $params);
+            if( $stmt === FALSE ){
+
+            }
+            else{
+                $scope = "SELECT IdFormacion FROM ExperienciaLaboral where Empresa = '$Empresa' AND PuestoOcupado = '$Puesto' AND
+                            Ano = $Ano AND Descripcion = $DescripcionExp";
+                $scoop= sqlsrv_query( $conn, $scope);
+                $fila = sqlsrv_fetch_array($scoop);
+
+                $scope1 = "SELECT HojaDeVida FROM Desempleado where IdUsuario = $IdUsuario";
+                $scoop1= sqlsrv_query( $conn, $scope1);
+                $fila1 = sqlsrv_fetch_array($scoop1);
+
+                $sql1 = "INSERT INTO [dbo].[FormacionXHoja] (Estudios, HojaVida) VALUES (?,?)";
+                $params1 = array($fila[0], $fila1[0]);
                 $stmt1 = sqlsrv_query($conn, $sql1, $params1);
             if( $stmt1 === false ) {
                 die( print_r( sqlsrv_errors(), true));
