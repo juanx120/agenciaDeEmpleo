@@ -335,7 +335,7 @@ include('menu.php') ;
         <table id="<?php echo $VisivilidadEmpresa; ?>">
             <thead class="row_titulo">
                 <tr>
-                    <th class="titulo">Sedes</th>
+                    <th class="titulo" colspan="5">Sedes</th>
                 </tr>
             </thead>    
             <tbody>
