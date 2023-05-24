@@ -62,7 +62,7 @@ session_start();
                                 echo $Nconusu->Apellido;
                                 echo "</b></p>";
                             }else{
-                                $ConsultaNE = sqlsrv_query($conn, "SELECT * FROM [dbo].[Empresa] WHERE IdUsuario=$IdUsuario")
+                                $ConsultaNE = sqlsrv_query($conn, "SELECT * FROM [dbo].[Empresa] WHERE IdUsuario=$IdUsuario");
                             }if( $ConsultaNE === FALSE ){
                                     die(print_r(sqlsrv_errors($ConsultaNE), true));
                                     }
