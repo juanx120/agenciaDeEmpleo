@@ -65,9 +65,11 @@
                 $params = array($IdUsuario);
                 $resultado = sqlsrv_query( $conn, $sql, $params);
                 while ($fila2 = sqlsrv_fetch_array($resultado)) {
+                    $fecha = DateTime::createFromFormat('Y-m-d', $fila2['FechaFin']);
+                    $fechaDesde = $fecha->format('Y/m/d');
                     echo "<tr class='espacio'></tr>";
                     echo "<tr class='row_HV'> <td>".$fila2['Titulo']."</td><td>".$fila2['Profesion']."</td><td>".$fila2['Salario']."</td>
-                    <td>".$fila2['EducacionRequerida']."</td></tr>";
+                    <td>".$fila2['EducacionRequerida']."</td><td>".$fechaDesde."</td></tr>";
                 }
             ?>
         </tbody>
