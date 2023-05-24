@@ -24,8 +24,9 @@
             $params = array( $IdUsuario);
             $resultado = sqlsrv_query( $conn, $sql, $params);
             $infoHV = sqlsrv_fetch_object($resultado);
-            echo "<p>hoja de vida: </p>";
+            
             if($infoHV->HojaDeVida != NULL) { $IdHoja = $infoHV->HojaDeVida;
+                echo "<p>hoja de vida: $IdHoja</p>";
         ?>
         <div>
             <a id="btn-estudios" class="button2">Añadir estudios</a>
