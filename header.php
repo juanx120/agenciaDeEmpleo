@@ -22,6 +22,13 @@ session_start();
 </head>
 
 <body> 
+
+    <?php
+        echo '<script>';
+    echo 'console.log ("el valor de usuario es:'. $_SESSION["SIdu"];
+    echo '")';
+    echo '</script>';
+    ?>
     <header id='encabezado'>
         <div class='parent'>
             <div>
