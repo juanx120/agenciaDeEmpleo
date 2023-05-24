@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $serverName = "agenciadeempleo-server.database.windows.net"; 
 $connectionOptions = array(
     "Database" => "AgenciaDeEmpleoBogotaDB", 

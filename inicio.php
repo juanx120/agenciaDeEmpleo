@@ -2,18 +2,30 @@
 
     //$Idu = $_SESSION['Idu'];
     //echo $_SESSION['Idu'];
-    //echo '<script>';
-    //echo 'console.log ("el valor de usuario es:', $_SESSION['Idu'];
-    //echo '")';
+    echo '<script>';
+    echo 'console.log ("el valor de usuario es:', $_SESSION['Idu'];
+    echo '")';
     //echo '</script>';
     //echo '<script>'
     //echo 'console.log ("el valor de usuario es:', $_GET['Idu'], $_SESSION['Idu'];
     //echo '")</script>';
+    $ConsultaUs = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario] WHERE IdUsuario=$IdUsuario");
+    $TaUser= sqlsrv_fetch_object($ConsultaUs);
+    if ($TaUser->TipoUsuario == 'P') {
+        $VisivilidadAspirante = 'dt-aspirante-visible';
+        $VisivilidadEmpresa = 'dt-empresa-oculto';
+    } elseif ($TaUser->TipoUsuario == 'E') {
+        $VisivilidadAspirante = 'dt-aspirante-oculto';
+        $VisivilidadEmpresa = 'dt-empresa-visible';
+    }else{
+        $VisivilidadAspirante = 'dt-aspirante-visible';
+        $VisivilidadEmpresa = 'dt-empresa-visible';
+    }
 ?>
 
 
     <div class = "contenido"> 
-        <form id="dt-aspirante" class='info' method="post">
+        <form id="<?php echo $VisivilidadAspirante; ?>" class='info' method="post">
             <div class="ttlcuadro">
                 <div class="titulo">
                     <h2>Datos del usuario</h2>
@@ -254,7 +266,7 @@
             </div>
         </form>
         <br> <br>
-        <form id="dt-empresa" class='info' method="post">
+        <form id="<?php echo $VisivilidadEmpresa; ?>" class='info' method="post">
             <div class="ttlcuadro">
                 <div class="titulo">
                     <h2>Datos de la empresa</h2>
@@ -289,13 +301,13 @@
                 <input type="submit" name="gdempresa" value="Guardar" class="button">
             </div>
         </form>
-        <div>
+        <div id="<?php echo $VisivilidadEmpresa; ?>">
             <a id="btn-sedes" class="button2">Añadir sede</a>
         </div>
-        <table id="estudios">
+        <table id="<?php echo $VisivilidadEmpresa; ?>">
             <thead class="row_titulo">
                 <tr>
-                    <th>Sedes</th>
+                    <th class="titulo">Sedes</th>
                 </tr>
             </thead>    
             <tbody>
@@ -352,6 +364,7 @@
     </dialog>
 
     <?php
+
     if (isset($_POST['gdpersona'])) {
         $Nombre = $_POST['nombre'];
         $Apellido = $_POST['apellido'];
