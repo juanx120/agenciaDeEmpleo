@@ -506,6 +506,8 @@ include('menu.php') ;
                 echo '<script language="javascript">';
                 echo 'alert("Datos actualizados exitosamente")';
                 echo '</script>';
+                echo '<script type="text/javascript"> window.location.href = "https://agenciaempleobogota.azurewebsites.net/inicio.php'; 
+                    echo '"</script>';
             }
         } else {
             // Insertar una nueva ubicación
@@ -540,6 +542,8 @@ include('menu.php') ;
                     echo '<script language="javascript">';
                     echo 'alert("Datos guardados exitosamente")';
                     echo '</script>';
+                    echo '<script type="text/javascript"> window.location.href = "https://agenciaempleobogota.azurewebsites.net/inicio.php'; 
+                    echo '"</script>';
                 }
             }
         }
