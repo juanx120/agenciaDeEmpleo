@@ -64,7 +64,7 @@
                 <tr class='espacio'></tr>
                 <tr class='row_HVsub'><td>Institución</td><td>Título</td><td>Año finalización</td></tr>
                 <?php
-                    $sql = "SELECT Empresa, PuestoOcupado, Ano, Descipcion FROM [dbo].[ExperienciaLaboral] INNER JOIN [dbo].[ExperienciaXHoja] on IdExperiencia = Experiencia
+                    $sql = "SELECT Empresa, PuestoOcupado, Ano, Descripcion FROM [dbo].[ExperienciaLaboral] INNER JOIN [dbo].[ExperienciaXHoja] on IdExperiencia = Experiencia
                     WHERE HojaVida = ?";
                     $params = array($infoHV->HojaDeVida);
                     $resultado = sqlsrv_query( $conn, $sql, $params);
