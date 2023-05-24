@@ -277,33 +277,33 @@ include('menu.php') ;
                 <label for="nombreemp"> Nombre:</label>
                 <?php
                 if($ExEmpresa){
-                    echo '<input type="text" name="nombreemp" class="txtform" value="'.$ConsultaNE->Nombre'" disabled>';
+                    echo '<input type="text" name="nombreemp" class="txtform" value="'.$ConsultaNE->Nombre.'" disabled>';
                 }else{
-                echo '<input type="text" name="nombreemp" class="txtform">';
+                    echo '<input type="text" name="nombreemp" class="txtform">';
                 }
                 ?>
                 <label for="nit"> NIT:</label>
                 <?php
                 if($ExEmpresa){
-                    echo '<input type="number" name="nit" class="txtform" value="'.$ConsultaNE->NIT'" disabled>';
+                    echo '<input type="number" name="nit" class="txtform" value="'.$ConsultaNE->NIT.'" disabled>';
                 }else{
-                echo '<input type="number" name="nit" class="txtform">';
+                    echo '<input type="number" name="nit" class="txtform">';
                 }
                 ?>
                 <label for="razsocial">Razón social:</label>
                 <?php
                 if($ExEmpresa){
-                    echo '<input type="text" name="razsocial" class="txtform" value="'.$ConsultaNE->RazonSocial'" disabled>';
+                    echo '<input type="text" name="razsocial" class="txtform" value="'.$ConsultaNE->RazonSocial.'" disabled>';
                 }else{
-                echo '<input type="text" name="razsocial" class="txtform">';
+                    echo '<input type="text" name="razsocial" class="txtform">';
                 }
                 ?>
                 <label for="repre">Representante:</label>
                 <?php
                 if($ExEmpresa){
-                    echo '<input type="text" name="repre" class="txtform" value="'.$ConsultaNE->RepresentanteL'">';
+                    echo '<input type="text" name="repre" class="txtform" value="'.$ConsultaNE->RepresentanteL.'">';
                 }else{
-                echo '<input type="text" name="repre" class="txtform">';
+                    echo '<input type="text" name="repre" class="txtform">';
                 }
                 ?>
                 <hr>
