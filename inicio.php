@@ -13,7 +13,7 @@
 
 
     <div class = "contenido"> 
-        <form id="dt-aspirante" class='info' method="post">
+        <form id="dt-aspirante" class='info dt-aspirante' method="post">
             <div class="ttlcuadro">
                 <div class="titulo">
                     <h2>Datos del usuario</h2>
@@ -254,7 +254,7 @@
             </div>
         </form>
         <br> <br>
-        <form id="dt-empresa" class='info' method="post">
+        <form id="dt-empresa" class='info dt-empresa' method="post">
             <div class="ttlcuadro">
                 <div class="titulo">
                     <h2>Datos de la empresa</h2>
@@ -352,6 +352,38 @@
     </dialog>
 
     <?php
+
+    $ConsultaUs = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario] WHERE IdUsuario=$IdUsuario");
+    $TaUser= sqlsrv_fetch_object($ConsultaNU);
+    if($TaUser->TipoUsuario=='P'){
+        <style>
+            .dt-aspirante {
+                display: block;
+            }
+            .dt-empresa{
+                display: none;
+            }
+        </style>
+    }elseif($TaUser->TipoUsuario=='E'){
+        <style>
+        .dt-aspirante {
+            display: none;
+        }
+        .dt-empresa{
+            display: block;
+        }
+    </style>
+    }else{
+        <style>
+        .dt-aspirante {
+            display: block;
+        }
+        .dt-empresa{
+            display: block;
+        }
+    </style>
+    }
+
     if (isset($_POST['gdpersona'])) {
         $Nombre = $_POST['nombre'];
         $Apellido = $_POST['apellido'];
