@@ -347,17 +347,15 @@ include('menu.php') ;
                 </tr>
                 
                 <?php
-
-                    $sql = "SELECT Nombre, Telefono, Ubicacion FROM [dbo].[Sede]
-                    INNER JOIN [dbo].[SedesXEmpresa] ON IdSede = Sede WHERE Empresa=?";
+                    $sql = "SELECT Nombre, Telefono, Ubicacion FROM [dbo].[Sede] INNER JOIN [dbo].[SedesXEmpresa] ON IdSede = Sede WHERE Empresa=?";
                     $params = array($Nconemp->NIT);
                     $resultado = sqlsrv_query( $conn, $sql, $params);
                     while ($fila = sqlsrv_fetch_object($resultado)) {
-                        $IdPais = obtenerPais($conn, $fila->Ubicacion)
-                        $ConsPais = "SELECT Pais FROM [dbo].[Paises] WHERE IdPais = ?"
+                        $IdPais = obtenerPais($conn, $fila->Ubicacion);
+                        $ConsPais = "SELECT Pais FROM [dbo].[Paises] WHERE IdPais = ?";
                         $paramsP = array($IdPais);
                         $resultadoBP = sqlsrv_query( $conn, $ConsPais, $paramsP);
-                        $PaisO=sqlsrv_fetch_array($resultadoBP)
+                        $PaisO=sqlsrv_fetch_array($resultadoBP);
                         echo "<tr class='espacio'></tr>";
                         echo "<tr class='row_HV'> <td>$fila->Nombre</td><td>$fila->Telefono</td><td>". obtenerDireccion($conn, $fila->Ubicacion)."</td><td>".obtenerCiudad($conn, $fila->Ubicacion)."</td><td>".$PaisO[0]."</td></tr>";
                     }
