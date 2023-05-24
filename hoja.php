@@ -23,13 +23,13 @@
             
             echo $IdUsuario;
 
-            $sql = "SELECT HojaDeVida FROM Desempleado a INNER JOIN Usuario b on a.IdUsuario = b.IdUsuario  where a.IdUsuario = ?";
+            $sql = "SELECT HojaDeVida FROM Desempleado where IdUsuario = ?";
             $params = array( $IdUsuario);
             $resultado = sqlsrv_query( $conn, $sql, $params);
             $infoHV = sqlsrv_fetch_object($resultado);
 
             echo "<p>hoja de vida: $infoHV->HojaDeVija </p>";
-            #if($info_hoja[0] != NULL OR $info_hoja[0] != 0) {
+            if($info_hoja[0] != NULL OR $info_hoja[0] != 0) {
         ?>
         <div>
             <a id="btn-estudios" class="button2">Añadir estudios</a>
@@ -54,7 +54,7 @@
         <div>
             <a id="btn-experiencia" class="button2">Añadir experiencia</a>
         </div>
-        <table id="referencias">
+        <table id="Experiencia">
             <thead class="row_titulo">
                 <tr>
                     <th>Experiencia laboral</th>
@@ -91,7 +91,7 @@
                 </tr>
             </tbody>
         </table>
-        <?php #} ?>
+        <?php } ?>
     </div>
 
     <!--Modal estudios-->
