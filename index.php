@@ -97,8 +97,6 @@ session_start();
             });</script>";
     }
 }
-
-
 include('conection.php');
 include('session.php');
 if(isset($_POST['btningreso'])){
@@ -142,24 +140,20 @@ if(isset($_POST['btnRegistrarse'])){
     $ClRegistro=$_POST['ClRegistro'];
     $TipoU=$_POST['TipoU'];
     $CoExix=FALSE;
-
     $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario]");
     while ($fila = sqlsrv_fetch_object($resultado)) {
         if($CoRegistro  ==  $fila->Correo){
             $CoExix=TRUE;
         }
     }
-
     if($CoExix){
         echo '<script language="javascript">';
         echo 'alert("El correo ingresado ya existe")';
         echo '</script>';
     }
     else{
-
         $sql = "INSERT INTO [dbo].[Usuario] (Correo, Clave, TipoUsuario) VALUES (?,?,?)";
         $params = array($CoRegistro, $ClRegistro, $TipoU);
-
         $stmt = sqlsrv_query( $conn, $sql, $params);
         if( $stmt === false ) {
             die( print_r( sqlsrv_errors(), true));
@@ -174,14 +168,11 @@ if(isset($_POST['btnRegistrarse'])){
         }
     }
 }
-
 if(isset($_POST['btn-password'])){
     $CorreP=$_POST['CoPassword'];
     $CLaveP=$_POST['ClPassword'];
-
     $sql = "UPDATE [dbo].[Usuario] SET Clave=? WHERE Correo=?";
     $params = array($CLaveP,$CorreP);
-
     $stmt = sqlsrv_query( $conn, $sql, $params);
     if( $stmt === false ) {
         die( print_r( sqlsrv_errors(), true));
