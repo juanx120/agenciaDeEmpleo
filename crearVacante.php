@@ -96,9 +96,8 @@
             die( print_r( sqlsrv_errors(), true));
         }
         else{
-            $scope = "SELECT IdVacante FROM [dbo].[Vacante] where Titulo like '%$Titulova%' AND Salario LIKE '%$Salario%' AND FechaInicio LIKE '%$Fechin%' AND FechaFin LIKE '%$Fechfin%'
-            AND Profesion LIKE '%$Profesion%' AND Sede LIKE '%$Sedeva%' AND EdadMinima LIKE '%$EdMin%' AND EdadMaxima LIKE '%$EdMax%' AND EducacionRequerida like '%$NvlEducacion%'
-            AND DescripcionVacante like '%$Descripcionva%'";
+            $scope = "SELECT IdVacante FROM [dbo].[Vacante] where Titulo like '%$Titulova%' AND Salario LIKE '%$Salario%'
+            AND Profesion LIKE '%$Profesion%' AND Sede LIKE '%$Sedeva%' AND DescripcionVacante like '%$Descripcionva%'";
             $scoop= sqlsrv_query( $conn, $scope);
             $fila1 = sqlsrv_fetch_array($scoop);
 
