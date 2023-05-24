@@ -119,7 +119,7 @@
                 <?php
                 $resultado = sqlsrv_query($conn, "SELECT IdProfesion, Profesion FROM [dbo].[Profesiones]");
                 echo '<select name="profesion" class="txtform" id="selectorPro">';
-                while ($prof = sqlsrv_fetch_array($resultado)) {
+                while ($prof = sqlsrv_fetch_object($resultado)) {
                         echo '<option value="' , $prof->IdProfesion , '">' , $prof->Profesion , '</option>';
                     }
                 echo '</select>'
