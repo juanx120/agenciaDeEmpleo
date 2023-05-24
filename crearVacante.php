@@ -25,12 +25,6 @@
                     }
                 echo '</select>'
             ?>
-            <label for="edMin">Edad minima:</label>
-            <input type="number" name="edMin" class="txtform" require>
-            <label for="edMax">Edad maxima:</label>
-            <input type="number" name="edMax" class="txtform" require>
-            <label for="nvlEducacion">Nivel educación:</label>
-            <input type="text" name="nvlEducacion" class="txtform" require>
             <label for="sedeva">Sede:</label>
             <?php
                 $resultado = sqlsrv_query($conn, "SELECT IdSede, a.Nombre FROM Sede a INNER JOIN SedesXEmpresa on IdSede = Sede
@@ -41,6 +35,12 @@
                     }
                 echo '</select>'
             ?>
+            <label for="edMin">Edad minima:</label>
+            <input type="number" name="edMin" class="txtform" require>
+            <label for="edMax">Edad maxima:</label>
+            <input type="number" name="edMax" class="txtform" require>
+            <label for="nvlEducacion">Nivel educación:</label>
+            <input type="text" name="nvlEducacion" class="txtform" require>
             <br><br>
             <label for="descripcionva">Descripción:</label>
             <input type="text" name="descripcionva" class="txtformlg" require><br><br>
@@ -101,12 +101,8 @@
             $scoop= sqlsrv_query( $conn, $scope);
             $fila1 = sqlsrv_fetch_array($scoop);
 
-            $scope2 = "SELECT NIT FROM Empresa where IdUsuario = $IdUsuario";
-            $scoop2= sqlsrv_query( $conn, $scope2);
-            $fila2 = sqlsrv_fetch_array($scoop2);
-
             $sql1 = "INSERT INTO [dbo].[VacanteXEmpresa] (Vacante, Empresa) VALUES (?,?)";
-            $params1 = array($fila1[0], $fila2[0]);
+            $params1 = array($fila1[0], $ConsultaNE->NIT);
             $stmt1 = sqlsrv_query($conn, $sql1, $params1);
         if( $stmt1 === false ) {
             die( print_r( sqlsrv_errors(), true));
