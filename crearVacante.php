@@ -96,7 +96,7 @@
             die( print_r( sqlsrv_errors(), true));
         }
         else{
-            $scope = "SELECT IdFormacion FROM Formacion where Titulo = '$Titulova' AND Salario = '$Salario' AND FechaInicio = $Fechin AND FechaFin = $Fechfin
+            $scope = "SELECT IdVacante FROM Vacante where Titulo = '$Titulova' AND Salario = '$Salario' AND FechaInicio = $Fechin AND FechaFin = $Fechfin
             AND Profesion = '$Profesion' AND Sede = '$Sedeva' AND EdadMinima = '$EdMin' AND EdadMaxima = '$EdMax' AND EducacionRequerida = '$NvlEducacion'
             AND DescripcionVacante = '$Descripcionva'";
             $scoop= sqlsrv_query( $conn, $scope);
