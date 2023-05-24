@@ -144,13 +144,31 @@ table, th, td{
     background-color: #8C2323;
     color: white;
     height: 50px;
-    font-size: 17px;
+    font-size: 20px;
     text-align: center;
 }
 
 .row{
     background-color: #F2CA7E;
     height: auto;
+}
+
+.row_HVsub{
+    background-color: #D98014;
+    height: 50px;
+    color: black;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.row_HV{
+    background-color: #F2CA7E;
+    height: 50px;
+    color: black;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .espacio{

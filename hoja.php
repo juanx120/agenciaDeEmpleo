@@ -33,18 +33,20 @@
         <table id="estudios">
             <thead class="row_titulo">
                 <tr>
-                    <th>Estudios</th>
+                    <th colspan = '3'>Estudios</th>
                 </tr>
             </thead>    
             <tbody>
+                <tr class='espacio'></tr>
+                <tr class='row_HVsub'><td>Institución</td><td>Título</td><td>Año finalización</td></tr>
                 <?php
-                    $sql = "SELECT Institucion, TituloOtorgado, AnoFinalizacion FROM [dbo].[Formacion] INNER JOIN FormacionXHoja on IdFormacion = Estudios
-                    WHERE HojaVida = ?";
+                    $sql = "SELECT Institucion, Profesion, AnoFinalizacion FROM [dbo].[Formacion] INNER JOIN [dbo].[FormacionXHoja] on IdFormacion = Estudios
+                    INNER JOIN [dbo].[Profesiones] on TituloOtorgado = IdProfesion WHERE HojaVida = ?";
                     $params = array($infoHV->HojaDeVida);
                     $resultado = sqlsrv_query( $conn, $sql, $params);
                     while ($fila = sqlsrv_fetch_object($resultado)) {
                         echo "<tr class='espacio'></tr>";
-                        echo "<tr class='row'> <td>$fila->Institucion</td><td>$fila->TituloOtorgado</td><td>$fila->AnoFinalizacion</td></tr>";
+                        echo "<tr class='row_HV'> <td>$fila->Institucion</td><td>$fila->Profesion</td><td>$fila->AnoFinalizacion</td></tr>";
                     }
                 ?>
             </tbody>
@@ -59,14 +61,18 @@
                 </tr>
             </thead>    
             <tbody>
-                <tr class="espacio"></tr>
-                <tr class="row">
-                    <td>Dato 1<td>
-                </tr>
-                <tr class="espacio"></tr>
-                <tr class="row">
-                    <td>Dato 2<td>
-                </tr>
+                <tr class='espacio'></tr>
+                <tr class='row_HVsub'><td>Institución</td><td>Título</td><td>Año finalización</td></tr>
+                <?php
+                    $sql = "SELECT Empresa, PuestoOcupado, Ano, Descipcion FROM [dbo].[ExperienciaLaboral] INNER JOIN [dbo].[ExperienciaXHoja] on IdExperiencia = Experiencia
+                    WHERE HojaVida = ?";
+                    $params = array($infoHV->HojaDeVida);
+                    $resultado = sqlsrv_query( $conn, $sql, $params);
+                    while ($fila = sqlsrv_fetch_object($resultado)) {
+                        echo "<tr class='espacio'></tr>";
+                        echo "<tr class='row_HV'> <td>$fila->Institucion</td><td>$fila->Profesion</td><td>$fila->AnoFinalizacion</td></tr>";
+                    }
+                ?>
             </tbody>
         </table>
         <div>
@@ -79,14 +85,18 @@
                 </tr>
             </thead>    
             <tbody>
-                <tr class="espacio"></tr>
-                <tr class="row">
-                    <td>Dato 1<td>
-                </tr>
-                <tr class="espacio"></tr>
-                <tr class="row">
-                    <td>Dato 2<td>
-                </tr>
+                <tr class='espacio'></tr>
+                <tr class='row_HVsub'><td>Institución</td><td>Título</td><td>Año finalización</td></tr>
+                <?php
+                    $sql = "SELECT NombrePersona, Telefono, Email, TipoReferencia FROM [dbo].[Referencias] INNER JOIN [dbo].[ReferenciaXHoja] on IdReferencia = Referencia
+                    WHERE HojaVida = ?";
+                    $params = array($infoHV->HojaDeVida);
+                    $resultado = sqlsrv_query( $conn, $sql, $params);
+                    while ($fila = sqlsrv_fetch_object($resultado)) {
+                        echo "<tr class='espacio'></tr>";
+                        echo "<tr class='row_HV'> <td>$fila->Institucion</td><td>$fila->Profesion</td><td>$fila->AnoFinalizacion</td></tr>";
+                    }
+                ?>
             </tbody>
         </table>
         <?php }?>
@@ -214,6 +224,7 @@
                 echo '<script language="javascript">';
                 echo 'alert("Datos guardados exitosamente';
                 echo '")</script>';
+                echo '<script type="text/javascript"> window.location.href = "https://agenciadeempleobogota.azurewebsites.net/hoja.php" </script>';
             }
             }
         }
@@ -252,6 +263,7 @@
                 echo '<script language="javascript">';
                 echo 'alert("Datos guardados exitosamente';
                 echo '")</script>';
+                echo '<script type="text/javascript"> window.location.href = "https://agenciadeempleobogota.azurewebsites.net/hoja.php" </script>';
             }
             }
         }
@@ -287,6 +299,7 @@
                 echo '<script language="javascript">';
                 echo 'alert("Datos guardados exitosamente';
                 echo '")</script>';
+                echo '<script type="text/javascript"> window.location.href = "https://agenciadeempleobogota.azurewebsites.net/hoja.php" </script>';
             }
             }
         }
@@ -322,6 +335,7 @@
                 echo '<script language="javascript">';
                 echo 'alert("Datos guardados exitosamente';
                 echo '")</script>';
+                echo '<script type="text/javascript"> window.location.href = "https://agenciadeempleobogota.azurewebsites.net/hoja.php" </script>';
             }
             }
         }
