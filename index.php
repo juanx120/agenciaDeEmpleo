@@ -112,7 +112,7 @@ if(isset($_POST['btningreso'])){
             if(($Correo == $fila->Correo) && ($Contraseña == $fila->Clave)){
                 $Ingreso = TRUE;
                 $Idu = $fila->IdUsuario;
-                $_SESSION['Idu'] = $Idu;
+                $_SESSION["SIdu"] = $Idu;
                 //echo '<script language="javascript">';
                 //echo 'alert("Inicio exitoso""', $Idu;
                 //echo '")</script>';
