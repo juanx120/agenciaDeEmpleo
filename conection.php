@@ -1,11 +1,11 @@
 <?php
-session_start();
 
 $serverName = "agenciadeempleo-server.database.windows.net"; 
 $connectionOptions = array(
     "Database" => "AgenciaDeEmpleoBogotaDB", 
     "Uid" => "JuanG", 
-    "PWD" => "Noselaclave_23" 
+    "PWD" => "Noselaclave_23",
+    "Authentication" => "ActiveDirectoryPassword"
 );
 //Establece la conexión
 $conn = sqlsrv_connect($serverName, $connectionOptions);
