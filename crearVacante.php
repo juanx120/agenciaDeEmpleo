@@ -21,14 +21,14 @@
                     }
                 echo '</select>'
             ?>
+            <label for="salario">Salario:</label>
+            <input type="number" name="salario" class="txtform">
             <label for="edMin">Edad minima:</label>
             <input type="number" name="edMin" class="txtform">
             <label for="edMax">Edad maxima:</label>
             <input type="number" name="edMax" class="txtform">
             <label for="nvlEducacion">Nivel educación:</label>
             <input type="text" name="nvlEducacion" class="txtform">
-            <label for="salario">Salario:</label>
-            <input type="number" name="salario" class="txtform">
             <br>
             <label for="descripcionva">Descripción:</label>
             <input type="text" name="descripcionva" class="txtformlg"><br><br>
