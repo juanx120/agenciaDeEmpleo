@@ -16,7 +16,7 @@
         </div>
     </form>
 
-    <table id="rslaspirantes">
+    <table>
         <thead class="row_titulo">
             <tr>
                 <th colspan = '3'>Resultados</th>
@@ -24,14 +24,16 @@
         </thead>    
         <tbody>
         <tr class='espacio'></tr>
-                <tr class='row_HVsub'><td>Nombre</td><td>Télefono</td><td>Profesion</td></tr>
+                <tr class='row_HVsub'><td>Titulo</td><td>Empresa</td><td>Profesion</td><td>Salario</td><td>Fecha fin</td></tr>
                 <?php
-                    $sql = "SELECT  IdUsuario,Nombre,Apellido,Telefono,b.Profesion FROM Desempleado a 
-                    INNER JOIN Profesiones b on b.IdProfesion = a.Profesion";
+                    $sql = "SELECT IdVacante, Titulo, RazonSocial, b.Profesion, Salario, FechaFin
+                    FROM Vacante a INNER JOIN Profesiones b on b.IdProfesion = a.Profesion
+                    INNER JOIN VacanteXEmpresa c on IdVacante = c.Vacante INNER JOIN Empresa on NIT = c.Empresa";
                     $resultado = sqlsrv_query( $conn, $sql);
                     while ($fila = sqlsrv_fetch_object($resultado)) {
                         echo "<tr class='espacio'></tr>";
-                        echo "<tr class='row_HV'> <td>$fila->Nombre $fila->Apellido</td><td>$fila->Telefono</td><td>$fila->Profesion</td></tr>";
+                        echo "<tr class='row_HV'> <td>$fila->Titulo</td><td>$fila->RazonSocial</td><td>$fila->Profesion</td>
+                        <td>$fila->FechaFin</td></tr>";
                     }
                 ?>
         </tbody>
