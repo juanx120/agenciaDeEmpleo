@@ -478,37 +478,67 @@ include('menu.php') ;
     }
 
     if(isset($_POST['gdempresa'])){
-        $Nombreemp=$_POST['nombreemp'];
-        $Nit=$_POST['nit'];
-        $Razsocial=$_POST['razsocial'];
-        $Representante=$_POST['repre'];
-        $CiudadEmp=$_POST['ciudademp'];
-        $PaisEmp=$_POST['paisemp'];
-        $DireccionEmp=$_POST['direccionemp'];
-        
-        $sql = "INSERT INTO [dbo].[Ubicacion] (Ciudad, Direccion, Pais) VALUES (?,?,?)";
-        $params = array($CiudadEmp, $DireccionEmp, $PaisEmp);
-        $stmt = sqlsrv_query( $conn, $sql, $params);
-        if( $stmt === FALSE ){
-
-        }
-        else{
-            $scope = "SELECT IdUbicacion FROM [dbo].[Ubicacion] WHERE Direccion LIKE '%$DireccionEmp%' AND Ciudad LIKE '%$CiudadEmp%' AND Pais = $PaisEmp";
-            $scoop= sqlsrv_query( $conn, $scope);
-            $fila = sqlsrv_fetch_array($scoop);
-
-            $sql1 = "INSERT INTO [dbo].[Empresa] ( IdUsuario, Nombre, NIT, RazonSocial, RepresentanteL, Ubicacion) VALUES (?,?,?,?,?,?)";
-            $params1 = array( $_GET['Idu'], $Nombreemp, $Nit, $Razsocial,$Representante,$fila[0]);
-            $stmt1 = sqlsrv_query( $conn, $sql1, $params1);
-            if( $stmt1 === false ) {
-                die( print_r( sqlsrv_errors(), true));
+        $Nombreemp = $_POST['nombreemp'];
+        $Nit = $_POST['nit'];
+        $Razsocial = $_POST['razsocial'];
+        $Representante = $_POST['repre'];
+        $CiudadEmp = $_POST['ciudademp'];
+        $PaisEmp = $_POST['paisemp'];
+        $DireccionEmp = $_POST['direccionemp'];
+    
+        if ($ExEmpresa) {
+            // Actualizar los datos de la empresa existente
+            $sqlUpdateEmpresa = "UPDATE [dbo].[Empresa] SET RepresentanteL = ? WHERE IdUsuario = ?";
+            $paramsUpdateEmpresa = array($Representante, $IdUsuario);
+            $stmtUpdateEmpresa = sqlsrv_query($conn, $sqlUpdateEmpresa, $paramsUpdateEmpresa);
+    
+            // Actualizar la ubicación
+            $sqlUpdateUbicacion = "UPDATE [dbo].[Ubicacion] SET Ciudad = ?, Pais = ?, Direccion = ? WHERE IdUbicacion = ?";
+            $paramsUpdateUbicacion = array($CiudadEmp, $PaisEmp, $DireccionEmp, $Nconemp->Ubicacion);
+            $stmtUpdateUbicacion = sqlsrv_query($conn, $sqlUpdateUbicacion, $paramsUpdateUbicacion);
+    
+            if ($stmtUpdateEmpresa === false || $stmtUpdateUbicacion === false) {
+                die(print_r(sqlsrv_errors(), true));
                 echo '<script language="javascript">';
-                echo 'alert("Error al crear usuario")';
+                echo 'alert("Error al actualizar la empresa")';
                 echo '</script>';
-            }else{
+            } else {
                 echo '<script language="javascript">';
-                echo 'alert("Datos guardados exitosamente';
-                echo '")</script>';
+                echo 'alert("Datos actualizados exitosamente")';
+                echo '</script>';
+            }
+        } else {
+            // Insertar una nueva ubicación
+            $sqlInsertUbicacion = "INSERT INTO [dbo].[Ubicacion] (Ciudad, Direccion, Pais) VALUES (?,?,?)";
+            $paramsInsertUbicacion = array($CiudadEmp, $DireccionEmp, $PaisEmp);
+            $stmtInsertUbicacion = sqlsrv_query($conn, $sqlInsertUbicacion, $paramsInsertUbicacion);
+    
+            if ($stmtInsertUbicacion === false) {
+                die(print_r(sqlsrv_errors(), true));
+                echo '<script language="javascript">';
+                echo 'alert("Error al crear ubicación")';
+                echo '</script>';
+            } else {
+                // Obtener el ID de la ubicación recién insertada
+                $idUbicacion = sqlsrv_query($conn, "SELECT IdUbicacion FROM [dbo].[Ubicacion] WHERE Direccion LIKE '%$DireccionEmp%' AND Ciudad LIKE '%$CiudadEmp%' AND Pais = $PaisEmp";);
+                $filaUbicacion = sqlsrv_fetch_array($idUbicacion);
+                $idUbicacion = $filaUbicacion['IdUbicacion'];
+    
+                // Insertar una nueva empresa
+                $sqlInsertEmpresa = "INSERT INTO [dbo].[Empresa] (IdUsuario, Nombre, NIT, RazonSocial, RepresentanteL, Ubicacion) VALUES (?,?,?,?,?,?)";
+                $paramsInsertEmpresa = array($IdUsuario, $Nombreemp, $Nit, $Razsocial, $Representante, $idUbicacion);
+                $stmtInsertEmpresa = sqlsrv_query($conn, $sqlInsertEmpresa, $paramsInsertEmpresa);
+    
+                if ($stmtInsertEmpresa === false) {
+                    die(print_r(sqlsrv_errors(), true));
+                    echo '<script language="javascript">';
+                    echo 'alert("Error al crear empresa")';
+                    echo '</script>';
+                } else {
+                    echo '<script language="javascript">';
+                    echo 'alert("Datos guardados exitosamente")';
+                    echo '</script>';
+                }
             }
         }
     }
