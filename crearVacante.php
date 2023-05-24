@@ -101,12 +101,8 @@
             $scoop= sqlsrv_query( $conn, $scope);
             $fila1 = sqlsrv_fetch_array($scoop);
 
-            $scope2 = "SELECT NIT FROM Empresa where IdUsuario = $IdUsuario";
-            $scoop2= sqlsrv_query( $conn, $scope2);
-            $fila2 = sqlsrv_fetch_array($scoop2);
-
             $sql1 = "INSERT INTO [dbo].[VacanteXEmpresa] (Vacante, Empresa) VALUES (?,?)";
-            $params1 = array($fila1[0], $fila2[0]);
+            $params1 = array($fila1[0], $ConsultaNE->NIT);
             $stmt1 = sqlsrv_query($conn, $sql1, $params1);
         if( $stmt1 === false ) {
             die( print_r( sqlsrv_errors(), true));
