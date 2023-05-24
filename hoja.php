@@ -110,7 +110,7 @@
                     $resultado = sqlsrv_query( $conn, $sql, $params);
                     while ($fila2 = sqlsrv_fetch_object($resultado)) {
                         echo "<tr class='espacio'></tr>";
-                        echo "<tr class='row_HV'> <td>$fila2->NombrePersona</td><td>$fila2->Telefono</td><td>$fila2->Email</td><td>$fila2->TipoReferencia</td></tr>";
+                        echo "<tr class='row_HV'> <td>".$fila2->NombrePersona."</td><td>".$fila2->Telefono."</td><td>".$fila2->Email."</td><td>".$fila2->TipoReferencia."</td></tr>";
                     }
                 ?>
             </tbody>
