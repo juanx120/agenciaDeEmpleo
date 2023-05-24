@@ -11,11 +11,11 @@
             <div class="txtcuadro"> 
                 <label for="salario">Salario esperado:</label>
                 <?php
-                if($TaUser->HojaDeVida != NULL){
+                if($Nconusu->HojaDeVida != NULL){
                     $sqlho = "SELECT * FROM [dbo].[HojaVida] WHERE IdHojaVida=?";
-                    $paramsho = array( $TaUser->HojaDeVida);
+                    $paramsho = array( $Nconusu->HojaDeVida);
                     $resultadoho = sqlsrv_query( $conn, $sqlho, $paramsho);
-                    $Valho = sqlsrv_fetch_object($resultado);
+                    $Valho = sqlsrv_fetch_object($resultadoho);
                     echo '<input type="number" name="salario" class="txtform" value="'.$Valho->SalarioEsperado.'">';
                 }else{
                     echo '<input type="number" name="salario" class="txtform">';
@@ -25,8 +25,8 @@
                 <br>
                 <label for="descripcion">Descripción:</label>
                 <?php
-                if($TaUser->HojaDeVida != NULL){
-                    echo '<input type="number" name="salario" class="txtform" value="'.$Valho->DescripcionPerfil.'">';
+                if($Nconusu->HojaDeVida != NULL){
+                    echo '<input type="text" name="descripcion" class="txtformlg" value="'.$Valho->DescripcionPerfil.'"><br><br>';
                 }else{
                     echo '<input type="text" name="descripcion" class="txtformlg"><br><br>';
                 }
@@ -110,7 +110,7 @@
                     $resultado = sqlsrv_query( $conn, $sql, $params);
                     while ($fila2 = sqlsrv_fetch_object($resultado)) {
                         echo "<tr class='espacio'></tr>";
-                        echo "<tr class='row_HV'> <td>$fila2->Institucion</td><td>$fila2->Profesion</td><td>$fila2->AnoFinalizacion</td></tr>";
+                        echo "<tr class='row_HV'> <td>".$fila2->NombrePersona."</td><td>".$fila2->Telefono."</td><td>".$fila2->Email."</td><td>".$fila2->TipoReferencia."</td></tr>";
                     }
                 ?>
             </tbody>
@@ -341,7 +341,7 @@
             $CorreoRef = $_POST['correoref'];
             $TipoRef = $_POST['tiporef'];
         
-            $sql = "INSERT INTO [dbo].[Referencia] (NombrePersona, Telefono, Email, TipoReferencia) VALUES (?,?,?)";
+            $sql = "INSERT INTO [dbo].[Referencia] (NombrePersona, Telefono, Email, TipoReferencia) VALUES (?,?,?,?)";
             $params = array($NombreRef, $TelefonoRef, $CorreoRef, $TipoRef);
         
             $stmt = sqlsrv_query( $conn, $sql, $params);
@@ -349,7 +349,7 @@
                 die( print_r( sqlsrv_errors(), true));
             }
             else{
-                $scope = "SELECT IdReferencia FROM [dbo].[Referencia] where NombrePersona = '$NombreRef' AND Telefono = '$TelefonoRef' AND
+                $scope = "SELECT IdReferencia FROM [dbo].[Referencia] where NombrePersona = $NombreRef AND Telefono = $TelefonoRef AND
                             Email = $CorreoRef AND TipoReferencia = $TipoRef";
                 $scoop= sqlsrv_query( $conn, $scope);
                 $fila1 = sqlsrv_fetch_array($scoop);
