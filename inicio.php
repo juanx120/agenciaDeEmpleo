@@ -347,14 +347,20 @@ include('menu.php') ;
                 </tr>
                 
                 <?php
-                    //$sql = "SELECT Nombre, Telefono, Ubicacion FROM [dbo].[Formacion] INNER JOIN [dbo].[SedesXEmpresa] on IdFormacion = Estudios
-                    //INNER JOIN [dbo].[Profesiones] on TituloOtorgado = IdProfesion WHERE HojaVida = ?";
-                    //$params = array($infoHV->HojaDeVida);
-                    //$resultado = sqlsrv_query( $conn, $sql, $params);
-                    //while ($fila = sqlsrv_fetch_object($resultado)) {
-                    //    echo "<tr class='espacio'></tr>";
-                    //    echo "<tr class='row_HV'> <td>$fila->Institucion</td><td>$fila->Profesion</td><td>$fila->AnoFinalizacion</td></tr>";
-                    //}
+
+                    $sql = "SELECT Nombre, Telefono, Ubicacion FROM [dbo].[Sede]
+                    INNER JOIN [dbo].[SedesXEmpresa] ON IdSede = Sede WHERE Empresa=?";
+                    $params = array($Nconemp->NIT);
+                    $resultado = sqlsrv_query( $conn, $sql, $params);
+                    while ($fila = sqlsrv_fetch_object($resultado)) {
+                        $IdPais = obtenerPais($conn, $fila->Ubicacion)
+                        $ConsPais = "SELECT Pais FROM [dbo].[Paises] WHERE IdPais = ?"
+                        $paramsP = array($IdPais);
+                        $resultadoBP = sqlsrv_query( $conn, $ConsPais, $paramsP);
+                        $PaisO=sqlsrv_fetch_array($resultadoBP)
+                        echo "<tr class='espacio'></tr>";
+                        echo "<tr class='row_HV'> <td>$fila->Nombre</td><td>$fila->Telefono</td><td>". obtenerDireccion($conn, $fila->Ubicacion)."</td><td>".obtenerCiudad($conn, $fila->Ubicacion)."</td><td>".$PaisO[0]."</td></tr>";
+                    }
                 ?>
                 <tr class="espacio"></tr>
                 <tr class="row">
