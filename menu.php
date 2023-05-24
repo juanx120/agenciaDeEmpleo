@@ -1,6 +1,8 @@
 <?php include('header.php') ?>
 <div class=contenedor>
     <div id='menu'>
+        <?php $ConsultaUs = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario] WHERE IdUsuario=$IdUsuario");
+        $TaUser= sqlsrv_fetch_object($ConsultaUs); ?>
         <a href='inicio.php'>Datos usuario</a>
         <?php if($TaUser->TipoUsuario == 'P' || $TaUser->TipoUsuario == 'A'){ ?> 
         <a href='hoja.php'>Hoja de vida</a>

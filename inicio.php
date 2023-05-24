@@ -10,8 +10,7 @@ include('menu.php') ;
     //echo '<script>'
     //echo 'console.log ("el valor de usuario es:'. $_GET['Idu']. $_SESSION["SIdu"];
     //echo '")</script>';
-    $ConsultaUs = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario] WHERE IdUsuario=$IdUsuario");
-    $TaUser= sqlsrv_fetch_object($ConsultaUs);
+    
     if ($TaUser->TipoUsuario == 'P') {
         $VisivilidadAspirante = 'dt-aspirante-visible';
         $VisivilidadEmpresa = 'dt-empresa-oculto';
