@@ -24,15 +24,14 @@
         </thead>    
         <tbody>
         <tr class='espacio'></tr>
-                <tr class='row_HVsub'><td>Nombre</td><td>Télefono</td><td>Profesion</td></tr>
+                <tr class='row_HVsub'><td>Razón social</td><td>Nombre</td><td>NIT</td></tr>
                 <?php
-                    $sql = "SELECT  IdUsuario,Nombre,Apellido,Telefono,b.Profesion FROM Desempleado a 
-                    INNER JOIN Profesiones b on b.IdProfesion = a.Profesion where IdUsuario = ?";
+                    $sql = "SELECT NIT, RazonSocial, Nombre FROM Empresa where IdUsuario = ?";
                     $params = array($IdUsuario);
                     $resultado = sqlsrv_query( $conn, $sql, $params);
                     while ($fila = sqlsrv_fetch_object($resultado)) {
                         echo "<tr class='espacio'></tr>";
-                        echo "<tr class='row_HV'> <td>$fila->Nombre $fila->Apellido</td><td>$fila->Telefono</td><td>$fila->Profesion</td></tr>";
+                        echo "<tr class='row_HV'> <td>$fila->RazonSocial</td><td>$fila->Nombre</td><td>$fila->NIT</td></tr>";
                     }
                 ?>
         </tbody>
