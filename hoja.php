@@ -64,7 +64,8 @@
                 <tr class='espacio'></tr>
                 <tr class='row_HVsub'><td>Empresa</td><td>Puesto</td><td>Año trabajo</td><td>Descripcion</td></tr>
                 <?php
-                    $sql = "SELECT Empresa, PuestoOcupado, Ano, Descripcion FROM [dbo].[ExperienciaLaboral] INNER JOIN [dbo].[ExperienciaXHoja] on IdExperiencia = Experiencia
+                    $sql = "SELECT Empresa, PuestoOcupado, Ano, Descripcion FROM [dbo].[ExperienciaLaboral] INNER JOIN [dbo].[ExperienciaXHoja] 
+                    on IdExperiencia = Experiencia
                     WHERE HojaVida = ?";
                     $params = array($infoHV->HojaDeVida);
                     $resultado = sqlsrv_query( $conn, $sql, $params);
@@ -88,7 +89,7 @@
                 <tr class='espacio'></tr>
                 <tr class='row_HVsub'><td>Nombre y apellido</td><td>Télefono</td><td>Correo</td><td>Tipo</td></tr>
                 <?php
-                    $sql = "SELECT NombrePersona, Telefono, Email, TipoReferencia FROM [dbo].[Referencias] INNER JOIN [dbo].[ReferenciaXHoja] on IdReferencia = Referencia
+                    $sql = "SELECT NombrePersona, Telefono, Email, TipoReferencia FROM [dbo].[Referencia] INNER JOIN [dbo].[ReferenciaXHoja] on IdReferencia = Referencia
                     WHERE HojaVida = ?";
                     $params = array($infoHV->HojaDeVida);
                     $resultado = sqlsrv_query( $conn, $sql, $params);
