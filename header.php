@@ -56,6 +56,8 @@ session_start();
                         echo '")</script>';
                         $ConsultaNU = sqlsrv_query($conn, "SELECT * FROM [dbo].[Desempleado] WHERE IdUsuario=$IdUsuario");
                         $ConsultaNE = sqlsrv_query($conn, "SELECT * FROM [dbo].[Empresa] WHERE IdUsuario=$IdUsuario");
+                        $ConsultaUs = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario] WHERE IdUsuario=$IdUsuario");
+                        $TaUser= sqlsrv_fetch_object($ConsultaUs);
                         if( $ConsultaNU === FALSE ){
                             die(print_r(sqlsrv_errors($ConsultaNU), true));
                             }
