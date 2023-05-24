@@ -87,7 +87,8 @@
         $NvlEducacion=$_POST['nvlEducacion'];
         $Descripcionva=$_POST['descripcionva'];
     
-        $sql = "INSERT INTO [dbo].[Vacante] (Titulo, Salario, FechaInicio, FechaFin, Profesion, Sede, EdadMinima, EdadMaxima, EducacionRequerida, DescripcionVacante) VALUES (?,?,?)";
+        $sql = "INSERT INTO [dbo].[Vacante] (Titulo, Salario, FechaInicio, FechaFin, Profesion, Sede, EdadMinima, EdadMaxima, EducacionRequerida, DescripcionVacante) 
+        VALUES (?,?,?,?,?,?,?,?,?,?)";
         $params = array($Titulova, $Salario, $Fechin, $Fechfin, $Profesionva, $Sedeva, $EdMin, $EdMax, $NvlEducacion, $Descripcionva);
     
         $stmt = sqlsrv_query( $conn, $sql, $params);
