@@ -1,7 +1,7 @@
 <?php include('header.php') ?>
 <div class=contenedor>
     <div id='menu'>
-        <a href='#'>Datos usuario</a>
+        <a href='inicio.php'>Datos usuario</a>
         <a href='aspirantes.php'>Aspirantes</a>
         <a href='hoja.php'>Hoja de vida</a>
         <a href='#'>Vacantes</a>

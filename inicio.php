@@ -340,6 +340,8 @@ include('menu.php') ;
             </thead>    
             <tbody>
                 <tr class="espacio"></tr>
+                <tr class="row_HVsub"><td>Nombre</td><td>Telefono</td><td>Direccion</td><td>Ciudad</td><td>Pais</td></tr>
+                <tr class="espacio"></tr>
                 <tr class="row">
                     <td>Dato 1<td>
                 </tr>
@@ -370,7 +372,7 @@ include('menu.php') ;
                 <label for="paissd">País:</label>
                 <?php
                 $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Paises]");
-                echo '<select name="paissd" class="form-iniciar-s">';
+                echo '<select name="paissd" class="form-iniciar-s" id="SelecPSede">';
                 while ($fila = sqlsrv_fetch_object($resultado)) {
                         echo '<option value="' , $fila->IdPais , '">' , $fila->Pais , '</option>';
                     }
@@ -393,6 +395,7 @@ include('menu.php') ;
 
     <?php
 
+    //Boton para actualizar o crear persona
     if (isset($_POST['gdpersona'])) {
         $Nombre = $_POST['nombre'];
         $Apellido = $_POST['apellido'];
@@ -548,6 +551,56 @@ include('menu.php') ;
             }
         }
     }
+
+    if(isset($_POST['btnSede'])){
+        $nombresd = $_POST['nombresd'];
+        $telefonosd = $_POST['telefonosd'];
+        $paissd = $_POST['paissd'];
+        $ciudadesd = $_POST['ciudadesd'];
+        $direccionsd = $_POST['direccionsd'];
+        
+            // Insertar una nueva ubicación
+            $sqlInsertUbicacion = "INSERT INTO [dbo].[Ubicacion] (Ciudad, Direccion, Pais) VALUES (?,?,?)";
+            $paramsInsertUbicacion = array($ciudadesd, $direccionsd, $paissd);
+            $stmtInsertUbicacion = sqlsrv_query($conn, $sqlInsertUbicacion, $paramsInsertUbicacion);
+    
+            if ($stmtInsertUbicacion === false) {
+                die(print_r(sqlsrv_errors(), true));
+                echo '<script language="javascript">';
+                echo 'alert("Error al crear ubicación")';
+                echo '</script>';
+            } else {
+                $queryIdUbicacion="SELECT IdUbicacion FROM [dbo].[Ubicacion] WHERE Direccion LIKE '%$direccionsd%' AND Ciudad LIKE '%$ciudadesd%' AND Pais = $paissd";
+                $idUbicacion = sqlsrv_query($conn, $queryIdUbicacion);
+                $filaUbicacion = sqlsrv_fetch_array($idUbicacion);
+                $idUbicacion = $filaUbicacion['IdUbicacion'];
+
+                $sql = "INSERT INTO [dbo].[Sede] (Nombre, Telefono, Ubicacion) VALUES (?,?,?)";
+                $params = array($nombresd, $telefonosd, $idUbicacion);
+                $stmt = sqlsrv_query( $conn, $sql, $params);
+                if( $stmt === FALSE ){
+                    die( print_r( sqlsrv_errors(), true));
+                }
+                else{
+                    $queryIdSede="SELECT IdSede FROM [dbo].[Sede] WHERE Nombre LIKE '%$nombresd%' AND Telefono LIKE '%$telefonosd%' AND Ubicacion = $idUbicacion";
+                    $idSede = sqlsrv_query($conn, $queryIdSede);
+                    $filaSede = sqlsrv_fetch_array($idSede);
+                    $idSede = $filaSede['IdSede'];
+
+                    $sql = "INSERT INTO [dbo].[SedesXEmpresa] (Empresa, Sede) VALUES (?,?)";
+                    $params = array($Nconemp->NIT, $idSede);
+                    $stmt = sqlsrv_query( $conn, $sql, $params);
+                    if( $stmt === FALSE ){
+                        die( print_r( sqlsrv_errors(), true));
+                    }
+                    else{
+                        echo '<script language="javascript">';
+                        echo 'alert("Sede creada correctamente")';
+                        echo '</script>';
+                    }
+                }
+    }
+}
 
     function obtenerCiudad($conn, $ubicacionId) {
         $query = "SELECT Ciudad FROM [dbo].[Ubicacion] WHERE IdUbicacion = ?";
