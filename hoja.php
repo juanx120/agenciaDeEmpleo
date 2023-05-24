@@ -93,14 +93,14 @@
                     WHERE HojaVida = ?";
                     $params = array($infoHV->HojaDeVida);
                     $resultado = sqlsrv_query( $conn, $sql, $params);
-                    while ($fila = sqlsrv_fetch_object($resultado)) {
+                    while ($fila2 = sqlsrv_fetch_object($resultado)) {
                         echo "<tr class='espacio'></tr>";
-                        echo "<tr class='row_HV'> <td>$fila->Institucion</td><td>$fila->Profesion</td><td>$fila->AnoFinalizacion</td></tr>";
+                        echo "<tr class='row_HV'> <td>$fila2->Institucion</td><td>$fila2->Profesion</td><td>$fila2->AnoFinalizacion</td></tr>";
                     }
                 ?>
             </tbody>
         </table>
-        <?php }?>
+        <?php } echo $infoHV->HojaDeVida ?>
     </div>
 
     <!--Modal estudios-->
@@ -132,6 +132,7 @@
             <div class="opciones">
                 <button type="submit" class="btn-ini" name="btn-Estudios">Añadir</button>
             </div>
+           
         </form>
     </dialog>
 
@@ -246,14 +247,10 @@
                 $scope = "SELECT IdFormacion FROM Formacion where Institucion = '$Institucionest' AND TituloOtorgado = '$Profesion' AND
                             AnoFinalizacion = $Final";
                 $scoop= sqlsrv_query( $conn, $scope);
-                $fila = sqlsrv_fetch_array($scoop);
-
-                $scope1 = "SELECT HojaDeVida FROM Desempleado where IdUsuario = $IdUsuario";
-                $scoop1= sqlsrv_query( $conn, $scope1);
-                $fila1 = sqlsrv_fetch_array($scoop1);
+                $fila1 = sqlsrv_fetch_array($scoop);
 
                 $sql1 = "INSERT INTO [dbo].[FormacionXHoja] (Estudios, HojaVida) VALUES (?,?)";
-                $params1 = array($fila[0], $infoHV->HojaDeVida);
+                $params1 = array($fila1[0], $infoHV->HojaDeVida);
                 $stmt1 = sqlsrv_query($conn, $sql1, $params1);
             if( $stmt1 === false ) {
                 die( print_r( sqlsrv_errors(), true));
@@ -286,10 +283,10 @@
                 $scope = "SELECT IdExperiencia FROM ExperienciaLaboral where Empresa = '$Empresa' AND PuestoOcupado = '$Puesto' AND
                             Ano = $Ano AND Descripcion = $DescripcionExp";
                 $scoop= sqlsrv_query( $conn, $scope);
-                $fila = sqlsrv_fetch_array($scoop);
+                $fila1 = sqlsrv_fetch_array($scoop);
 
                 $sql1 = "INSERT INTO [dbo].[ExperienciaXHoja] (Experiencia, HojaVida) VALUES (?,?)";
-                $params1 = array($fila[0], $infoHV->HojaDeVida);
+                $params1 = array($fila1[0], $infoHV->HojaDeVida);
                 $stmt1 = sqlsrv_query($conn, $sql1, $params1);
             if( $stmt1 === false ) {
                 die( print_r( sqlsrv_errors(), true));
@@ -322,10 +319,10 @@
                 $scope = "SELECT IdReferencia FROM Referencia where NombrePersona = '$NombreRef' AND Telefono = '$TelefonoRef' AND
                             Email = $CorreoRef AND TipoReferencia = $TipoRef";
                 $scoop= sqlsrv_query( $conn, $scope);
-                $fila = sqlsrv_fetch_array($scoop);
+                $fila1 = sqlsrv_fetch_array($scoop);
 
                 $sql1 = "INSERT INTO [dbo].[ReferenciaXHoja] (Referencia, HojaVida) VALUES (?,?)";
-                $params1 = array($fila[0], $infoHV->HojaDeVida);
+                $params1 = array($fila1[0], $infoHV->HojaDeVida);
                 $stmt1 = sqlsrv_query($conn, $sql1, $params1);
             if( $stmt1 === false ) {
                 die( print_r( sqlsrv_errors(), true));
