@@ -2,8 +2,8 @@
 $serverName = "serveragenciadeempleobg.database.windows.net"; 
 $connectionOptions = array(
     "Database" => "AgenciaDeEmpleoBogotaDB", 
-    "Uid" => "JuanG", 
-    "PWD" => "Noselaclave_23",
+    "Uid" => "est.david.diaz2@unimilitar.edu.co", 
+    "PWD" => "JuanMapu123",
     "Authentication" => "ActiveDirectoryPassword"
 );
 //Establece la conexión
