@@ -42,7 +42,7 @@ session_start();
                             $IdUsuario=$_SESSION["SIdu"];
                         } else {
                             // Si la variable de sesión no existe o no tiene valor, redirigir a index.php
-                            echo '<script type="text/javascript"> window.location.href = "https://agenciadeempleobogota.azurewebsites.net/" </script>'; 
+                            echo '<script type="text/javascript"> window.location.href = "https://agenciaempleobogota.azurewebsites.net/" </script>'; 
                         }
                         echo '<script>';
                         echo 'console.log ("el valor de usuario es:'. $IdUsuario;
