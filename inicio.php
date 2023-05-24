@@ -1,25 +1,15 @@
 <?php
 include('menu.php') ;
 
-    
-    // Verificar si la variable de sesión existe y tiene un valor
-    if (isset($_SESSION["SIdu"])) {
-        $Idusersession = $_SESSION["SIdu"];
-    } else {
-        // Si la variable de sesión no existe o no tiene valor, redirigir a index.php
-        //echo '<script>alert("Usuario no existe"); window.location.href = "index.php";</script>';
-        //exit();
-    }
-
     //$Idu = $_SESSION['Idu'];
-    echo $_SESSION["SIdu"];
-    echo '<script>';
-    echo 'console.log ("el valor de usuario es:'. $_SESSION["SIdu"];
-    echo '")';
+    //echo $_SESSION["SIdu"];
+    //echo '<script>';
+    //echo 'console.log ("el valor de usuario es:'. $_SESSION["SIdu"];
+    //echo '")';
     //echo '</script>';
     //echo '<script>'
-    echo 'console.log ("el valor de usuario es:'. $_GET['Idu']. $_SESSION["SIdu"];
-    echo '")</script>';
+    //echo 'console.log ("el valor de usuario es:'. $_GET['Idu']. $_SESSION["SIdu"];
+    //echo '")</script>';
     $ConsultaUs = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario] WHERE IdUsuario=$Idusersession");
     $TaUser= sqlsrv_fetch_object($ConsultaUs);
     if ($TaUser->TipoUsuario == 'P') {

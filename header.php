@@ -36,6 +36,7 @@ session_start();
                         <?php
                         include('conection.php');
                         $ExUsuario=FALSE;
+                        $ExEmpresa=FALSE;
                         // Verificar si la variable de sesión existe y tiene un valor
                         if (isset($_SESSION["SIdu"])) {
                             $IdUsuario=$_SESSION["SIdu"];
@@ -60,7 +61,21 @@ session_start();
                                 echo " ";
                                 echo $Nconusu->Apellido;
                                 echo "</b></p>";
-                            }
+                            }elseif(sqlsrv_has_rows($ConsultaNE = sqlsrv_query($conn, "SELECT * FROM [dbo].[Empresa] WHERE IdUsuario=$IdUsuario"))){
+                                if( $ConsultaNE === FALSE ){
+                                    die(print_r(sqlsrv_errors($ConsultaNE), true));
+                                    }
+                                else{
+                                    if (sqlsrv_has_rows($ConsultaNE))
+                                    {
+                                        $ExEmpresa=TRUE;
+                                        $Nconemp = sqlsrv_fetch_object($ConsultaNE);
+                                        echo "<p><b>";
+                                        echo $Nconemp->RazonSocial;
+                                        echo "</b></p>";
+                                    }
+                                }  
+                            } 
                             else
                             {
                                 $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario] WHERE IdUsuario=$IdUsuario");
