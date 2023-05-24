@@ -65,7 +65,7 @@
                 $params = array($IdUsuario);
                 $resultado = sqlsrv_query($conn, $sql, $params);
                 while ($fila2 = sqlsrv_fetch_array($resultado)) {
-                    $fechaFin = $fila2['FechaFin']->format('Y/m/d'); // Formatear la fecha
+                    $fechaFin = $fila2['FechaFin']->format('d/m/Y'); // Formatear la fecha
                     echo "<tr class='espacio'></tr>";
                     echo "<tr class='row_HV'> <td>".$fila2['Titulo']."</td><td>".$fila2['Profesion']."</td><td>".$fila2['Salario']."</td>
                         <td>".$fila2['EducacionRequerida']."</td><td>".$fechaFin."</td></tr>";
