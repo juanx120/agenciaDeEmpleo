@@ -29,7 +29,7 @@
             $infoHV = sqlsrv_fetch_object($resultado);
 
             echo "<p>hoja de vida: $infoHV->HojaDeVida </p>";
-            if($info_hoja[0] != NULL OR $info_hoja[0] != 0) {
+            if($info_hoja[0] != NULL OR $info_hoja[0] > 0) {
         ?>
         <div>
             <a id="btn-estudios" class="button2">Añadir estudios</a>
