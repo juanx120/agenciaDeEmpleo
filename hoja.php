@@ -23,12 +23,13 @@
             
             echo $IdUsuario;
 
-            $sql = "SELECT HojaDeVida FROM Desempleado a INNER JOIN Usuario b on a.IdUsuario = b.IdUsuario  where a.IdUsuario = $IdUsuario";
-            $resultado = sqlsrv_query( $conn, $sql);
+            $sql = "SELECT HojaDeVida FROM [dbo].[Desempleado] where IdUsuario = ?";
+            $params = array( $IdUsuario);
+            $resultado = sqlsrv_query( $conn, $sql, $params);
             $infoHV = sqlsrv_fetch_object($resultado);
 
-            echo "<p>hoja de vida: $infoHV->HojaDeVija </p>";
-            #if($info_hoja[0] != NULL OR $info_hoja[0] != 0) {
+            echo "<p>hoja de vida: $infoHV->HojaDeVida </p>";
+            if($info_hoja->HojaDeVida != NULL OR $info_hoja->HojaDeVida > 0) {
         ?>
         <div>
             <a id="btn-estudios" class="button2">Añadir estudios</a>
@@ -53,7 +54,7 @@
         <div>
             <a id="btn-experiencia" class="button2">Añadir experiencia</a>
         </div>
-        <table id="referencias">
+        <table id="Experiencia">
             <thead class="row_titulo">
                 <tr>
                     <th>Experiencia laboral</th>
@@ -90,7 +91,7 @@
                 </tr>
             </tbody>
         </table>
-        <?php #} ?>
+        <?php } ?>
     </div>
 
     <!--Modal estudios-->
@@ -207,8 +208,9 @@
                 $scoop= sqlsrv_query( $conn, $scope);
                 $fila = sqlsrv_fetch_array($scoop);
 
-                $sql1 = "UPDATE[dbo].[Desempleado] SET HojaDeVida = $fila[0] WHERE IdUsuario = $IdUsuario";
-                $stmt1 = sqlsrv_query( $conn, $sql1);
+                $sql1 = "UPDATE dbo.Desempleado SET HojaDeVida = ? WHERE IdUsuario = ?";
+                $params1 = array($fila[0], $IdUsuario);
+                $stmt1 = sqlsrv_query($conn, $sql1, $params1);
             if( $stmt1 === false ) {
                 die( print_r( sqlsrv_errors(), true));
                 echo '<script language="javascript">';
