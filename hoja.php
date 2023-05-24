@@ -23,11 +23,11 @@
             
             echo $IdUsuario;
 
-            $sql = "SELECT HojaDeVida  FROM Desempleado a INNER JOIN Usuario b on a.IdUsuario = b.IdUsuario  where a.IdUsuario = $IdUsuario";
+            $sql = "SELECT HojaDeVida FROM Desempleado a INNER JOIN Usuario b on a.IdUsuario = b.IdUsuario  where a.IdUsuario = $IdUsuario";
             $resultado = sqlsrv_query( $conn, $sql);
             $infoHV = sqlsrv_fetch_object($resultado);
 
-            echo "<p>hoja de vida: $infoHV->HojaDeVija";
+            echo "<p>hoja de vida: $infoHV->HojaDeVija </p>";
             #if($info_hoja[0] != NULL OR $info_hoja[0] != 0) {
         ?>
         <div>
@@ -207,7 +207,7 @@
                 $scoop= sqlsrv_query( $conn, $scope);
                 $fila = sqlsrv_fetch_array($scoop);
 
-                $sql1 = "INSERT INTO [dbo].[Desempleado] (HojaDeVida) VALUES (?)";
+                $sql1 = "UPDATE[dbo].[Desempleado] (HojaDeVida) VALUES (?) WHERE IdUsuario = $IdUsuario ";
                 $params1 = array($fila[0]);
                 $stmt1 = sqlsrv_query( $conn, $sql1, $params1);
             if( $stmt1 === false ) {
