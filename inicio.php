@@ -340,12 +340,7 @@ include('menu.php') ;
             </thead>    
             <tbody>
                 <tr class="espacio"></tr>
-                <tr class="row_HVsub"><td>Nombre</td><td>Telefono</td><td>Direccion</td><td>Ciudad</td><td>Pais</td></tr>
-                <tr class="espacio"></tr>
-                <tr class="row">
-                    <td>Dato 1<td>
-                </tr>
-                
+                <tr class="row_HVsub"><td>Nombre</td><td>Telefono</td><td>Direccion</td><td>Ciudad</td><td>Pais</td></tr>                
                 <?php
                     $sql = "SELECT Nombre, Telefono, Ubicacion FROM [dbo].[Sede] INNER JOIN [dbo].[SedesXEmpresa] ON IdSede = Sede WHERE Empresa=?";
                     $params = array($Nconemp->NIT);
@@ -360,10 +355,6 @@ include('menu.php') ;
                         echo "<tr class='row_HV'> <td>$fila->Nombre</td><td>$fila->Telefono</td><td>". obtenerDireccion($conn, $fila->Ubicacion)."</td><td>".obtenerCiudad($conn, $fila->Ubicacion)."</td><td>".$PaisO[0]."</td></tr>";
                     }
                 ?>
-                <tr class="espacio"></tr>
-                <tr class="row">
-                    <td>Dato 2<td>
-                </tr>
             </tbody>
         </table>
     </div>
