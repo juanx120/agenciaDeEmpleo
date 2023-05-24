@@ -206,7 +206,7 @@
                 </select>
             </div>
             <div class="opciones">
-                <button type="submit" class="btn-ini" name="btn-Referencia">Añadir</button>
+                <button type="submit" class="btn-ini" name="btnReferencia">Añadir</button>
             </div>
         </form>
     </dialog>
