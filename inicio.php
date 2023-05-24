@@ -520,7 +520,9 @@ include('menu.php') ;
                 echo '</script>';
             } else {
                 // Obtener el ID de la ubicación recién insertada
-                $idUbicacion = sqlsrv_query($conn, "SELECT IdUbicacion FROM [dbo].[Ubicacion] WHERE Direccion LIKE '%$DireccionEmp%' AND Ciudad LIKE '%$CiudadEmp%' AND Pais = $PaisEmp";);
+
+                $queryIdUbicacion="SELECT IdUbicacion FROM [dbo].[Ubicacion] WHERE Direccion LIKE '%$DireccionEmp%' AND Ciudad LIKE '%$CiudadEmp%' AND Pais = $PaisEmp";
+                $idUbicacion = sqlsrv_query($conn, $queryIdUbicacion);
                 $filaUbicacion = sqlsrv_fetch_array($idUbicacion);
                 $idUbicacion = $filaUbicacion['IdUbicacion'];
     
