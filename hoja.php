@@ -20,16 +20,12 @@
             </div>
         </form>
         <?php
-            
-            echo $IdUsuario;
             $sql = "SELECT HojaDeVida FROM [dbo].[Desempleado] where IdUsuario = ?";
             $params = array( $IdUsuario);
             $resultado = sqlsrv_query( $conn, $sql, $params);
             $infoHV = sqlsrv_fetch_object($resultado);
             echo "<p>hoja de vida: $infoHV->HojaDeVida </p>";
-            if($info_hoja->HojaDeVida > 0 )  { echo "paso"; }{
-                echo "sapo perro no funciona";
-            };
+            if($infoHV->HojaDeVida != NULL)  { 
         ?>
         <div>
             <a id="btn-estudios" class="button2">Añadir estudios</a>
@@ -91,7 +87,7 @@
                 </tr>
             </tbody>
         </table>
-        <?php #} ?>
+        <?php } ?>
     </div>
 
     <!--Modal estudios-->
