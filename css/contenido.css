@@ -156,3 +156,18 @@ table, th, td{
 .espacio{
     height: 5px;
 }
+#dt-aspirante-visible {
+    display: block;
+}
+
+#dt-aspirante-oculto {
+    display: none;
+}
+
+#dt-empresa-visible {
+    display: block;
+}
+
+#dt-empresa-oculto {
+    display: none;
+}

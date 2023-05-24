@@ -13,7 +13,7 @@
 
 
     <div class = "contenido"> 
-        <form id="dt-aspirante" class='info dt-aspirante' method="post">
+        <form id="<?php echo $claseAspirante; ?>" class='info' method="post">
             <div class="ttlcuadro">
                 <div class="titulo">
                     <h2>Datos del usuario</h2>
@@ -254,7 +254,7 @@
             </div>
         </form>
         <br> <br>
-        <form id="dt-empresa" class='info dt-empresa' method="post">
+        <form id="<?php echo $claseEmpresa; ?>" class='info' method="post">
             <div class="ttlcuadro">
                 <div class="titulo">
                     <h2>Datos de la empresa</h2>
@@ -355,33 +355,15 @@
 
     $ConsultaUs = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario] WHERE IdUsuario=$IdUsuario");
     $TaUser= sqlsrv_fetch_object($ConsultaNU);
-    if($TaUser->TipoUsuario=='P'){
-        <style>
-            .dt-aspirante {
-                display: block;
-            }
-            .dt-empresa{
-                display: none;
-            }
-        </style>
-    }elseif($TaUser->TipoUsuario=='E'){
-        <style>
-        .dt-aspirante {
-            display: none;
-        }
-        .dt-empresa{
-            display: block;
-        }
-    </style>
+    if ($TaUser->TipoUsuario == 'P') {
+        $claseAspirante = 'dt-aspirante-visible';
+        $claseEmpresa = 'dt-empresa-oculto';
+    } elseif ($TaUser->TipoUsuario == 'E') {
+        $claseAspirante = 'dt-aspirante-oculto';
+        $claseEmpresa = 'dt-empresa-visible';
     }else{
-        <style>
-        .dt-aspirante {
-            display: block;
-        }
-        .dt-empresa{
-            display: block;
-        }
-    </style>
+        $claseAspirante = 'dt-aspirante-visible';
+        $claseEmpresa = 'dt-empresa-visible';
     }
 
     if (isset($_POST['gdpersona'])) {
