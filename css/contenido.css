@@ -153,6 +153,15 @@ table, th, td{
     height: auto;
 }
 
+.row_HV{
+    background-color: #F2CA7E;
+    height: 50px;
+    color: black;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
 .espacio{
     height: 5px;
 }

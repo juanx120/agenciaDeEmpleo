@@ -38,13 +38,13 @@
             </thead>    
             <tbody>
                 <?php
-                    $sql = "SELECT Institucion, TituloOtorgado, AnoFinalizacion FROM [dbo].[Formacion] INNER JOIN FormacionXHoja on IdFormacion = Estudios
-                    WHERE HojaVida = ?";
+                    $sql = "SELECT Institucion, Profesion, AnoFinalizacion FROM [dbo].[Formacion] INNER JOIN [dbo].[FormacionXHoja] on IdFormacion = Estudios
+                    INNER JOIN [dbo].[Profesiones] on TituloOtorgado = IdProfesion WHERE HojaVida = ?";
                     $params = array($infoHV->HojaDeVida);
                     $resultado = sqlsrv_query( $conn, $sql, $params);
                     while ($fila = sqlsrv_fetch_object($resultado)) {
                         echo "<tr class='espacio'></tr>";
-                        echo "<tr class='row'> <td>$fila->Institucion</td><td>$fila->TituloOtorgado</td><td>$fila->AnoFinalizacion</td></tr>";
+                        echo "<tr class='row_HV'> <td>$fila->Institucion</td><td>$fila->Profesion</td><td>$fila->AnoFinalizacion</td></tr>";
                     }
                 ?>
             </tbody>
