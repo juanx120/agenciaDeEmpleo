@@ -12,7 +12,7 @@
                 <label for="salario">Salario esperado:</label>
                 <?php
                 if($TaUser->HojaDeVida != NULL){
-                    $sqlho = "SELECT * FROM [dbo].[HojaVida] WHERE IdHojaVida=?"
+                    $sqlho = "SELECT * FROM [dbo].[HojaVida] WHERE IdHojaVida=?";
                     $paramsho = array( $TaUser->HojaDeVida);
                     $resultadoho = sqlsrv_query( $conn, $sqlho, $paramsho);
                     $Valho = sqlsrv_fetch_object($resultado);
@@ -217,33 +217,52 @@
             $Descripcion=$_POST['descripcion'];
             echo '<script> console.log("Llegue a esta zona :3)</script>';
             
-            $sql = "INSERT INTO [dbo].[HojaVida] (SalarioEsperado, DescripcionPerfil ) VALUES (?,?)";
-            $params = array($Salario, $Descripcion);
+            if($TaUser->HojaDeVida == NULL){
+                //Se crea la hoja de vicda
+                $sql = "INSERT INTO [dbo].[HojaVida] (SalarioEsperado, DescripcionPerfil ) VALUES (?,?)";
+                $params = array($Salario, $Descripcion);
+                $stmt = sqlsrv_query( $conn, $sql, $params);
+                if( $stmt === FALSE ){
+
+                }
+                else{
+                    $scope = "SELECT IdHojaVida FROM [dbo].[HojaVida] WHERE SalarioEsperado = '$Salario' AND DescripcionPerfil = '$Descripcion'";
+                    $scoop= sqlsrv_query( $conn, $scope);
+                    $fila = sqlsrv_fetch_array($scoop);
+
+                    $sql1 = "UPDATE dbo.Desempleado SET HojaDeVida = ? WHERE IdUsuario = ?";
+                    $params1 = array($fila[0], $IdUsuario);
+                    $stmt1 = sqlsrv_query($conn, $sql1, $params1);
+                if( $stmt1 === false ) {
+                    die( print_r( sqlsrv_errors(), true));
+                    echo '<script language="javascript">';
+                    echo 'alert("Error al crear usuario")';
+                    echo '</script>';
+                }else{
+                    echo '<script language="javascript">';
+                    echo 'alert("Datos guardados exitosamente';
+                    echo '")</script>';
+                    echo '<script type="text/javascript"> window.location.href = "https://agenciaempleobogota.azurewebsites.net/hoja.php" </script>';
+                }
+                }
+        }else{
+            //Se actualiza la hoja de vida
+            $sql = "UPDATE [dbo].[HojaVida] SET SalarioEsperado=?, DescripcionPerfil=? WHERE IdHojaVida=?";
+            $params = array($Salario, $Descripcion,$TaUser->HojaDeVida);
             $stmt = sqlsrv_query( $conn, $sql, $params);
             if( $stmt === FALSE ){
-
-            }
-            else{
-                $scope = "SELECT IdHojaVida FROM [dbo].[HojaVida] WHERE SalarioEsperado = '$Salario' AND DescripcionPerfil = '$Descripcion'";
-                $scoop= sqlsrv_query( $conn, $scope);
-                $fila = sqlsrv_fetch_array($scoop);
-
-                $sql1 = "UPDATE dbo.Desempleado SET HojaDeVida = ? WHERE IdUsuario = ?";
-                $params1 = array($fila[0], $IdUsuario);
-                $stmt1 = sqlsrv_query($conn, $sql1, $params1);
-            if( $stmt1 === false ) {
                 die( print_r( sqlsrv_errors(), true));
                 echo '<script language="javascript">';
                 echo 'alert("Error al crear usuario")';
                 echo '</script>';
             }else{
                 echo '<script language="javascript">';
-                echo 'alert("Datos guardados exitosamente';
+                echo 'alert("Datos actualizados exitosamente';
                 echo '")</script>';
                 echo '<script type="text/javascript"> window.location.href = "https://agenciaempleobogota.azurewebsites.net/hoja.php" </script>';
             }
-            }
         }
+    }
 
         if(isset($_POST['btn-Estudios'])){
             $Institucionest=$_POST['institucion'];
