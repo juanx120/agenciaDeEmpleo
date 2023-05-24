@@ -53,10 +53,10 @@ include('menu.php') ;
                 <label for="identificacion">No. Identificación:</label>
                 <?php
                 if($ExUsuario){
-                    echo '<input type="text" name="identificacion" class="txtform" value="'.$Nconusu->Identificacion.'" disabled>';
+                    echo '<input type="number" name="identificacion" class="txtform" value="'.$Nconusu->Identificacion.'" disabled>';
                 }
                 else{
-                    echo '<input type="text" name="identificacion" class="txtform">';
+                    echo '<input type="number" name="identificacion" class="txtform">';
                 }
                 ?>
                 <label  for="genero">Género:</label>
