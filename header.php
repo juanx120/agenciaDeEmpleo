@@ -61,8 +61,9 @@ session_start();
                                 echo " ";
                                 echo $Nconusu->Apellido;
                                 echo "</b></p>";
-                            }elseif(sqlsrv_has_rows($ConsultaNE = sqlsrv_query($conn, "SELECT * FROM [dbo].[Empresa] WHERE IdUsuario=$IdUsuario"))){
-                                if( $ConsultaNE === FALSE ){
+                            }else{
+                                $ConsultaNE = sqlsrv_query($conn, "SELECT * FROM [dbo].[Empresa] WHERE IdUsuario=$IdUsuario")
+                            }if( $ConsultaNE === FALSE ){
                                     die(print_r(sqlsrv_errors($ConsultaNE), true));
                                     }
                                 else{
@@ -73,10 +74,8 @@ session_start();
                                         echo "<p><b>";
                                         echo $Nconemp->RazonSocial;
                                         echo "</b></p>";
-                                        $ConsultaNE=$ConsultaNE;
                                     }
-                                }  
-                            } 
+                                }
                             else
                             {
                                 $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario] WHERE IdUsuario=$IdUsuario");
