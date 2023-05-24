@@ -29,7 +29,7 @@
             $infoHV = sqlsrv_fetch_object($resultado);
 
             echo "<p>hoja de vida: $infoHV->HojaDeVida </p>";
-            if(is_int($info_hoja->HojaDeVida)) {
+            if($info_hoja->HojaDeVida == 5)  {
         ?>
         <div>
             <a id="btn-estudios" class="button2">Añadir estudios</a>
