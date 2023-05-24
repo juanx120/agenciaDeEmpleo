@@ -387,6 +387,8 @@
                 echo '<script language="javascript">';
                 echo 'alert("Datos actualizados exitosamente")';
                 echo '</script>';
+                header("Location: ".$_SERVER['PHP_SELF']);
+                exit;
             }
         } else {
             // Insertar un nuevo usuario
