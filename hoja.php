@@ -20,7 +20,9 @@
             </div>
         </form>
         <?php
-            $IdUsuario;
+            
+            echo $IdUsuario;
+
             $sql = "SELECT HojaDeVida  FROM Desempleado a INNER JOIN Usuario b on a.IdUsuario = b.IdUsuario  where a.IdUsuario = $IdUsuario";
             $resultado = sqlsrv_query( $conn, $sql);
             $infoHV = sqlsrv_fetch_object($resultado);
