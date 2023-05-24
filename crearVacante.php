@@ -51,12 +51,12 @@
     <table>
         <thead class="row_titulo">
             <tr>
-                <th colspan = '4'>Listado de vacantes</th>
+                <th colspan = '5'>Listado de vacantes</th>
             </tr>
         </thead>    
         <tbody>
             <tr class='espacio'></tr>
-            <tr class='row_HVsub'><td>Título</td><td>Profesion</td><td>Salario</td><td>Nivel educación</td><td>FEcha final</td></tr>
+            <tr class='row_HVsub'><td>Título</td><td>Profesion</td><td>Salario</td><td>Nivel educación</td><td>Fecha final</td></tr>
             <?php
                 $sql = "SELECT IdVacante, Titulo, b.Profesion, EducacionRequerida, Salario, FechaFin
                 FROM Vacante a INNER JOIN Profesiones b on b.IdProfesion = a.Profesion
