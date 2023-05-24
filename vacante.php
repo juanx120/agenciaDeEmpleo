@@ -30,10 +30,11 @@
                     FROM Vacante a INNER JOIN Profesiones b on b.IdProfesion = a.Profesion
                     INNER JOIN VacanteXEmpresa c on IdVacante = c.Vacante INNER JOIN Empresa on NIT = c.Empresa";
                     $resultado = sqlsrv_query( $conn, $sql);
-                    while ($fila = sqlsrv_fetch_object($resultado)) {
+                    while ($fila = sqlsrv_fetch_array($resultado)) {
+                        $fechaFin = $fila['FechaFin']->format('d/m/Y');
                         echo "<tr class='espacio'></tr>";
-                        echo "<tr class='row_HV'> <td>$fila->Titulo</td><td>$fila->RazonSocial</td><td>$fila->Profesion</td>
-                        <td>$fila->FechaFin</td></tr>";
+                        echo "<tr class='row_HV'> <td>".$fila['Titulo']."</td><td>".$fila['RazonSocial']."</td><td>".$fila['Profesion']."</td>
+                        <td>".$fila['Salario']."</td><td>".$fechaFin."</td></tr>";
                     }
                 ?>
         </tbody>

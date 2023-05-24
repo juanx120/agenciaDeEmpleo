@@ -59,17 +59,18 @@
             <tr class='row_HVsub'><td>Título</td><td>Profesion</td><td>Salario</td><td>Nivel educación</td><td>Fecha final</td></tr>
             <?php
                 $sql = "SELECT IdVacante, Titulo, b.Profesion, EducacionRequerida, Salario, FechaFin
-                FROM Vacante a INNER JOIN Profesiones b on b.IdProfesion = a.Profesion
-                INNER JOIN VacanteXEmpresa c on IdVacante = c.Vacante INNER JOIN Empresa on NIT = c.Empresa 
-                where IdUsuario = ?";
+                        FROM Vacante a INNER JOIN Profesiones b on b.IdProfesion = a.Profesion
+                        INNER JOIN VacanteXEmpresa c on IdVacante = c.Vacante INNER JOIN Empresa on NIT = c.Empresa 
+                        WHERE IdUsuario = ?";
                 $params = array($IdUsuario);
-                $resultado = sqlsrv_query( $conn, $sql, $params);
+                $resultado = sqlsrv_query($conn, $sql, $params);
                 while ($fila2 = sqlsrv_fetch_array($resultado)) {
+                    $fechaFin = $fila2['FechaFin']->format('d/m/Y'); // Formatear la fecha
                     echo "<tr class='espacio'></tr>";
-                    echo "<tr class='row_HV'> <td>".$fila2['Titulo']."</td><td>".$fila2->Profesion."</td><td>".$fila2->Salario."</td>
-                    <td>".$fila2->EducacionRequerida."</td><td>".$fila2->FechaFin."</td></tr>";
+                    echo "<tr class='row_HV'> <td>".$fila2['Titulo']."</td><td>".$fila2['Profesion']."</td><td>".$fila2['Salario']."</td>
+                        <td>".$fila2['EducacionRequerida']."</td><td>".$fechaFin."</td></tr>";
                 }
-            ?>
+                ?>
         </tbody>
     </table>
 </div>
