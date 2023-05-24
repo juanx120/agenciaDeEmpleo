@@ -369,8 +369,8 @@
     
         if ($ExUsuario) {
             // Actualizar el usuario existente
-            $sqlUpdate = "UPDATE [dbo].[Desempleado] SET Genero = ?, EstadoCivil = ?, Profesion = ?, Telefono = ? WHERE Identificacion = ?";
-            $paramsUpdate = array($Genero, $Estadocivil, $Profesion, $TelefonoU, $Identificacion);
+            $sqlUpdate = "UPDATE [dbo].[Desempleado] SET Genero = ?, EstadoCivil = ?, Profesion = ?, Telefono = ? WHERE IdUsuario = ?";
+            $paramsUpdate = array($Genero, $Estadocivil, $Profesion, $TelefonoU, $IdUsuario);
             $stmtUpdate = sqlsrv_query($conn, $sqlUpdate, $paramsUpdate);
             
             // Actualizar la ubicación
@@ -387,8 +387,8 @@
                 echo '<script language="javascript">';
                 echo 'alert("Datos actualizados exitosamente")';
                 echo '</script>';
-                header("Location: ".$_SERVER['PHP_SELF']);
-                exit;
+                echo '<script type="text/javascript"> window.location.href = "https://agenciadeempleobogota.azurewebsites.net/inicio.php?Idu=',$IdUsuario; 
+                echo '"</script>';
             }
         } else {
             // Insertar un nuevo usuario
@@ -410,7 +410,7 @@
     
                 // Insertar el nuevo usuario
                 $sqlInsertUser = "INSERT INTO [dbo].[Desempleado] (Identificacion, IdUsuario, Nombre, Apellido, Telefono, LugarNacimiento, FechaNacimiento, Genero, EstadoCivil, Profesion, Ubicacion) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-                $paramsInsertUser = array($Identificacion, $_GET['Idu'], $Nombre, $Apellido, $TelefonoU, $Lugarnc, $Fechanc, $Genero, $Estadocivil, $Profesion, $IdUbicacion);
+                $paramsInsertUser = array($Identificacion, $IdUsuario, $Nombre, $Apellido, $TelefonoU, $Lugarnc, $Fechanc, $Genero, $Estadocivil, $Profesion, $IdUbicacion);
                 $stmtInsertUser = sqlsrv_query($conn, $sqlInsertUser, $paramsInsertUser);
     
                 if ($stmtInsertUser === false) {
