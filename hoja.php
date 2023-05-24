@@ -115,6 +115,7 @@
                 ?>
             </tbody>
         </table>
+        <?php } ?>
     </div>
 
     <!--Modal estudios-->
