@@ -304,10 +304,10 @@
         <div id="<?php echo $VisivilidadEmpresa; ?>">
             <a id="btn-sedes" class="button2">Añadir sede</a>
         </div>
-        <table id="estudios <?php echo $VisivilidadEmpresa; ?>">
+        <table id="<?php echo $VisivilidadEmpresa; ?>">
             <thead class="row_titulo">
                 <tr>
-                    <th>Sedes</th>
+                    <th class="titulo">Sedes</th>
                 </tr>
             </thead>    
             <tbody>
