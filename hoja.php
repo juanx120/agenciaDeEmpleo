@@ -27,7 +27,7 @@
             $resultado = sqlsrv_query( $conn, $sql, $params);
             $infoHV = sqlsrv_fetch_object($resultado);
             echo "<p>hoja de vida: $infoHV->HojaDeVida </p>";
-            if($info_hoja->HojaDeVida == 5 )  { echo "paso"; }{
+            if($infoHV->HojaDeVida == 5 )  { echo "paso"; }{
                 echo "sapo perro no funciona";
             };
         ?>
