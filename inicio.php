@@ -354,7 +354,7 @@
     <?php
 
     $ConsultaUs = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario] WHERE IdUsuario=$IdUsuario");
-    $TaUser= sqlsrv_fetch_object($ConsultaNU);
+    $TaUser= sqlsrv_fetch_object($ConsultaUs);
     if ($TaUser->TipoUsuario == 'P') {
         $claseAspirante = 'dt-aspirante-visible';
         $claseEmpresa = 'dt-empresa-oculto';
