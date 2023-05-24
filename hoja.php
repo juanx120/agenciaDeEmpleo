@@ -25,7 +25,7 @@
             $resultado = sqlsrv_query( $conn, $sql);
             $infoHV = sqlsrv_fetch_object($resultado);
 
-            echo "<p>hoja de vida: $infoHV";
+            echo "<p>hoja de vida: $infoHV->HojaDeVija";
             #if($info_hoja[0] != NULL OR $info_hoja[0] != 0) {
         ?>
         <div>
