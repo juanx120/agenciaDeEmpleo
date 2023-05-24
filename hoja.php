@@ -10,12 +10,27 @@
             </div>
             <div class="txtcuadro"> 
                 <label for="salario">Salario esperado:</label>
-                <input type="number" name="salario" class="txtform">
+                <?php
+                if($TaUser->HojaDeVida != NULL){
+                    $sqlho = "SELECT * FROM [dbo].[HojaVida] WHERE IdHojaVida=?"
+                    $paramsho = array( $TaUser->HojaDeVida);
+                    $resultadoho = sqlsrv_query( $conn, $sqlho, $paramsho);
+                    $Valho = sqlsrv_fetch_object($resultado);
+                    echo '<input type="number" name="salario" class="txtform" value="'.$Valho->SalarioEsperado.'">';
+                }else{
+                    echo '<input type="number" name="salario" class="txtform">';
+                }?>
                 <label class="archivo" for="video">Video:</label>
                 <input type="file" name="video" class="txtformfl">
                 <br>
                 <label for="descripcion">Descripción:</label>
-                <input type="text" name="descripcion" class="txtformlg"><br><br>
+                <?php
+                if($TaUser->HojaDeVida != NULL){
+                    echo '<input type="number" name="salario" class="txtform" value="'.$Valho->DescripcionPerfil.'">';
+                }else{
+                    echo '<input type="text" name="descripcion" class="txtformlg"><br><br>';
+                }
+                ?>
                 <input type="submit" name="gdhoja" value="Guardar" class="button">
             </div>
         </form>
