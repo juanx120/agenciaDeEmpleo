@@ -101,7 +101,7 @@
             $fila1 = sqlsrv_fetch_array($scoop);
 
             $sql1 = "INSERT INTO [dbo].[VacanteXEmpresa] (Vacante, Empresa) VALUES (?,?)";
-            $params1 = array($fila1[0], $ConsultaNE->NIT);
+            $params1 = array($fila1[0], $Nconemp->NIT);
             $stmt1 = sqlsrv_query($conn, $sql1, $params1);
         if( $stmt1 === false ) {
             die( print_r( sqlsrv_errors(), true));
