@@ -73,6 +73,7 @@ session_start();
                                         echo "<p><b>";
                                         echo $Nconemp->RazonSocial;
                                         echo "</b></p>";
+                                        $ConsultaNE=$ConsultaNE;
                                     }
                                 }  
                             } 
