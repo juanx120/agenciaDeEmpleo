@@ -66,8 +66,8 @@
                 $resultado = sqlsrv_query( $conn, $sql, $params);
                 while ($fila2 = sqlsrv_fetch_object($resultado)) {
                     echo "<tr class='espacio'></tr>";
-                    echo "<tr class='row_HV'> <td>$fila2->Titulo</td><td>$fila2->Profesion</td><td>$fila2->Salario</td>
-                    <td>$fila2->EducacionRequerida</td><td>$fila2->FechaFin</td></tr>";
+                    echo "<tr class='row_HV'> <td>".$fila2->Titulo."</td><td>".$fila2->Profesion."</td><td>".$fila2->Salario."</td>
+                    <td>".$fila2->EducacionRequerida."</td><td>".$fila2->FechaFin."</td></tr>";
                 }
             ?>
         </tbody>
@@ -112,7 +112,7 @@
             echo '<script language="javascript">';
             echo 'alert("Datos guardados exitosamente';
             echo '")</script>';
-            echo '<script type="text/javascript"> window.location.href = "https://agenciaempleobogota.azurewebsites.net/hoja.php" </script>';
+            echo '<script type="text/javascript"> window.location.href = "https://agenciaempleobogota.azurewebsites.net/crearVacante.php" </script>';
         }
         }
     }
