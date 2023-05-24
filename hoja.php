@@ -23,12 +23,12 @@
             
             echo $IdUsuario;
 
-            $sql = "SELECT HojaDeVida FROM Desempleado where IdUsuario = ?";
+            $sql = "SELECT HojaDeVida FROM [dbo].[Desempleado] where IdUsuario = ?";
             $params = array( $IdUsuario);
             $resultado = sqlsrv_query( $conn, $sql, $params);
             $infoHV = sqlsrv_fetch_object($resultado);
 
-            echo "<p>hoja de vida: $infoHV->HojaDeVija </p>";
+            echo "<p>hoja de vida: $infoHV->HojaDeVida </p>";
             if($info_hoja[0] != NULL OR $info_hoja[0] != 0) {
         ?>
         <div>
