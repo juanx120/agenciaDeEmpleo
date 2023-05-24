@@ -44,7 +44,7 @@
                     $resultado = sqlsrv_query( $conn, $sql, $params);
                     while ($fila = sqlsrv_fetch_object($resultado)) {
                         echo "<tr class='espacio'></tr>";
-                        echo "<tr class='row'> <td>$fila->Empresa<td><td>$fila->PuestoOcupado<td><td>$fila->Ano<td> <td>$fila->Descipcion<td> </tr>";
+                        echo "<tr class='row'> <td>$fila->Empresa</td><td>$fila->PuestoOcupado</td><td>$fila->Ano</td> <td>$fila->Descipcion</td> </tr>";
                     }
                 ?>
             </tbody>
