@@ -366,7 +366,7 @@
                 echo '<script language="javascript">';
                 echo 'alert("Datos guardados exitosamente';
                 echo '")</script>';
-                echo '<script type="text/javascript"> window.location.href = "https://agenciadeempleobogota.azurewebsites.net/hoja.php" </script>';
+                echo '<script type="text/javascript"> window.location.href = "https://agenciaempleobogota.azurewebsites.net/hoja.php" </script>';
             }
             }
         }

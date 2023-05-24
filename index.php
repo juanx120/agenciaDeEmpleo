@@ -28,7 +28,7 @@ session_start();
             </div>
             <div class="content">
                 <div class="circulo"><span class="material-symbols-outlined">lock</span></div>
-            <input type="text" name="ClaveIngreso" class="txtingreso" placeholder="Contraseña"><br><br>
+            <input type="password" name="ClaveIngreso" class="txtingreso" placeholder="Contraseña"><br><br>
             </div> 
             <input type="submit" name="btningreso" value="INGRESAR" class="button1">
             <div class="opciones">
