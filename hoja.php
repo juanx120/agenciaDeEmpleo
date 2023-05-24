@@ -230,7 +230,7 @@
             }
             else{
                 $scope = "SELECT IdFormacion FROM Formacion where Institucion = '$Institucionest' AND TituloOtorgado = '$Profesion' AND
-                            AñoFinalizacion = $Final";
+                            AnoFinalizacion = $Final";
                 $scoop= sqlsrv_query( $conn, $scope);
                 $fila = sqlsrv_fetch_array($scoop);
 
