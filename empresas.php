@@ -26,9 +26,8 @@
         <tr class='espacio'></tr>
                 <tr class='row_HVsub'><td>Razón social</td><td>Nombre</td><td>NIT</td></tr>
                 <?php
-                    $sql = "SELECT NIT, RazonSocial, Nombre FROM Empresa where IdUsuario = ?";
-                    $params = array($IdUsuario);
-                    $resultado = sqlsrv_query( $conn, $sql, $params);
+                    $sql = "SELECT NIT, RazonSocial, Nombre FROM Empresa";
+                    $resultado = sqlsrv_query( $conn, $sql);
                     while ($fila = sqlsrv_fetch_object($resultado)) {
                         echo "<tr class='espacio'></tr>";
                         echo "<tr class='row_HV'> <td>$fila->RazonSocial</td><td>$fila->Nombre</td><td>$fila->NIT</td></tr>";
