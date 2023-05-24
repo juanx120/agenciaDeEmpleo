@@ -26,7 +26,7 @@
             $infoHV = sqlsrv_fetch_object($resultado);
             
             if($infoHV->HojaDeVida != NULL) { $IdHoja = $infoHV->HojaDeVida;
-                echo "<p>hoja de vida: $IdHoja</p>";
+                echo "<p>hoja de vida: $infoHV->HojaDeVida</p>";
         ?>
         <div>
             <a id="btn-estudios" class="button2">Añadir estudios</a>
@@ -89,7 +89,7 @@
                 </tr>
             </tbody>
         </table>
-        <?php } ?>
+        <?php } echo "<p>hoja de vida: $infoHV->HojaDeVida</p>"?>
     </div>
 
     <!--Modal estudios-->
