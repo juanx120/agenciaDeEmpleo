@@ -9,6 +9,18 @@
     //echo '<script>'
     //echo 'console.log ("el valor de usuario es:', $_GET['Idu'], $_SESSION['Idu'];
     //echo '")</script>';
+    $ConsultaUs = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario] WHERE IdUsuario=$IdUsuario");
+    $TaUser= sqlsrv_fetch_object($ConsultaUs);
+    if ($TaUser->TipoUsuario == 'P') {
+        $claseAspirante = 'dt-aspirante-visible';
+        $claseEmpresa = 'dt-empresa-oculto';
+    } elseif ($TaUser->TipoUsuario == 'E') {
+        $claseAspirante = 'dt-aspirante-oculto';
+        $claseEmpresa = 'dt-empresa-visible';
+    }else{
+        $claseAspirante = 'dt-aspirante-visible';
+        $claseEmpresa = 'dt-empresa-visible';
+    }
 ?>
 
 
@@ -352,19 +364,6 @@
     </dialog>
 
     <?php
-
-    $ConsultaUs = sqlsrv_query($conn, "SELECT * FROM [dbo].[Usuario] WHERE IdUsuario=$IdUsuario");
-    $TaUser= sqlsrv_fetch_object($ConsultaUs);
-    if ($TaUser->TipoUsuario == 'P') {
-        $claseAspirante = 'dt-aspirante-visible';
-        $claseEmpresa = 'dt-empresa-oculto';
-    } elseif ($TaUser->TipoUsuario == 'E') {
-        $claseAspirante = 'dt-aspirante-oculto';
-        $claseEmpresa = 'dt-empresa-visible';
-    }else{
-        $claseAspirante = 'dt-aspirante-visible';
-        $claseEmpresa = 'dt-empresa-visible';
-    }
 
     if (isset($_POST['gdpersona'])) {
         $Nombre = $_POST['nombre'];
