@@ -207,9 +207,8 @@
                 $scoop= sqlsrv_query( $conn, $scope);
                 $fila = sqlsrv_fetch_array($scoop);
 
-                $sql1 = "UPDATE[dbo].[Desempleado] (HojaDeVida) VALUES (?) WHERE IdUsuario = $IdUsuario ";
-                $params1 = array($fila[0]);
-                $stmt1 = sqlsrv_query( $conn, $sql1, $params1);
+                $sql1 = "UPDATE[dbo].[Desempleado] SET HojaDeVida = $fila[0] WHERE IdUsuario = $IdUsuario";
+                $stmt1 = sqlsrv_query( $conn, $sql1);
             if( $stmt1 === false ) {
                 die( print_r( sqlsrv_errors(), true));
                 echo '<script language="javascript">';
