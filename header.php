@@ -36,7 +36,13 @@ session_start();
                         <?php
                         include('conection.php');
                         $ExUsuario=FALSE;
-                        $IdUsuario=$_SESSION["SIdu"];
+                        // Verificar si la variable de sesión existe y tiene un valor
+                        if (isset($_SESSION["SIdu"])) {
+                            $IdUsuario=$_SESSION["SIdu"];
+                        } else {
+                            // Si la variable de sesión no existe o no tiene valor, redirigir a index.php
+                            echo '<script type="text/javascript"> window.location.href = "https://agenciadeempleobogota.azurewebsites.net/" </script>'; 
+                        }
                         echo '<script>';
                         echo 'console.log ("el valor de usuario es:'. $IdUsuario;
                         echo '")</script>';
