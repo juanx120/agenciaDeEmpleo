@@ -10,6 +10,7 @@ $connectionOptions = array(
 $conn = sqlsrv_connect($serverName, $connectionOptions);
 if ($conn === false) {
     die(formatErrors(sqlsrv_errors()));
+    echo '<script> console.log("no sirvio");</script>';
     echo("F");
 }
 else{
