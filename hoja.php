@@ -312,7 +312,7 @@
                 die( print_r( sqlsrv_errors(), true));
             }
             else{
-                $scope = "SELECT IdExperiencia FROM ExperienciaLaboral where Empresa LIKE '%$Empresa%' AND PuestoOcupado LIKE '%$Puesto%' AND
+                $scope = "SELECT IdExperiencia FROM [dbo].[ExperienciaLaboral] where Empresa LIKE '%$Empresa%' AND PuestoOcupado LIKE '%$Puesto%' AND
                             Ano LIKE '%$Ano%' AND Descripcion LIKE '%$DescripcionExp%'";
                 $scoop= sqlsrv_query( $conn, $scope);
                 $fila1 = sqlsrv_fetch_array($scoop);
