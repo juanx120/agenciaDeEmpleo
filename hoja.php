@@ -33,7 +33,7 @@
         <table id="estudios">
             <thead class="row_titulo">
                 <tr>
-                    <th>Formación</th>
+                    <th>Estudios</th>
                 </tr>
             </thead>    
             <tbody>
@@ -226,7 +226,7 @@
         
             $stmt = sqlsrv_query( $conn, $sql, $params);
             if( $stmt === FALSE ){
-
+                die( print_r( sqlsrv_errors(), true));
             }
             else{
                 $scope = "SELECT IdFormacion FROM Formacion where Institucion = '$Institucion' AND TituloOtorgado = '$Profesion' AND
@@ -265,7 +265,7 @@
         
             $stmt = sqlsrv_query( $conn, $sql, $params);
             if( $stmt === FALSE ){
-
+                die( print_r( sqlsrv_errors(), true));
             }
             else{
                 $scope = "SELECT IdFormacion FROM ExperienciaLaboral where Empresa = '$Empresa' AND PuestoOcupado = '$Puesto' AND
