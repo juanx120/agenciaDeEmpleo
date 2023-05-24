@@ -117,10 +117,10 @@
             <div class="form-group">
                 <label for="profesion">Titulo profesional:</label>
                 <?php
-                $resultado = sqlsrv_query($conn, "SELECT * FROM [dbo].[Profesiones]");
+                $resultado = sqlsrv_query($conn, "SELECT IdProfesion, Profesion FROM [dbo].[Profesiones]");
                 echo '<select name="profesion" class="txtform" id="selectorPro">';
-                while ($fila = sqlsrv_fetch_array($resultado)) {
-                        echo '<option value="' , $fila->IdProfesion , '">' , $fila->Profesion , '</option>';
+                while ($prof = sqlsrv_fetch_array($resultado)) {
+                        echo '<option value="' , $prof->IdProfesion , '">' , $prof->Profesion , '</option>';
                     }
                 echo '</select>'
                 ?>
@@ -316,7 +316,7 @@
                 die( print_r( sqlsrv_errors(), true));
             }
             else{
-                $scope = "SELECT IdReferencia FROM Referencia where NombrePersona = '$NombreRef' AND Telefono = '$TelefonoRef' AND
+                $scope = "SELECT IdReferencia FROM [dbo].[Referencia] where NombrePersona = '$NombreRef' AND Telefono = '$TelefonoRef' AND
                             Email = $CorreoRef AND TipoReferencia = $TipoRef";
                 $scoop= sqlsrv_query( $conn, $scope);
                 $fila1 = sqlsrv_fetch_array($scoop);

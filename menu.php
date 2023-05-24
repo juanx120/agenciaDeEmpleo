@@ -5,7 +5,7 @@
         <a href='aspirantes.php'>Aspirantes</a>
         <a href='hoja.php'>Hoja de vida</a>
         <a href='#'>Vacantes</a>
-        <a href='#'>Empresas</a>
+        <a href='empresas.php'>Empresas</a>
         <a href='#'>Reportes</a>
         <form method="post">
             <button name='CerrarS' class='salir'>Cerrar sesión</button>
