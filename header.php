@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -34,9 +36,9 @@
                         <?php
                         include('conection.php');
                         $ExUsuario=FALSE;
-                        $IdUsuario=$_GET['Idu'];
+                        $IdUsuario=$_SESSION["SIdu"];
                         echo '<script>';
-                        echo 'console.log ("el valor de usuario es:', $IdUsuario;
+                        echo 'console.log ("el valor de usuario es:'. $IdUsuario;
                         echo '")</script>';
                         $ConsultaNU = sqlsrv_query($conn, "SELECT * FROM [dbo].[Desempleado] WHERE IdUsuario=$IdUsuario");
                         if( $ConsultaNU === FALSE ){
