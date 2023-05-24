@@ -37,7 +37,7 @@
                 INNER JOIN Empresa on Empresa = NIT where IdUsuario = $IdUsuario");
                 echo '<select name="sedeva" class="txtform" id="selectorPro">';
                 while ($sed = sqlsrv_fetch_object($resultado)) {
-                        echo '<option value="' , $sed->IdProfesion , '">' , $sed->Profesion , '</option>';
+                        echo '<option value="' , $sed->IdSede , '">' , $sed->Nombre , '</option>';
                     }
                 echo '</select>'
             ?>
