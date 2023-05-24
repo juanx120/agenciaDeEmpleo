@@ -57,12 +57,12 @@
         <table id="Experiencia">
             <thead class="row_titulo">
                 <tr>
-                    <th>Experiencia laboral</th>
+                    <th colspan = '4'>Experiencia laboral</th>
                 </tr>
             </thead>    
             <tbody>
                 <tr class='espacio'></tr>
-                <tr class='row_HVsub'><td>Institución</td><td>Título</td><td>Año finalización</td></tr>
+                <tr class='row_HVsub'><td>Empresa</td><td>Puesto</td><td>Año trabajo</td><td>Descripcion</td></tr>
                 <?php
                     $sql = "SELECT Empresa, PuestoOcupado, Ano, Descripcion FROM [dbo].[ExperienciaLaboral] INNER JOIN [dbo].[ExperienciaXHoja] on IdExperiencia = Experiencia
                     WHERE HojaVida = ?";
@@ -81,12 +81,12 @@
         <table id="referencias">
             <thead class="row_titulo">
                 <tr>
-                    <th>Referencias</th>
+                    <th colspan = '4'>Referencias</th>
                 </tr>
             </thead>    
             <tbody>
                 <tr class='espacio'></tr>
-                <tr class='row_HVsub'><td>Institución</td><td>Título</td><td>Año finalización</td></tr>
+                <tr class='row_HVsub'><td>Nombre y apellido</td><td>Télefono</td><td>Correo</td><td>Tipo</td></tr>
                 <?php
                     $sql = "SELECT NombrePersona, Telefono, Email, TipoReferencia FROM [dbo].[Referencias] INNER JOIN [dbo].[ReferenciaXHoja] on IdReferencia = Referencia
                     WHERE HojaVida = ?";
