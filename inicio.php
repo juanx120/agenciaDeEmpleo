@@ -407,11 +407,14 @@ include('menu.php') ;
                 echo '<script language="javascript">';
                 echo 'alert("Error al actualizar usuario")';
                 echo '</script>';
+                echo '</script>';
+                echo '<script type="text/javascript"> window.location.href = "https://agenciadeempleobogota.azurewebsites.net/inicio.php'; 
+                echo '"</script>';
             } else {
                 echo '<script language="javascript">';
                 echo 'alert("Datos actualizados exitosamente")';
                 echo '</script>';
-                echo '<script type="text/javascript"> window.location.href = "https://agenciadeempleobogota.azurewebsites.net/inicio.php?Idu=',$IdUsuario; 
+                echo '<script type="text/javascript"> window.location.href = "https://agenciadeempleobogota.azurewebsites.net/inicio.php'; 
                 echo '"</script>';
             }
         } else {
@@ -442,10 +445,16 @@ include('menu.php') ;
                     echo '<script language="javascript">';
                     echo 'alert("Error al crear usuario")';
                     echo '</script>';
+                    echo '</script>';
+                    echo '<script type="text/javascript"> window.location.href = "https://agenciadeempleobogota.azurewebsites.net/inicio.php'; 
+                    echo '"</script>';
                 } else {
                     echo '<script language="javascript">';
                     echo 'alert("Datos guardados exitosamente")';
                     echo '</script>';
+                    echo '</script>';
+                    echo '<script type="text/javascript"> window.location.href = "https://agenciadeempleobogota.azurewebsites.net/inicio.php'; 
+                    echo '"</script>';
                 }
             }
         }
